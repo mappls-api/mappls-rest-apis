@@ -1,0 +1,222 @@
+openapi: 3.0.3
+info:
+  title: Distance Matrix Predictive API
+  description: >-
+    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php). <br><br>The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: "{`token_type`} {`access_token`}”. <br><strong>Authorization</strong>: `token_type` `access_token`. <br><br>
+    **Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of MapmyIndia's Search APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between MapmyIndia & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact MapmyIndia API support.</li><li> <strong>PREMIUM APIs</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
+  termsOfService: 'https://www.mapmyindia.com/api/terms-&-conditions'
+  version: 2.0.0
+  license:
+    name: MapmyIndia License Key Signup
+    url: https://www.mapmyindia.com/api/
+  contact:
+    name: MapmyIndia API Support
+    email: apisupport@mapmyindia.com
+    url: https://www.mapmyindia.com/api/
+servers:
+  - url: https://apis.mapmyindia.com/advancedmaps/v2
+    description: 'Live Prod server for Distance Matrix Predictive API'
+paths:
+  /distance:
+    get: 
+      tags: 
+        - Distance Matrix Predictive API
+      description: >-
+        This API computes the distance and duration of a route between a set of source positions and a set of supplied target or destination positions.
+        Optionally one can specify the `date_time` parameter and get the distance and duration optimized for that part of day of a week. Time based functionality is available for selected areas only.
+        Supported region (countries) is India at the moment. Please note that maximum number of points are limited to 100 only including source and destination positions.
+        <br><br>This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
+        <p style=text-align:right><strong>PREMIUM API* </p>
+      summary: Distance Matrix Predictive ETA API
+      operationId: dmPAPI
+      parameters: 
+        - name: source
+          in: query
+          description: 'The set of source positions, separated by a semi-colon. The input is supported as a set of latitude,longitude separated by a semi-colon(;).'
+          allowEmptyValue: false
+          required: true
+          example: "28.555390931473642,77.08572454324664;28.152390931473642,77.42172454324664"
+          schema:
+            type: string
+        - name: target
+          in: query
+          description: >-
+            The set of destination positions, separated by a semi-colon. The input is supported as a set of latitude,longitude separated by a semi-colon(;).
+          allowEmptyValue: false
+          required: true
+          example: "28.555390931473642,77.08572454324664;28.152390931473642,77.42172454324664"
+          schema:
+            type: string
+        - name: costing
+          in: query
+          description: >-
+            Profile for routing engine. Currently the only applicable profile is set to automatic detection or `auto`.
+          allowEmptyValue: false
+          schema:
+            type: string
+          required: true
+          example: "auto"
+        - name: speedTypes
+          in: query
+          description: >-
+            To specify the type of ETA calculations.
+          allowEmptyValue: false
+          schema:
+            type: string
+            default: "predictive"
+            enum:
+              - predictive
+              - optimal
+          required: true
+          example: "predictive"
+        - name: date_time
+          in: query
+          description: >-
+            This is the local date and time at the source location along with its type. The date and time is specified in ISO 8601 format (YYYY-MM-DDThh:mm) in the local time zone of departure. For example `2020-07-24T12:00`.
+            Applicable types are: <br><ul><li>`0`: Current departure time.</li><li>`1`: Specified departure time.</li></ul>
+          allowEmptyValue: false
+          schema:
+            type: string
+          required: false
+          example: "1,2021-12-20T11:00"
+      responses:
+          '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/distanceMatrixPredictive'
+          '204':
+            description: DB Connection error.
+          '400':
+            description: Bad request
+          '401':
+            description: API access denied
+          '403':
+            description: Forbidden
+          '404':
+            description: Not found
+          '412':
+            description: Precondition Failed, i.e. Some existing pre-condition in formulating a valid API request was not fulfilled.
+          '500':
+            description: Something went wrong
+          '503':
+            description: Internal server error
+      deprecated: false
+components: 
+  schemas: 
+    sources_to_targetsArray: 
+      description: 'dm results'
+      type: array
+      items: 
+        $ref: '#/components/schemas/DMrows'
+    DMrows: 
+      description: 'Results in row ordered true matrix'
+      type: object      
+      required:
+        - from_index
+        - distance
+        - time
+        - to_index
+      properties:
+        from_index: 
+          type: integer
+          description: >-
+             The origin index into the locations array.
+          format: integer
+          example: 0
+        distance: 
+          description: >-
+            The computed distance between each set of points in units specified by the `units` response parameter.
+          type: number
+          example: 23.366
+        time: 
+          description: >-
+            Time in seconds. The computed time between each set of points.
+          type: number
+          example: 1860
+        to_index: 
+          type: integer
+          description: >-
+             The destination index into the locations array.
+          format: integer
+          example: 1
+    distanceMatrixPredictive: 
+      title: dmp object
+      description: 'Distance Matrix Predictive ETA Response Object'
+      type: object
+      required: 
+        - sources_to_targets
+        - sources
+        - units
+        - targets
+      properties:
+        sources_to_targets: 
+          type: array
+          items:
+            $ref: '#/components/schemas/sources_to_targetsArray'          
+          description: >-
+             Returns an array of time and distance between the sources and the targets. The array is row-ordered. This means that the time and distance from the first location to all targets forms the first row of the array, followed by the time and distance from the second source location to all target locations, etc.          
+        sources: 
+          type: array
+          items:
+            $ref: '#/components/schemas/sourcesArray'          
+          description: >-
+            array of arrays of source coordinates object.
+        units: 
+          type: string
+          description: >-
+             Distance units for output. Allowable unit types are mi (miles) and km (kilometers). If no unit type is specified, the units defaults to kilometers.
+          format: integer
+          example: "kilometers"
+        targets:
+          type: array
+          items:
+            $ref: '#/components/schemas/targetsArray'          
+          description: >-
+            array of arrays of target coordinates object.
+    sourcesArray:
+      description: 'sources'
+      type: array
+      items: 
+        $ref: '#/components/schemas/sources'
+    targetsArray:
+      description: 'targets'
+      type: array
+      items: 
+        $ref: '#/components/schemas/targets'
+    sources:
+      description: 'information about sources'
+      type: object      
+      required:
+        - lon
+        - lat
+      properties:
+        lon: 
+          type: number
+          description: >-
+             Longitude of the source in degrees.
+          example: 77.268931
+        lat: 
+          description: >-
+            Latitude of the source in degrees.
+          type: number
+          example: 28.550614
+    targets: 
+      description: 'information about targets'
+      type: object      
+      required:
+        - lon
+        - lat
+      properties:
+        lon: 
+          type: number
+          description: >-
+             Longitude of the target in degrees.
+          example: 77.085725
+        lat: 
+          description: >-
+            Latitude of the target in degrees.
+          type: number
+          example: 28.555391
+    

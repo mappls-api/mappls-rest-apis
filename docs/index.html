@@ -1,0 +1,156 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="./dist/swagger-ui.css" >
+    <link rel="icon" type="image/png" href="./dist/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./dist/favicon-16x16.png" sizes="16x16" />
+    <style>
+      html
+      {
+        box-sizing: border-box;
+        overflow: -moz-scrollbars-vertical;
+        overflow-y: scroll;
+      }
+
+      *,
+      *:before,
+      *:after
+      {
+        box-sizing: inherit;
+      }
+
+      body
+      {
+        margin:0;
+        background: #fafafa;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="swagger-ui"></div>
+
+    <script src="./dist/swagger-ui-bundle.js" charset="UTF-8"> </script>
+    <script src="./dist/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+    <script>
+    window.onload = function() {
+      // Begin Swagger UI call region
+      // Custom plugin to hide the API definition URL
+      const HideInfoUrlPartsPlugin = () => {
+        return {
+          wrapComponents: {
+            InfoUrl: () => () => null
+          }
+        }
+      }
+      const ui = SwaggerUIBundle({
+        urls: [
+        {
+          url: "./custom/tokenGeneration.yml",
+          name: "token-Generation"
+        }, 
+        {
+          url: "./custom/autosuggest.yml",
+          name: "Autosuggest" 
+        },
+        {
+          url: "./custom/geocode.yml",
+          name: "Geocode"
+        },
+        {
+          url: "./custom/nearby.yml",
+          name: "Nearby" 
+        },
+        {
+          url: "./custom/textsearch.yml",
+          name: "Text-Search"
+        },
+        {
+          url: "./custom/woodpecker.yml",
+          name: "Address-Standardization"
+        },
+        {
+          url: "./custom/alongRoute.yml",
+          name: "POI-Along-the-Route"
+        },
+        {
+          url: "./custom/placeDetail-adv.yml",
+          name: "eLoc-Place-Detail"
+        },
+        {
+          url: "./custom/revGeocode.yml",
+          name: "Reverse-Geocode"
+        },
+        {
+          url: "./custom/routingDriving.yml",
+          name: "Routing-for-Passenger-Vehicles"
+        },
+        {
+          url: "./custom/routingBiking.yml",
+          name: "Routing-for-Two-Wheelers"
+        },
+        {
+          url: "./custom/routingTrucking.yml",
+          name: "Routing-for-Heavy-Vehicles"
+        },
+        {
+          url: "./custom/routingWalking.yml",
+          name: "Routing-for-Pedestrians"
+        },
+        {
+          url: "./custom/routing.yml",
+          name: "Routing"
+        },
+        {
+          url: "./custom/distanceMatrix.yml",
+          name: "DistanceMatrix"
+        },
+        {
+          url: "./custom/predictiveETA.yml",
+          name: "DistanceMatrixPredictive"
+        },
+        {
+          url: "./custom/snapToRoad.yml",
+          name: "SnapToRoad"
+        },
+        {
+          url: "./custom/routeOpt.yml",
+          name: "RouteOptimization"
+        },
+        {
+          url: "./custom/StillImagePolyline.yml",
+          name: "Traveled Route Image API"
+        },
+        {
+          url: "./custom/StillMapImageAPI.yml",
+          name: "Still Map Image API"
+        },
+        {
+          url: "./custom/Elevation-API.yml",
+          name: "Elevation-API"
+        }
+        ],
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        defaultModelsExpandDepth: -1,
+        tryItOutEnabled: false,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl,
+          HideInfoUrlPartsPlugin
+        ],
+        layout: "StandaloneLayout"
+      })
+      // End Swagger UI call region
+
+      window.ui = ui
+    }
+  </script>
+  </body>
+</html>
