@@ -1,4 +1,4 @@
-![MapmyIndia APIs](https://www.mapmyindia.com/api/img/mapmyindia-api.png)
+[<img src="https://www.mappls.com/api/img/mappls-api.png" height="40"/> </p>](https://www.mappls.com/api)
 
 # Route Optimization API
 
@@ -7,16 +7,16 @@
 Powered with India's most comprehensive and robust mapping functionalities.
 ## Global Coverage Now Available !
 
-Route Optimization API is **Now Available**  for [238 countries](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.
+Route Optimization API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) across the world.
 
-You can get your api key to be used in this document here: [https://www.mapmyindia.com/api/](https://www.mapmyindia.com/api/)
+You can get your api key to be used in this document here: [https://www.mappls.com/api/](https://www.mappls.com/api/)
 
 ## Document Version History
 
 | Version | Last Updated | Author |
 | ---- | ---- | ---- |
-| 0.0.2 | July 2021 | MapmyIndia API Team ([KB](https://github.com/kunalbharti)) |
-| 0.0.1 | August 2020 | MapmyIndia API Team ([KB](https://github.com/kunalbharti)) |
+| 0.0.2 | July 2021 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
+| 0.0.1 | August 2020 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
 
 <br>
 
@@ -24,16 +24,16 @@ You can get your api key to be used in this document here: [https://www.mapmyind
 
 | Version | Last Updated | Author | Revised Sections |
 | ---- | ---- | ---- | ---- |
-| 270.19.5222 | 2021-07-13 | MapmyIndia API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md) support added for `trip_optimization` resource. |
-| 1.0 | 2018-05-01 | MapmyIndia API Team ([PS](https://github.com/map-123)) | Intial Release |
+| 270.19.5222 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) support added for `trip_optimization` resource. |
+| 1.0 | 2018-05-01 | Mappls API Team ([PS](https://github.com/map-123)) | Intial Release |
 
 <br>
 
 ## DISCLAIMER
 
-1. This API is released for select use cases only; Please contact MapmyIndia API Support or your account manager for discussions on usage of this solution. 
+1. This API is released for select use cases only; Please contact Mappls API Support or your account manager for discussions on usage of this solution. 
 2. This API provides synchronous route optimization solution to simple TSP. Hence the response time of this API depends on the route complexity and the level of optimization required to process a complex and long route.
-3. MapmyIndia reserves the right to revoke access of this API at its own discrection.
+3. Mappls reserves the right to revoke access of this API at its own discrection.
 
 
 ## Introduction
@@ -93,7 +93,7 @@ GET
 							<td class="cellrowborder" rowspan="2" headers="d156249e37 ">Base URL</td>
 							<td class="cellrowborder" headers="d156249e40 ">
 								<code>
-									<span class="keyword">https://apis.mapmyindia.com/advancedmaps/v1/</span>
+									<span class="keyword">https://apis.mappls.com/advancedmaps/v1/</span>
 								</code>
 							</td>
 							<td class="row-nocellborder" headers="d156249e43 ">Production environment</td>
@@ -177,7 +177,7 @@ GET
 
 ### Example URL: 
 ```html
-https://apis.mapmyindia.com/advancedmaps/v1/REST_API_KEY/trip_optimization_eta/driving/77.235500,28.627136;77.107227,28.720863;77.120125,28.548559;77.312093,28.675954;77.293948,28.594097;77.268912,28.550820?region=ind&geometries=polyline&overview=full&steps=false&source=first&destination=last&roundtrip=true
+https://apis.mappls.com/advancedmaps/v1/REST_API_KEY/trip_optimization_eta/driving/77.235500,28.627136;77.107227,28.720863;77.120125,28.548559;77.312093,28.675954;77.293948,28.594097;77.268912,28.550820?region=ind&geometries=polyline&overview=full&steps=false&source=first&destination=last&roundtrip=true
 ```
 where: 
 - "trip_optimization_eta" is the chosen resource.
@@ -220,7 +220,7 @@ JSON
         - `simplified` (default) simplified geometry for higher zoomed out levels (~state zoom levels).
         - `full` Detailed geometry for display at all zoom levels.
         - `false` to not provide geometry at all.
-    - *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md).
+    - *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md).
 
 ## Response Parameters
 
@@ -246,15 +246,15 @@ JSON
 				- `out`: index into the bearings/entry array. Used to extract the bearing just after the turn. Namely, The clockwise angle from true north to the direction of travel immediately after the maneuver/passing the intersection. The value is not supplied for arrive maneuvers.
 				- `lanes`: Array of Lane objects that denote the available turn lanes at the intersection. If no lane information is available for an intersection, the lanes property will not be present.
 					- `valid`: verifying lane info.
-					- `indications`: Indicating a sign of directions like Straight, Slight Left, Right, etc. To see the complete list of indications, please see [article](https://github.com/MapmyIndia/mapmyindia-rest-api/wiki/indications) in wiki.
+					- `indications`: Indicating a sign of directions like Straight, Slight Left, Right, etc. To see the complete list of indications, please see [article](https://github.com/Mappls-api/mappls-rest-api/wiki/indications) in wiki.
             - `driving_side`: “Left” (default) for India, Sri Lanka, Nepal, Bangladesh & Bhutan.
 			- `mode`: signifies the mode of transportation; driving as default.
 			- `maneuver`: A StepManeuver object representing a maneuver
 				- `location`: A [longitude, latitude] pair describing the location of the turn.
 				- `bearing_before`: The clockwise angle from true north to the direction of travel immediately before the maneuver.
 				- `bearing_after`: The clockwise angle from true north to the direction of travel immediately after the maneuver.
-				- `modifier`: An optional string indicating the direction change of the maneuver. To see the complete list of modifiers, please see [article](https://github.com/MapmyIndia/mapmyindia-rest-api/wiki/modifiers) in wiki.
-				- `type`: A string indicating the type of maneuver. New identifiers might be introduced without API change. Types unknown to the client should be handled like the ‘turn’ type, the existence of correct modifier values is guaranteed. To see the complete list of types, please see [article](https://github.com/MapmyIndia/mapmyindia-rest-api/wiki/types) in wiki.
+				- `modifier`: An optional string indicating the direction change of the maneuver. To see the complete list of modifiers, please see [article](https://github.com/Mappls-api/mappls-rest-api/wiki/modifiers) in wiki.
+				- `type`: A string indicating the type of maneuver. New identifiers might be introduced without API change. Types unknown to the client should be handled like the ‘turn’ type, the existence of correct modifier values is guaranteed. To see the complete list of types, please see [article](https://github.com/Mappls-api/mappls-rest-api/wiki/types) in wiki.
 			- `distance`: The distance of travel to the subsequent step, in float meters
 			- `duration`: The estimated travel time, in float number of seconds
 			- `geometry`: The un-simplified geometry of the route segment, depends on the given geometries parameter.
@@ -272,7 +272,7 @@ JSON
 
 ## Sample Input
 
-`https://apis.mapmyindia.com/advancedmaps/v1/REST-KEY-HERE/trip_optimization_eta/driving/77.235500,28.627136;77.107227,28.720863;77.120125,28.548559;77.312093,28.675954;77.293948,28.594097;77.268912,28.550820?region=ind&geometries=polyline&overview=full&steps=false&source=first&destination=last&roundtrip=true`
+`https://apis.mappls.com/advancedmaps/v1/REST-KEY-HERE/trip_optimization_eta/driving/77.235500,28.627136;77.107227,28.720863;77.120125,28.548559;77.312093,28.675954;77.293948,28.594097;77.268912,28.550820?region=ind&geometries=polyline&overview=full&steps=false&source=first&destination=last&roundtrip=true`
 
 ## Sample Response
 ```json
@@ -408,27 +408,28 @@ JSON
 
 For any queries and support, please contact: 
 
-[<img src="https://www.mapmyindia.com/images/logo.png" height="40"/> </p>](https://www.mapmyindia.com/api)
-Email us at [apisupport@mapmyindia.com](mailto:apisupport@mapmyindia.com)
+[<img src="https://www.mappls.com/images/logo.png" height="40"/> </p>](https://www.mappls.com/api)
+Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
 
 
 ![](https://www.mapmyindia.com/api/img/icons/support.png)
-[Support](https://www.mapmyindia.com/api/index.php#f_cont)
+[Support](https://www.mappls.com/api/index.php#f_cont)
 Need support? contact us!
 
-<br>
+<br></br>
+<br></br>
 
-[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mapmyindia-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](http://www.mapmyindia.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/MapmyIndia)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
-
-
-
-[<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/MapmyIndia)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/MapmyIndia)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mapmyindia)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/user/MapmyIndia/)
+[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](http://www.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/Mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
 
 
 
+[<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/Mappls)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/Mappls)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mappls)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/user/Mappls/)
 
-<div align="center">@ Copyright 2020 CE Info Systems Pvt. Ltd. All Rights Reserved.</div>
 
-<div align="center"> <a href="https://www.mapmyindia.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mapmyindia.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mapmyindia.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mapmyindia.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mapmyindia.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
+
+
+<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+
+<div align="center"> <a href="https://www.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 
 <div align="center">Customer Care: +91-9999333223</div>
