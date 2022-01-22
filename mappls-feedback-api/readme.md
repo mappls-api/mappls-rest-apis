@@ -1,4 +1,4 @@
-![MapmyIndia APIs](https://www.mapmyindia.com/api/img/mapmyindia-api.png)
+[<img src="https://www.mappls.com/api/img/mappls-api.png" height="40"/> </p>](https://www.mappls.com/api)
 # FEEDBACK API
 
 ### Introduction
@@ -7,7 +7,7 @@ The API acts as a feedback loop to improve the user's search pattern by incorpor
 
 ### URL
 ```html
-https://atlas.mapmyindia.com/api/feedback/search/json?
+https://atlas.mappls.com/api/feedback/search/json?
 ```
 
 ### Method
@@ -75,7 +75,7 @@ The response of this API would be empty. Success would be denoted by the respons
 ### Sample cURL Request
 
 ```c
-curl --location --request POST 'https://atlas.mapmyindia.com/api/feedback/search/json' \
+curl --location --request POST 'https://atlas.mappls.com/api/feedback/search/json' \
 --header 'Authorization: bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'typedKeyword=hotel' \
@@ -87,20 +87,28 @@ curl --location --request POST 'https://atlas.mapmyindia.com/api/feedback/search
 
 For any queries and support, please contact: 
 
-![Email](https://www.mapmyindia.com/images/logo.png =150x) 
-Email us at [apisupport@mapmyindia.com](mailto:apisupport@mapmyindia.com)
+[<img src="https://www.mappls.com/images/logo.png" height="40"/> </p>](https://www.mappls.com/api)
+Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
 
-![](https://www.mapmyindia.com/api/img/icons/stack-overflow.png)
-[Stack Overflow](https://stackoverflow.com/questions/tagged/mapmyindia-api)
-Ask a question under the mapmyindia-api
 
 ![](https://www.mapmyindia.com/api/img/icons/support.png)
-[Support](https://www.mapmyindia.com/api/index.php#f_cont)
+[Support](https://www.mappls.com/api/index.php#f_cont)
 Need support? contact us!
 
-![](https://www.mapmyindia.com/api/img/icons/blog.png)
-[Blog](http://www.mapmyindia.com/blog/)
-Read about the latest updates & customer stories
+<br></br>
+<br></br>
+
+[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](http://www.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/Mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
 
 
-> © Copyright 2020. CE Info Systems Pvt. Ltd. All Rights Reserved. | [Terms & Conditions](http://www.mapmyindia.com/api/terms-&-conditions)
+
+[<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/Mappls)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/Mappls)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mappls)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/user/Mappls/)
+
+
+
+
+<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+
+<div align="center"> <a href="https://www.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
+
+<div align="center">Customer Care: +91-9999333223</div>

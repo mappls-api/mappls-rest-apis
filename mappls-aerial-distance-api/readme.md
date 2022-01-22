@@ -1,18 +1,18 @@
-![MapmyIndia APIs](https://www.mapmyindia.com/api/img/mapmyindia-api.png)
+[<img src="https://www.mappls.com/api/img/mappls-api.png" height="40"/> </p>](https://www.mappls.com/api)
 
-# MapmyIndia Aerial Distance API
+# Mappls Aerial Distance API
 
 **Easy To Integrate Maps & Location APIs & SDKs For Web & Mobile Applications**
 
 Powered with India's most comprehensive and robust mapping functionalities.
 **Now Available**  for Srilanka, Nepal, Bhutan and Bangladesh
 
-You can get your api key to be used in this document here: [https://www.mapmyindia.com/api/](https://www.mapmyindia.com/api/)
+You can get your api key to be used in this document here: [https://www.mappls.com/api/](https://www.mappls.com/api/)
 
 ## Disclaimer
-The document contains sensitive information on parameters and responses that can be accessed only by MapmyIndia.
+The document contains sensitive information on parameters and responses that can be accessed only by Mappls.
 Redistribution without permissions is prohibited.
-It is mandatory to take permissions from the author before sharing with any personnel outside MapmyIndia.
+It is mandatory to take permissions from the author before sharing with any personnel outside Mappls.
 
 
 ## Introduction
@@ -34,7 +34,7 @@ GET
 
 ### Example URL: 
 ```html
-https://apis.mapmyindia.com/advancedmaps/v1/<assigned_licence_key>/distanceA?x1=34.506172&y1=76.108652 &x2=28.4586&y2=77.85698&unit=K
+https://apis.mappls.com/advancedmaps/v1/<assigned_licence_key>/distanceA?x1=34.506172&y1=76.108652 &x2=28.4586&y2=77.85698&unit=K
 ```
 where: 
 - "distanceA" is the chosen resource.
@@ -113,21 +113,30 @@ https://apis.mapmyindia.com/advancedmaps/v1/<Assigned_licence_key>/distanceA?x1=
 }
 ```
 
-![Email](https://www.google.com/a/cpanel/mapmyindia.co.in/images/logo.gif?service=google_gsuite) 
-Email us at [apisupport@mapmyindia.com](mailto:apisupport@mapmyindia.com)
+For any queries and support, please contact: 
 
-![](https://www.mapmyindia.com/api/img/icons/stack-overflow.png)
-[Stack Overflow](https://stackoverflow.com/questions/tagged/mapmyindia-api)
-Ask a question under the mapmyindia-api
+[<img src="https://www.mappls.com/images/logo.png" height="40"/> </p>](https://www.mappls.com/api)
+Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
+
 
 ![](https://www.mapmyindia.com/api/img/icons/support.png)
-[Support](https://www.mapmyindia.com/api/index.php#f_cont)
+[Support](https://www.mappls.com/api/index.php#f_cont)
 Need support? contact us!
 
-![](https://www.mapmyindia.com/api/img/icons/blog.png)
-[Blog](http://www.mapmyindia.com/blog/)
-Read about the latest updates & customer stories
+<br></br>
+<br></br>
+
+[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](http://www.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/Mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
 
 
-> © Copyright 2019. CE Info Systems Pvt. Ltd. All Rights Reserved. | [Terms & Conditions](http://www.mapmyindia.com/api/terms-&-conditions)
->  Written with [StackEdit](https://stackedit.io/) by MapmyIndia.
+
+[<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/Mappls)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/Mappls)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mappls)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/user/Mappls/)
+
+
+
+
+<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+
+<div align="center"> <a href="https://www.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
+
+<div align="center">Customer Care: +91-9999333223</div>

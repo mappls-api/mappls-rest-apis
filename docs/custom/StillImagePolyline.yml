@@ -2,18 +2,18 @@ openapi: 3.0.3
 info:
   title: Traveled Route Image API
   description: >-
-      **Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of MapmyIndia's Search APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between MapmyIndia & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact MapmyIndia API support.</li><li> <strong>PREMIUM APIs</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
-  termsOfService: 'https://www.mapmyindia.com/api/terms-&-conditions'
+      **Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Maps APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between Mappls & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact Mappls API support.</li><li> <strong>PREMIUM APIs</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
+  termsOfService: 'https://www.mappls.com/api/terms-&-conditions'
   version: 1.0.0
   license:
-    name: MapmyIndia License Key Signup
-    url: https://www.mapmyindia.com/api/
+    name: Mappls License Key Signup
+    url: https://www.mappls.com/api/
   contact:
-    name: MapmyIndia API Support
-    email: apisupport@mapmyindia.com
-    url: https://www.mapmyindia.com/api/
+    name: Mappls API Support
+    email: apisupport@mappls.com
+    url: https://www.mappls.com/api/
 servers:
-  - url: https://apis.mapmyindia.com/advancedmaps/v1
+  - url: https://apis.mappls.com/advancedmaps/v1
     description: 'Live Prod server for Traveled Route Image API'
 paths:
   /{REST_KEY}/still_image_polyline:
@@ -63,12 +63,12 @@ paths:
                     description: >-
                       The URL of the custom icon that indicates the origin of the path.
                     type: string
-                    example: "https://maps.mapmyindia.com/images/from.png"
+                    example: "https://maps.mappls.com/images/from.png"
                   icon_to: 
                     description: >-
                       The URL of the custom icon that indicates the destination of the path.
                     type: string
-                    example: "https://maps.mapmyindia.com/images/to.png"
+                    example: "https://maps.mappls.com/images/to.png"
                   offset: 
                     description: >-
                       The offset of the marker pointer from top right corner of the icons.

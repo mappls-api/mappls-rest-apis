@@ -1,6 +1,6 @@
-﻿![MapmyIndia APIs](https://www.mapmyindia.com/api/img/mapmyindia-api.png)
+﻿[<img src="https://www.mappls.com/api/img/mappls-api.png" height="40"/> </p>](https://www.mappls.com/api)
 
-# MapmyIndia Driving Distance - Time Matrix API
+# Mappls Driving Distance - Time Matrix API
 
 **Easy To Integrate Maps & Location APIs & SDKs For Web & Mobile Applications**
 
@@ -9,30 +9,30 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 ## Global Coverage Now Available !
 
-Distance Matrix API is **Now Available**  for [238 countries](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.
+Distance Matrix API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) across the world.
 
-You can get your api key to be used in this document here: [https://www.mapmyindia.com/api/](https://www.mapmyindia.com/api/)
+You can get your api key to be used in this document here: [https://www.mappls.com/api/](https://www.mappls.com/api/)
 
 
 ## Document Version History
 
 | Version | Last Updated | Author |
 | ---- | ---- | ---- |
-| 0.0.5 | July 2021 | MapmyIndia API Team ([KB](https://github.com/kunalbharti)) |
-| 0.0.4 | December 2020 | MapmyIndia API Team ([KB](https://github.com/kunalbharti)) |
-| 0.0.3 | December 2019 | MapmyIndia API Team ([KB](https://github.com/kunalbharti)) |
-| 0.0.2 | May 2019 | MapmyIndia API Team ([KB](https://github.com/kunalbharti)) |
-| 0.0.1 | February 2019 | MapmyIndia API Team ([KB](https://github.com/kunalbharti)) |
+| 0.0.5 | July 2021 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
+| 0.0.4 | December 2020 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
+| 0.0.3 | December 2019 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
+| 0.0.2 | May 2019 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
+| 0.0.1 | February 2019 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
 
 ## API Version History
 
 | Version | Last Updated | Author | Revised Sections |
 | ---- | ---- | ---- | ---- |
-| 270.19.5222 | 2021-07-13 | MapmyIndia API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md) support added for `distance_matrix` resource. |
-| 250.19.5222 | 2020-12-15 | MapmyIndia API Team ([PS](https://github.com/map-123)) | eLoc support released |
-| 220.19.522 | 2019-12-19 | MapmyIndia API Team ([PS](https://github.com/map-123)) | Data update ver 22.0, Many to Many distance matrix released |
-| 200.17 | 2018-05-21 | MapmyIndia API Team ([PS](https://github.com/map-123)) | Data update ver 20.0, CORS enabled, “distance_matrix_traffic” introduced as resource |
-| 191.17 | 2018-02-07 | MapmyIndia API Team ([PS](https://github.com/map-123)) | Initial release |
+| 270.19.5222 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) support added for `distance_matrix` resource. |
+| 250.19.5222 | 2020-12-15 | Mappls API Team ([PS](https://github.com/map-123)) | eLoc support released |
+| 220.19.522 | 2019-12-19 | Mappls API Team ([PS](https://github.com/map-123)) | Data update ver 22.0, Many to Many distance matrix released |
+| 200.17 | 2018-05-21 | Mappls API Team ([PS](https://github.com/map-123)) | Data update ver 20.0, CORS enabled, “distance_matrix_traffic” introduced as resource |
+| 191.17 | 2018-02-07 | Mappls API Team ([PS](https://github.com/map-123)) | Initial release |
 
 
 ## Introduction
@@ -40,7 +40,7 @@ You can get your api key to be used in this document here: [https://www.mapmyind
 ### Driving Distance-Time Matrix
 
 Adding driving directions API would help to add predicted travel time & duration from a given origin point to a number of points. This REST API computes the distance and duration of a route between a source/primary position (geographical coordinates) and a list of all supplied secondary positions using to mode of route calculation i.e. optimal and shortest.
-Distance matrix is supported for [238 countries](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md) via the region parameter. Please note that maximum number of points are limited to 100 only including source and secondary positions.
+Distance matrix is supported for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) via the region parameter. Please note that maximum number of points are limited to 100 only including source and secondary positions.
 
 ## Security Type
 - License key based authentication
@@ -76,7 +76,7 @@ GET
 							<td class="cellrowborder" rowspan="2" headers="d156249e37 ">Base URL</td>
 							<td class="cellrowborder" headers="d156249e40 ">
 								<code>
-									<span class="keyword">https://apis.mapmyindia.com/advancedmaps/v1/</span>
+									<span class="keyword">https://apis.mappls.com/advancedmaps/v1/</span>
 								</code>
 							</td>
 							<td class="row-nocellborder" headers="d156249e43 ">Production environment</td>
@@ -153,7 +153,7 @@ GET
 
 ### Example URL: 
 ```html
-https://apis.mapmyindia.com/advancedmaps/v1/<assigned_license_key>/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;17ZUL7?
+https://apis.mappls.com/advancedmaps/v1/<assigned_license_key>/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;17ZUL7?
 ```
 where: 
 - "distance_matrix" is the chosen resource.
@@ -184,7 +184,7 @@ For example `77.983936,28.255904;77.05993,28.487555` OR `mmi000`.
 1. *`rtype`* type of route (integer) required for navigation, where values mean:  
 	- `0` optimal (default)  
 	- `1` shortest (it will calculate route by excluding access penalties like private roads, etc.)
-2.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md).
+2.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md).
 
 ### Parameters for Many-to-Many Distance Matrix
 #### Important Note
@@ -225,11 +225,11 @@ JSON: response will served as JSON
 
 ### For 1-to-Many Calculations:
 
-`https://apis.mapmyindia.com/advancedmaps/v1/<lic_key>/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;77.15993,28.587555;17ZUL7?rtype=0&region=ind`
+`https://apis.mappls.com/advancedmaps/v1/<lic_key>/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;77.15993,28.587555;17ZUL7?rtype=0&region=ind`
 
 ### For Many-to-Many Calculations: 
 
-`https://apis.mapmyindia.com/advancedmaps/v1/<lic_key>/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;77.15993,28.587555;17ZUL7?sources=0;1&destinations=2;3`
+`https://apis.mappls.com/advancedmaps/v1/<lic_key>/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;77.15993,28.587555;17ZUL7?sources=0;1&destinations=2;3`
 
 ## Sample Response
 
@@ -298,27 +298,28 @@ For more details, please visit our full documentation.
 
 For any queries and support, please contact: 
 
-[<img src="https://www.mapmyindia.com/images/logo.png" height="40"/> </p>](https://www.mapmyindia.com/api)
-Email us at [apisupport@mapmyindia.com](mailto:apisupport@mapmyindia.com)
+[<img src="https://www.mappls.com/images/logo.png" height="40"/> </p>](https://www.mappls.com/api)
+Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
 
 
 ![](https://www.mapmyindia.com/api/img/icons/support.png)
-[Support](https://www.mapmyindia.com/api/index.php#f_cont)
+[Support](https://www.mappls.com/api/index.php#f_cont)
 Need support? contact us!
 
-<br>
+<br></br>
+<br></br>
 
-[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mapmyindia-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](http://www.mapmyindia.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/MapmyIndia)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
-
-
-
-[<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/MapmyIndia)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/MapmyIndia)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mapmyindia)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/user/MapmyIndia/)
+[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](http://www.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/Mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
 
 
 
+[<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/Mappls)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/Mappls)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mappls)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/user/Mappls/)
 
-<div align="center">@ Copyright 2020 CE Info Systems Pvt. Ltd. All Rights Reserved.</div>
 
-<div align="center"> <a href="https://www.mapmyindia.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mapmyindia.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mapmyindia.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mapmyindia.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mapmyindia.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
+
+
+<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+
+<div align="center"> <a href="https://www.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 
 <div align="center">Customer Care: +91-9999333223</div>

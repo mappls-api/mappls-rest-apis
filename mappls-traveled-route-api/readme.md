@@ -1,12 +1,12 @@
-![MapmyIndia APIs](https://www.mapmyindia.com/api/img/mapmyindia-api.png)
+[<img src="https://www.mappls.com/api/img/mappls-api.png" height="40"/> </p>](https://www.mappls.com/api)
 
-# MapmyIndia Traveled Route API
+# Mappls Traveled Route API
 
 This API can be used to get an image of map with traveled route plotted on it. The image size can be specified; which will dynamically create an image of varying zoom levels with the start and end locations plotted on it.
 
 ## API URL
 
-1.  The API URL should be of the following construct:  http://apis.mapmyindia.com/advancedmaps/v1/<licence_key>/still_image_polyline?
+1.  The API URL should be of the following construct:  http://apis.mappls.com/advancedmaps/v1/<licence_key>/still_image_polyline?
 2. **Output**  format will be an 8-bit PNG image of varying sizes.
 3.  The method used is  **POST**.
 
@@ -25,8 +25,8 @@ The body content will be of ‘form-data’ type, consisting of the following pa
 ### Optional Parameters:
 
 1. `color:` hex color ie. #3edhhs  
-2. `icon_from:` url: [https://maps.mapmyindia.com/images/from.png](https://maps.mapmyindia.com/images/from.png)  
-3. `icon_to:`url: [https://maps.mapmyindia.com/images/to.png](https://maps.mapmyindia.com/images/to.png)  
+2. `icon_from:` url: [https://maps.mappls.com/images/from.png](https://maps.mappls.com/images/from.png)  
+3. `icon_to:`url: [https://maps.mappls.com/images/to.png](https://maps.mappls.com/images/to.png)  
 4. `offset:`[top,right]
 5. `padding_x:`number (in pixels); Max: 150
 6. `padding_y:`number (in pixels); Max: 150
@@ -47,7 +47,7 @@ The Traveled Route API is a resource intensive API that consumes considerable co
 ## Example
 
 **Input**:  
-http://apis.mapmyindia.com/advancedmaps/v1/<licence_key>/ still_image_polyline?
+http://apis.mappls.com/advancedmaps/v1/<licence_key>/ still_image_polyline?
 
 **Body**
 ```json
@@ -63,20 +63,28 @@ markers_icon:https://img.icons8.com/dusk/25/000000/region-code.png
 
 For any queries and support, please contact: 
 
-![Email](https://www.google.com/a/cpanel/mapmyindia.co.in/images/logo.gif?service=google_gsuite) 
+[<img src="https://www.mappls.com/images/logo.png" height="40"/> </p>](https://www.mappls.com/api)
+Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
 
-Email us at [apisupport@mapmyindia.com](mailto:apisupport@mapmyindia.com)
-
-![](https://www.mapmyindia.com/api/img/icons/stack-overflow.png)
-[Stack Overflow](https://stackoverflow.com/questions/tagged/mapmyindia-api)
-Ask a question under the mapmyindia-api
 
 ![](https://www.mapmyindia.com/api/img/icons/support.png)
-[Support](https://www.mapmyindia.com/api/index.php#f_cont)
+[Support](https://www.mappls.com/api/index.php#f_cont)
 Need support? contact us!
 
-![](https://www.mapmyindia.com/api/img/icons/blog.png)
-[Blog](http://www.mapmyindia.com/blog/)
-Read about the latest updates & customer stories
+<br></br>
+<br></br>
 
-> © Copyright 2019. CE Info Systems Pvt. Ltd. All Rights Reserved. | [Terms & Conditions](http://www.mapmyindia.com/api/terms-&-conditions)
+[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](http://www.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/Mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
+
+
+
+[<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/Mappls)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/Mappls)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mappls)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/user/Mappls/)
+
+
+
+
+<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+
+<div align="center"> <a href="https://www.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
+
+<div align="center">Customer Care: +91-9999333223</div>

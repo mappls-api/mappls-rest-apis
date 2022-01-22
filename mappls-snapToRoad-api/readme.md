@@ -1,42 +1,42 @@
-![MapmyIndia APIs](https://www.mapmyindia.com/api/img/mapmyindia-api.png)
+[<img src="https://www.mappls.com/api/img/mappls-api.png" height="40"/> </p>](https://www.mappls.com/api)
 
-# MapmyIndia Snap To Road API
+# Mappls Snap To Road API
 
 **Easy To Integrate Maps & Location APIs & SDKs For Web & Mobile Applications**
 
 Powered with India's most comprehensive and robust mapping functionalities.
 ## Global Coverage Now Available !
 
-Snap to Road API is **Now Available**  for [238 countries](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.
+Snap to Road API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) across the world.
 
-You can get your api key to be used in this document here: [https://www.mapmyindia.com/api/](https://www.mapmyindia.com/api/)
+You can get your api key to be used in this document here: [https://www.mappls.com/api/](https://www.mappls.com/api/)
 
 ## Disclaimer
-The document contains sensitive information on parameters and responses that can be accessed only by MapmyIndia.
+The document contains sensitive information on parameters and responses that can be accessed only by Mappls.
 Redistribution without permissions is prohibited.
-It is mandatory to take permissions from the author before sharing with any personnel outside MapmyIndia.
+It is mandatory to take permissions from the author before sharing with any personnel outside Mappls.
 
 ## Document Version History
 
 | Version | Last Updated | Author |
 | ---- | ---- | ---- |
-| 0.0.2 | July 2021 | MapmyIndia API Team ([KB](https://github.com/kunalbharti)) |
-| 0.0.1 | February 2019 | MapmyIndia API Team ([KB](https://github.com/kunalbharti)) |
+| 0.0.2 | July 2021 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
+| 0.0.1 | February 2019 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
 
 ## API Version History
 
 | Version | Last Updated | Author | Revised Sections |
 | ---- | ---- | ---- | ---- |
-| 270.19 | 2021-07-13 | MapmyIndia API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md) support added. |
-| 191.17 | 2019-02-07 | MapmyIndia API Team ([PS](https://github.com/map-123)) | Data update to V19.1; Added support for SNBB |
-| 1.0 | 2018-06-07 | MapmyIndia API Team ([PS](https://github.com/map-123)) | Initial release |
+| 270.19 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) support added. |
+| 191.17 | 2019-02-07 | Mappls API Team ([PS](https://github.com/map-123)) | Data update to V19.1; Added support for SNBB |
+| 1.0 | 2018-06-07 | Mappls API Team ([PS](https://github.com/map-123)) | Initial release |
 
 
 ## Introduction
 
 ### Route and Navigation
 
-Snap-To-Road API, snaps given GPS points to the road network in the most plausible way. Maximum number of points are limited to 100 only. Snap to Road API is supported for [238 countries](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md) via the region parameter.
+Snap-To-Road API, snaps given GPS points to the road network in the most plausible way. Maximum number of points are limited to 100 only. Snap to Road API is supported for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) via the region parameter.
 
 #### Note
 1. The request might result multiple sub-traces. 
@@ -77,7 +77,7 @@ GET / POST
 							<td class="cellrowborder" rowspan="2" headers="d156249e37 ">Base URL</td>
 							<td class="cellrowborder" headers="d156249e40 ">
 								<code>
-									<span class="keyword">https://apis.mapmyindia.com/advancedmaps/v1/</span>
+									<span class="keyword">https://apis.mappls.com/advancedmaps/v1/</span>
 								</code>
 							</td>
 							<td class="row-nocellborder" headers="d156249e43 ">Production environment</td>
@@ -113,12 +113,12 @@ GET / POST
 
 ### Example using GET
 ```json
-https://apis.mapmyindia.com/advancedmaps/v1/{rest-api-key}/snapToRoad?pts=78.40573,17.37317;78.40958,17.37314;78.41845,17.37449;78.409992,17.37328;78.420460,17.377443;78.421350,17.380200&timestamps=1527056019;1527056020;1527056021;1527056022;1527056023;1527056024
+https://apis.mappls.com/advancedmaps/v1/{rest-api-key}/snapToRoad?pts=78.40573,17.37317;78.40958,17.37314;78.41845,17.37449;78.409992,17.37328;78.420460,17.377443;78.421350,17.380200&timestamps=1527056019;1527056020;1527056021;1527056022;1527056023;1527056024
 ```
 
 ### Example using POST
 ```c
-curl --location --request POST 'https://apis.mapmyindia.com/advancedmaps/v1/{rest-api-key}/snapToRoad' \
+curl --location --request POST 'https://apis.mappls.com/advancedmaps/v1/{rest-api-key}/snapToRoad' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'pts=78.40573,17.37317;78.40958,17.37314;78.41845,17.37449;78.409992,17.37328;78.420460,17.377443;78.421350,17.380200' \
 --data-urlencode 'timestamps=1527056019;1527056020;1527056021;1527056022;1527056023;1527056024' \
@@ -145,7 +145,7 @@ For example 77.983936,28.255904;77.05993,28.487555.
 1. *`timestamps`*: Timestamps for the input locations in seconds since UNIX epoch. Timestamps need to be monotonically increasing. Values must be integer {timestamp};{timestamp};{timestamp} ...
 2.  *`geometries`*: This parameter used to change the route geometry format/density (influences overview and per step). Default value is `polyline` with 5 digit precision; `polyline6` for 6digit precision; `geojson` for geometries as geojson. **Please note that “timestamps” parameter is mandatory for enabling geometries**
 3. *`radiuses`*: Standard deviation of GPS precision used for map matching. If available use GPS accuracy in meters. Default value is `5` metres. Values must be integer {radius};{radius};{radius} ...
-4. *`region`*: This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md).
+4. *`region`*: This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md).
 
 ## Response Type
 JSON: response will served as JSON
@@ -178,7 +178,7 @@ JSON: response will served as JSON
 
 ## Sample Input
 
-`https://apis.mapmyindia.com/advancedmaps/v1/<lic_key>/snapToRoad?pts=78.40573,17.37317;78.40958,17.37314;78.41845,17.37449;78.409992,17.37328;78.420460,17.377443;78.421350,17.380200&timestamps=1527056019;1527056020;1527056021;1527056022;1527056023;1527056024`
+`https://apis.mappls.com/advancedmaps/v1/<lic_key>/snapToRoad?pts=78.40573,17.37317;78.40958,17.37314;78.41845,17.37449;78.409992,17.37328;78.420460,17.377443;78.421350,17.380200&timestamps=1527056019;1527056020;1527056021;1527056022;1527056023;1527056024`
 
 ## Sample Response
 ```json
@@ -239,21 +239,28 @@ For more details, please visit our full documentation.
 
 For any queries and support, please contact: 
 
-![Email](https://www.google.com/a/cpanel/mapmyindia.co.in/images/logo.gif?service=google_gsuite) 
+[<img src="https://www.mappls.com/images/logo.png" height="40"/> </p>](https://www.mappls.com/api)
+Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
 
-Email us at [apisupport@mapmyindia.com](mailto:apisupport@mapmyindia.com)
-
-![](https://www.mapmyindia.com/api/img/icons/stack-overflow.png)
-[Stack Overflow](https://stackoverflow.com/questions/tagged/mapmyindia-api)
-Ask a question under the mapmyindia-api
 
 ![](https://www.mapmyindia.com/api/img/icons/support.png)
-[Support](https://www.mapmyindia.com/api/index.php#f_cont)
+[Support](https://www.mappls.com/api/index.php#f_cont)
 Need support? contact us!
 
-![](https://www.mapmyindia.com/api/img/icons/blog.png)
-[Blog](http://www.mapmyindia.com/blog/)
-Read about the latest updates & customer stories
+<br></br>
+<br></br>
+
+[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](http://www.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/Mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
 
 
-> © Copyright 2019. CE Info Systems Pvt. Ltd. All Rights Reserved. | [Terms & Conditions](http://www.mapmyindia.com/api/terms-&-conditions)
+
+[<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/Mappls)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/Mappls)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mappls)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/user/Mappls/)
+
+
+
+
+<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+
+<div align="center"> <a href="https://www.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
+
+<div align="center">Customer Care: +91-9999333223</div>

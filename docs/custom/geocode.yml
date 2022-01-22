@@ -2,18 +2,18 @@ openapi: 3.0.3
 info:
   title: Geocode API
   description: >-
-    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).<br><br>The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: "{`token_type`} {`access_token`}”. <br><strong>Authorization</strong>: `token_type` `access_token`.<br><br> <strong>Global Coverage</strong> Now Available ! <br>Geocode API is **Now Available**  for [238 countries](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.<br><br> **Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of MapmyIndia's Search APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between MapmyIndia & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact MapmyIndia API support.</li><li> <strong>PREMIUM APIs/Parameters</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
-  termsOfService: 'https://www.mapmyindia.com/api/terms-&-conditions'
+    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).<br><br>The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: "{`token_type`} {`access_token`}”. <br><strong>Authorization</strong>: `token_type` `access_token`.<br><br> <strong>Global Coverage</strong> Now Available ! <br>Geocode API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) across the world.<br><br> **Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Search APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between Mappls & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact Mappls API support.</li><li> <strong>PREMIUM APIs/Parameters</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
+  termsOfService: 'https://www.mappls.com/api/terms-&-conditions'
   version: 1.0.0
   license:
-    name: MapmyIndia License Key Signup
-    url: https://www.mapmyindia.com/api/
+    name: Mappls License Key Signup
+    url: https://www.mappls.com/api/
   contact:
-    name: MapmyIndia API Support
-    email: apisupport@mapmyindia.com
-    url: https://www.mapmyindia.com/api/
+    name: Mappls API Support
+    email: apisupport@mappls.com
+    url: https://www.mappls.com/api/
 servers:
-  - url: 'https://atlas.mapmyindia.com'
+  - url: 'https://atlas.mappls.com'
     description: 'Live Prod server for OAuth 2 based APIs'
 security: 
   - BearerAuth: []
@@ -24,18 +24,18 @@ paths:
         - Geocode API
       description: >-
         All mapping APIs that are used in mobile or web apps need some geo-position coordinates to refer to any given point on the map. Our Geocoding API converts real addresses into these geographic reference positions to be placed on a map, be it for any street, area, postal code, POI or a house number etc.<br>This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
-        <p style=text-align:right><strong><a href="https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-vector-maps-atlas-geocoding-rest-api-example.php">Live Demo</a> | <a href="https://github.com/MapmyIndia/mapmyindia-rest-api/tree/master/mapmyindia-maps-geocoding-rest-api-example">Download Sample Code</a> </p>
+        <p style=text-align:right><strong><a href="https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-vector-maps-atlas-geocoding-rest-api-example.php">Live Demo</a></p>
       summary: >-
         Geocode API
       operationId: AtlasGeocodeAPI
       servers:
-        - url: https://atlas.mapmyindia.com
+        - url: https://atlas.mappls.com
           description: 'Live Prod server for OAuth 2 based APIs'
       parameters:
         - name: region
           in: query
           description: >-
-            'It takes in the country code. Possible values are listed in a table [here](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md). Default is India (IND).'
+            'It takes in the country code. Possible values are listed in a table [here](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md). Default is India (IND).'
           required: false
           allowEmptyValue: false
           schema:
@@ -210,7 +210,7 @@ components:
           example: '237, MMI Building, MapmyIndia Head Office, Okhla industrial phase 3, Okhla Vilage, South Delhi, New Delhi, Delhi, 110010'
         eLoc:
           type: string
-          description: 'It is the Six or eight digit unique code offered only by mapmyindia to search for any address through this eLoc.'
+          description: 'It is the Six or eight digit unique code offered only by mappls to search for any address through this eLoc.'
           format: string
           example: '2LH9OC'
         latitude:

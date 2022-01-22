@@ -2,18 +2,18 @@ openapi: 3.0.3
 info:
   title: Nearby API
   description: >-
-    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).<br><br>The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: "{`token_type`} {`access_token`}”. <br><strong>Authorization</strong>: `token_type` `access_token`.<br><br> **Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of MapmyIndia's Search APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between MapmyIndia & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact MapmyIndia API support.</li><li> <strong>PREMIUM APIs/Parameters</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
-  termsOfService: 'https://www.mapmyindia.com/api/terms-&-conditions'
+    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).<br><br>The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: "{`token_type`} {`access_token`}”. <br><strong>Authorization</strong>: `token_type` `access_token`.<br><br> **Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Search APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between Mappls & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact Mappls API support.</li><li> <strong>PREMIUM APIs/Parameters</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
+  termsOfService: 'https://www.mappls.com/api/terms-&-conditions'
   version: 1.0.0
   license:
-    name: MapmyIndia License Key Signup
-    url: https://www.mapmyindia.com/api/
+    name: Mappls License Key Signup
+    url: https://www.mappls.com/api/
   contact:
-    name: MapmyIndia API Support
-    email: apisupport@mapmyindia.com
-    url: https://www.mapmyindia.com/api/
+    name: Mappls API Support
+    email: apisupport@mappls.com
+    url: https://www.mappls.com/api/
 servers:
-  - url: 'https://atlas.mapmyindia.com'
+  - url: 'https://atlas.mappls.com'
     description: 'Live Prod server for OAuth 2 based APIs'
 security: 
   - BearerAuth: []
@@ -24,12 +24,12 @@ paths:
         - Nearby API
       description: >-
         Nearby Places API, enables you to add discovery and search of nearby POIs by searching for a generic keyword used to describe a category of places or via the unique code assigned to that category.<br>This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php).
-        <p style=text-align:right><strong><a href="https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-vector-maps-near-by-api-example.php">Live Demo</a> | <a href="https://github.com/MapmyIndia/mapmyindia-rest-api/tree/master/mapmyindia-maps-near-by-api-example">Download Sample Code</a> </p>
+        <p style=text-align:right><strong><a href="https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-vector-maps-near-by-api-example.php">Live Demo</a></p>
       summary: >-
         Nearby API
       operationId: AtlasNearbyAPI
       servers:
-        - url: https://atlas.mapmyindia.com
+        - url: https://atlas.mappls.com
           description: 'Live Prod server for OAuth 2 based APIs'
       parameters:
         # - name: Authorization
@@ -52,7 +52,7 @@ paths:
         - name: refLocation
           in: query
           description: >-
-            Provides the location around which the search will be performed. e.g. `refLocation=28.454,77.435`. <br> The refLocation parameter can also accept <strong>eLoc</strong> as reference location. <br> This configuration is not active by default. <br>Please contact MapmyIndia API support for further details. <br>Example: <code>refLocation=17ZUL7</code>
+            Provides the location around which the search will be performed. e.g. `refLocation=28.454,77.435`. <br> The refLocation parameter can also accept <strong>eLoc</strong> as reference location. <br> This configuration is not active by default. <br>Please contact Mappls API support for further details. <br>Example: <code>refLocation=17ZUL7</code>
           example: "28.454,77.435"
           required: true
           schema:
