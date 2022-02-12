@@ -1,4 +1,4 @@
-[<img src="https://www.mappls.com/api/img/mappls-api.png" height="40"/> </p>](https://www.mappls.com/api)
+[<img src="https://about.mappls.com/api/img/mapmyindia-api.png" height="40"/> </p>](https://about.mappls.com/api/)
 
 ## [Table of Contents](#Table_of_Contents)
 - ***[Introduction](#introduction)***
@@ -42,7 +42,7 @@ The Atlas API leverages OAuth 2.0 based security. Hence, the developer would nee
 
 ## [1. Security Type](#1_Security_Type)
 
-Atlas OAuth 2.0 based security using AES 256 and SHA-1. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php)
+Atlas OAuth 2.0 based security using AES 256 and SHA-1. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php)
 
 ## [1.1 Response Type](#1_1_Response_Type)
 
@@ -173,28 +173,28 @@ The parameters are group in sub templates. Here is the list of attributes with s
 
 For any queries and support, please contact: 
 
-[<img src="https://www.mappls.com/images/logo.png" height="40"/> </p>](https://www.mappls.com/api)
+[<img src="https://about.mappls.com/images/mappls-logo.svg" height="40"/> </p>](https://about.mappls.com/api/)
 Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
 
 
 ![](https://www.mapmyindia.com/api/img/icons/support.png)
-[Support](https://www.mappls.com/api/index.php#f_cont)
+[Support](https://about.mappls.com/contact/)
 Need support? contact us!
 
 <br></br>
 <br></br>
 
-[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](http://www.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/Mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
+[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](https://about.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/Mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
 
 
 
-[<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/Mappls)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/Mappls)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mappls)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/user/Mappls/)
+[<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/Mapplsofficial)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/mappls)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mappls/)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/channel/UCAWvWsh-dZLLeUU7_J9HiOA)
 
 
 
 
 <div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
 
-<div align="center"> <a href="https://www.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
+<div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 
 <div align="center">Customer Care: +91-9999333223</div>
