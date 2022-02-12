@@ -6,7 +6,7 @@
 
 Powered with India's most comprehensive and robust mapping functionalities.
 
-You can get your api key to be used in this document here: [https://www.mappls.com/api/](https://about.mappls.com/api/)
+You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
 ## Disclaimer
 1. This API is released for select use cases only; Please contact Mappls API Support or your account manager for discussions on usage of this solution. 

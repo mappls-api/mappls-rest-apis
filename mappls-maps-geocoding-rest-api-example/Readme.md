@@ -8,7 +8,7 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 Geocoding API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) across the world.
 
-You can get your api key to be used in this document here: [https://www.mappls.com/api/](https://about.mappls.com/api/)
+You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
 # Note 
 1. The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Search APIs.

@@ -6,7 +6,7 @@
 Powered with India's most comprehensive and robust mapping functionalities.
 **Now Available**  for Srilanka, Nepal, Bhutan and Bangladesh
 
-You can get your api key to be used in this document here: [https://www.mappls.com/api/](https://about.mappls.com/api/)
+You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
 ## Introduction
 Address Standardization API is a process to convert the non formatted address into the user readable format by omitting unnecessary information in the address. Mappls address standardization API provides real addresses along with admin and other information.

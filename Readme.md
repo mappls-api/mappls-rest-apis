@@ -6,7 +6,7 @@
 Powered with India's most comprehensive and robust mapping functionalities.
 **Now Available**  for Srilanka, Nepal, Bhutan, Myanmar and Bangladesh
 
-Full documentation available here: [https://www.mappls.com/api/](https://about.mappls.com/api/). 
+Full documentation available here: [https://about.mappls.com/api/](https://about.mappls.com/api/). 
 You can get your api key to be used in this document here: [https://apis.mapmyindia.com/console/](https://apis.mapmyindia.com/console/)
 
 ## Store-To-Door
@@ -58,7 +58,7 @@ Integrating Mappls Maps API is easy and effortless. We provide you with an exper
 
 For any queries and support, please contact: 
 
-[<img src="https://www.mapmyindia.com/images/logo.png" height="40"/> </p>](https://about.mappls.com/api/)
+[<img src="https://about.mappls.com/images/mappls-logo.svg" height="40"/> </p>](https://about.mappls.com/api/)
 Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
 
 

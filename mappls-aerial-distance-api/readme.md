@@ -7,7 +7,7 @@
 Powered with India's most comprehensive and robust mapping functionalities.
 **Now Available**  for Srilanka, Nepal, Bhutan and Bangladesh
 
-You can get your api key to be used in this document here: [https://www.mappls.com/api/](https://about.mappls.com/api/)
+You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
 ## Disclaimer
 The document contains sensitive information on parameters and responses that can be accessed only by Mappls.

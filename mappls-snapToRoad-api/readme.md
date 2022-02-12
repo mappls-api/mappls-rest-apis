@@ -9,7 +9,7 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 Snap to Road API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) across the world.
 
-You can get your api key to be used in this document here: [https://www.mappls.com/api/](https://about.mappls.com/api/)
+You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
 ## Disclaimer
 The document contains sensitive information on parameters and responses that can be accessed only by Mappls.
