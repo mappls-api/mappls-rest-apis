@@ -9,7 +9,7 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 ## Global Coverage Now Available !
 
-Distance Matrix API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) across the world.
+Distance Matrix API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.
 
 You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
@@ -28,7 +28,7 @@ You can get your api key to be used in this document here: [https://about.mappls
 
 | Version | Last Updated | Author | Revised Sections |
 | ---- | ---- | ---- | ---- |
-| 270.19.5222 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) support added for `distance_matrix` resource. |
+| 270.19.5222 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) support added for `distance_matrix` resource. |
 | 250.19.5222 | 2020-12-15 | Mappls API Team ([PS](https://github.com/map-123)) | eLoc support released |
 | 220.19.522 | 2019-12-19 | Mappls API Team ([PS](https://github.com/map-123)) | Data update ver 22.0, Many to Many distance matrix released |
 | 200.17 | 2018-05-21 | Mappls API Team ([PS](https://github.com/map-123)) | Data update ver 20.0, CORS enabled, “distance_matrix_traffic” introduced as resource |
@@ -40,7 +40,7 @@ You can get your api key to be used in this document here: [https://about.mappls
 ### Driving Distance-Time Matrix
 
 Adding driving directions API would help to add predicted travel time & duration from a given origin point to a number of points. This REST API computes the distance and duration of a route between a source/primary position (geographical coordinates) and a list of all supplied secondary positions using to mode of route calculation i.e. optimal and shortest.
-Distance matrix is supported for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) via the region parameter. Please note that maximum number of points are limited to 100 only including source and secondary positions.
+Distance matrix is supported for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) via the region parameter. Please note that maximum number of points are limited to 100 only including source and secondary positions.
 
 ## Security Type
 - License key based authentication
@@ -184,7 +184,7 @@ For example `77.983936,28.255904;77.05993,28.487555` OR `mmi000`.
 1. *`rtype`* type of route (integer) required for navigation, where values mean:  
 	- `0` optimal (default)  
 	- `1` shortest (it will calculate route by excluding access penalties like private roads, etc.)
-2.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md).
+2.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md).
 
 ### Parameters for Many-to-Many Distance Matrix
 #### Important Note
@@ -296,6 +296,8 @@ JSON: response will served as JSON
 
 For more details, please visit our full documentation.
 
+<br>
+
 For any queries and support, please contact: 
 
 [<img src="https://about.mappls.com/images/mappls-logo.svg" height="40"/> </p>](https://about.mappls.com/api/)
@@ -320,6 +322,6 @@ Need support? contact us!
 
 <div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
 
-<div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
+<div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 
 <div align="center">Customer Care: +91-9999333223</div>

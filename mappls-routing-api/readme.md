@@ -7,7 +7,7 @@
 Powered with India's most comprehensive and robust mapping functionalities.
 ## Global Coverage Now Available !
 
-Routing API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) across the world.
+Routing API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.
 
 You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
@@ -26,7 +26,7 @@ You can get your api key to be used in this document here: [https://about.mappls
 
 | Version | Last Updated | Author | Revised Sections |
 | ---- | ---- | ---- | ---- |
-| 270.19.5222 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) support added for `route_adv` resource. |
+| 270.19.5222 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) support added for `route_adv` resource. |
 | ETA-5100 | 2020-12-15 | Mappls API Team ([PS](https://github.com/map-123)) | eLoc support introduced |
 | 210.17.5221 | 2019-10-04 | Mappls API Team ([PS](https://github.com/map-123)) |“Trucking” introduced as profile |
 | 210.17.5221 | 2019-08-21 | Mappls API Team ([PS](https://github.com/map-123)) | “walking” introduced as profile |
@@ -43,7 +43,7 @@ You can get your api key to be used in this document here: [https://about.mappls
 ### Route and Navigation
 
 Routing and displaying driving directions on map, including instructions for navigation, distance to destination, traffic etc. are few of the most important parts of developing a map based application. This REST API calculates driving routes between specified locations including via points based on route calculation type(optimal or shortest).
-Routing API is supported for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) via the region parameter.
+Routing API is supported for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) via the region parameter.
 
 ## Security Type
 - License key based authentication
@@ -195,7 +195,7 @@ The “**bold**” one’s are mandatory, and the “*italic*” one’s are opt
 4. *`rtype`* type of route (integer) required for navigation, where values mean:  
 	- `0` optimal (default)  
 	- `1` shortest (it will calculate route by excluding access penalties like private roads, etc.)
-5.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md).
+5.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md).
 6. *`bearings`*(integer): Limits the search to segments with given bearing in degrees. The referencing will be to the true north and in clockwise direction. (shall be part of premium offering)
 7. *`alternatives`* Search for alternative routes. Passing a number:  e.g. alternatives=n searches for up to n alternative routes. Please note that even if alternative routes are requested, a result cannot be guaranteed.
 8. *`radiuses`* Limits the search to given radius in meters. For all way-points including start and end points. {radius};{radius}[;{radius} ...]. (shall be part of premium offering).
@@ -323,6 +323,8 @@ Apart from the JavaScript methods, this method also utilizes the following CSS f
 
 For more details, please visit our full documentation.
 
+<br>
+
 For any queries and support, please contact: 
 
 [<img src="https://about.mappls.com/images/mappls-logo.svg" height="40"/> </p>](https://about.mappls.com/api/)
@@ -347,6 +349,6 @@ Need support? contact us!
 
 <div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
 
-<div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
+<div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 
 <div align="center">Customer Care: +91-9999333223</div>

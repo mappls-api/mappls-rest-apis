@@ -7,7 +7,7 @@
 Powered with India's most comprehensive and robust mapping functionalities.
 ## Global Coverage Now Available !
 
-Snap to Road API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) across the world.
+Snap to Road API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.
 
 You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
@@ -27,7 +27,7 @@ It is mandatory to take permissions from the author before sharing with any pers
 
 | Version | Last Updated | Author | Revised Sections |
 | ---- | ---- | ---- | ---- |
-| 270.19 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) support added. |
+| 270.19 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) support added. |
 | 191.17 | 2019-02-07 | Mappls API Team ([PS](https://github.com/map-123)) | Data update to V19.1; Added support for SNBB |
 | 1.0 | 2018-06-07 | Mappls API Team ([PS](https://github.com/map-123)) | Initial release |
 
@@ -36,7 +36,7 @@ It is mandatory to take permissions from the author before sharing with any pers
 
 ### Route and Navigation
 
-Snap-To-Road API, snaps given GPS points to the road network in the most plausible way. Maximum number of points are limited to 100 only. Snap to Road API is supported for [238 countries](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md) via the region parameter.
+Snap-To-Road API, snaps given GPS points to the road network in the most plausible way. Maximum number of points are limited to 100 only. Snap to Road API is supported for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) via the region parameter.
 
 #### Note
 1. The request might result multiple sub-traces. 
@@ -145,7 +145,7 @@ For example 77.983936,28.255904;77.05993,28.487555.
 1. *`timestamps`*: Timestamps for the input locations in seconds since UNIX epoch. Timestamps need to be monotonically increasing. Values must be integer {timestamp};{timestamp};{timestamp} ...
 2.  *`geometries`*: This parameter used to change the route geometry format/density (influences overview and per step). Default value is `polyline` with 5 digit precision; `polyline6` for 6digit precision; `geojson` for geometries as geojson. **Please note that “timestamps” parameter is mandatory for enabling geometries**
 3. *`radiuses`*: Standard deviation of GPS precision used for map matching. If available use GPS accuracy in meters. Default value is `5` metres. Values must be integer {radius};{radius};{radius} ...
-4. *`region`*: This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mappls-rest-api/blob/master/docs/countryISO.md).
+4. *`region`*: This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md).
 
 ## Response Type
 JSON: response will served as JSON
@@ -237,6 +237,8 @@ JSON: response will served as JSON
 
 For more details, please visit our full documentation.
 
+<br>
+
 For any queries and support, please contact: 
 
 [<img src="https://about.mappls.com/images/mappls-logo.svg" height="40"/> </p>](https://about.mappls.com/api/)
@@ -261,6 +263,6 @@ Need support? contact us!
 
 <div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
 
-<div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
+<div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 
 <div align="center">Customer Care: +91-9999333223</div>
