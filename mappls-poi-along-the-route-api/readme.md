@@ -1,4 +1,3 @@
-
 [<img src="https://about.mappls.com/api/img/mapmyindia-api.png" height="40"/> </p>](https://about.mappls.com/api/)
 
 # Note 
@@ -99,18 +98,10 @@ suggestedPOIs ([object array])
 13. `tel`(string): Telephone number of the POI
 14. `email`(string): Email of the POI
 15. `website`(string): Website of the POI
-16. `longitude`(double): Longitude of the POI.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-17. `latitude`(double): Latitude of the POI.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-18. `e_lng`(double): Entry latitude of the POI.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-19. `e_lat`(double): Entry latitude of the POI.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-20. `brand_code`(string): Brand id of the POI
-21. `category`<sup>1</sup> (string): the category code to which this POI belongs to. Comes only when multiple category search is used.
-<br><br>
+16. `brand_code`(string): Brand id of the POI
+17. `category`<sup>1</sup> (string): the category code to which this POI belongs to. Comes only when multiple category search is used.
 
+<br><br>
 
 ## Sample requests
 

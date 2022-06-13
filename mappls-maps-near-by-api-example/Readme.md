@@ -98,21 +98,15 @@ a. suggestedLocations ([object array])
 1. `distance` (integer): provides the distance from the provided location bias in meters.
 2. `eLoc` (string): Place Id of the location 6-char alphanumeric.
 3. `email` (string): Email for contact.
-4. `entryLatitude` (double): latitude of the entrance of the location.
-5. `entryLongitude` (double): longitude of the entrance of the location.
-6. `keywords` ( [ string ] ): provides an array of matched keywords or codes.
-7. `landlineNo` (string): Email for contact.
-8. `latitude` (double): Latitude of the location.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-9. `longitude` (double): longitude of the location.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-10. `mobileNo` : Phone number for contact.
-11. `orderIndex` (integer): the order where this result should be placed
-12. `placeAddress` (string): Address of the location.
-13. `placeName` (string): Name of the location.
-14. `type` (string): Type of location POI or Country or City.
-15. `hourOfOperation`<sup>1</sup> (string): The hours of operation of the POI in a day.
-16. `addressTokens`<sup>2</sup> (object)
+4. `keywords` ( [ string ] ): provides an array of matched keywords or codes.
+5. `landlineNo` (string): Email for contact.
+6. `mobileNo` : Phone number for contact.
+7. `orderIndex` (integer): the order where this result should be placed
+8. `placeAddress` (string): Address of the location.
+9. `placeName` (string): Name of the location.
+10. `type` (string): Type of location POI or Country or City.
+11. `hourOfOperation`<sup>1</sup> (string): The hours of operation of the POI in a day.
+12. `addressTokens`<sup>2</sup> (object)
 Address token information is NOT available in generic response; and is RESTRICTED.
     - `houseNumber` (string): house number of the location.
     - `houseName` (string): house name of the location.
@@ -152,14 +146,10 @@ https://atlas.mappls.com/api/places/nearby/json?keywords=coffee;beer&refLocation
             "distance": 192,
             "eLoc": "TPIGXI",
             "email": "",
-            "entryLatitude": RESTRICTED,
-            "entryLongitude": RESTRICTED,
             "keywords": [
                 "FODCOF"
             ],
             "landlineNo": "",
-            "latitude": RESTRICTED,
-            "longitude": RESTRICTED,
             "mobileNo": "",
             "orderIndex": 1,
             "placeAddress": "Okhla Industrial Estate Phase 3, New Delhi, Delhi, 110020",

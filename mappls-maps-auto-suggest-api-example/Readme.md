@@ -84,17 +84,9 @@ a. suggestedLocations ([object array])
 2. `placeName` (string): Name of the location.
 3. `placeAddress` (string): Address of the location.
 4. `type` (string): type of location POI or Country or City
-5. `latitude` (double): Latitude of the location.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-6. `longitude` (double): longitude of the location.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-7. `entryLatitude` (double): Entry point Latitude of the location.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-8. `entryLongitude` (double): Entry point longitude of the location.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-9. `orderIndex` (integer): the order where this result should be placed
-10. `keywords` (object): contains the category code to which the POI result(if applicable) belongs to.
-11. `addressTokens` (object) Address token information is NOT available in generic response; and is RESTRICTED.
+5. `orderIndex` (integer): the order where this result should be placed
+6. `keywords` (object): contains the category code to which the POI result(if applicable) belongs to.
+7. `addressTokens` (object) Address token information is NOT available in generic response; and is RESTRICTED.
     - `houseNumber` (string): house number of the location.
     - `houseName` (string): house name of the location.
     - `poi` (string): name of the POI (if applicable)
@@ -108,8 +100,9 @@ Geometry information is NOT available in most use-case driven response; and is R
     - `city` (string): the city to which the location belongs. (if applicable)
     - `state` (string): the state to which the location belongs. (if applicable)
     - `pincode` (string): the PIN code to which the location belongs. (if applicable)
-12. `typeX` (integer): Type attribute for internal use only for Mappls.
-13. `alternateName` (string): Aliases or alternates names, if available, for the place.
+8. `typeX` (integer): Type attribute for internal use only for Mappls.
+9. `alternateName` (string): Aliases or alternates names, if available, for the place.
+10. `distance` (integer): The aerial distance of the result from the location as specified in the location input parameter.
 
 b. userAddedLocations ([object array])
 
@@ -117,17 +110,9 @@ b. userAddedLocations ([object array])
 2. `placeName` (string): Name of the location.
 3. `placeAddress` (string): Address of the location.
 4. `type` (string): type of location POI or Country or City (if available)
-5. `latitude` (double): Latitude of the location.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-6. `longitude` (double): longitude of the location.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-7. `orderIndex` (integer): the order where this result should be placed
-8. `entryLatitude` (double): Entry point Latitude of the location.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-9. `entryLongitude` (double): Entry point longitude of the location.
-Geometry information is NOT available in most use-case driven response; and is RESTRICTED.
-10. `resultType` (string): Type of the result according to user generated content (UGC). Mostly is 'UAP'.
-11. `userName` (string): The username of the person who has added this place.
+5. `orderIndex` (integer): the order where this result should be placed
+6. `resultType` (string): Type of the result according to user generated content (UGC). Mostly is 'UAP'.
+7. `userName` (string): The username of the person who has added this place.
 
 c. suggestedSearches ([object array])
 
@@ -141,71 +126,67 @@ c. suggestedSearches ([object array])
 d. `lang`<sup>1</sup> (string): used to indicate if the response is in some language other than the default(which is `en`). Valid values are `hi`, which indicates Hindi response.
 
 
-## Sample Input
+## Sample Input cURL
 
-https://atlas.mappls.com/api/places/search/json?query=corona&location=28.550592,77.268770&region=IND&tokenizeAddress&bridge=
+```js
+curl --location --request GET 'https://atlas.mappls.com/api/places/search/json?bridge=&query=mapmyindia&location=28.627133913995547,77.23553525204144' \
+--header 'Authorization: bearer 6xxxxxx4-9xxx-xxx7-xxxb-8dxxa7xxxdc'
+```
 
-## Sample Response
+
+## Sample Response for English
 ```json
 {
     "suggestedLocations": [
         {
             "type": "POI",
-            "typeX": 7,
-            "placeAddress": "Sant Nirankari Colony, New Delhi, Delhi, 110033",
-            "latitude": RESTRICTED,
-            "longitude": RESTRICTED,
-            "eLoc": "DSEC7S",
-            "entryLatitude": RESTRICTED,
-            "entryLongitude": RESTRICTED,
-            "placeName": "Coronation Memorial",
-            "alternateName": "",
+            "placeAddress": "2943, Zorawar Singh Marg, Hamilton Road, Mori Gate, New Delhi, Delhi, 110006",
+            "eLoc": "KY9Y57",
+            "placeName": "Gagan Car Palace",
+            "alternateName": "Ganga Info System,MapmyIndia Device Dealer",
             "keywords": [
-                "HISMON"
+                "STROTH"
             ],
-            "addressTokens": {
-                "houseNumber": "",
-                "houseName": "",
-                "poi": "Coronation Memorial",
-                "street": "",
-                "subSubLocality": "",
-                "subLocality": "",
-                "locality": "Jahangirpuri;Jhangir Puri",
-                "village": "",
-                "subDistrict": "Model Town",
-                "district": "North District",
-                "city": "New Delhi",
-                "state": "Delhi",
-                "pincode": "110033"
-            },
-            "p": 764,
             "orderIndex": 1,
-            "score": 426.3966512712821,
+            "suggester": "alternateName",
+            "distance": 4116
+        },
+        {
+            "type": "POI",
+            "placeAddress": "237, Okhla Industrial Estate Phase 3, Near Modi Mill, New Delhi, Delhi, 110020",
+            "eLoc": "MMI000",
+            "placeName": "MapmyIndia Head Office New Delhi",
+            "alternateName": "CE Infosystems Ltd,MapmyIndia New Delhi,Map My India New Delhi,MapmyIndia HO New Delhi, Mappls HO New Delhi, Mappls",
+            "keywords": [
+                "COMHDO"
+            ],
+            "orderIndex": 2,
             "suggester": "placeName",
-            "richInfo": {}
+            "distance": 9101
         }
     ],
     "userAddedLocations": [
         {
-            "eLoc": "U09GOU",
-            "entryLatitude": 0,
-            "entryLongitude": 0,
-            "latitude": RESTRICTED,
-            "longitude": RESTRICTED,
+            "eLoc": "DPRKL1",
             "orderIndex": 13,
-            "placeAddress": "SFC Plus, Nilampathinja Mughal Road Confident Corona Kakkanad Kerala",
-            "placeName": "SFC Plus",
-            "resultType": "UAP",
-            "type": "",
-            "userName": "mcitybng"
+            "placeAddress": "MapmyIndia Head Office New Delhi, Okhla Industrial Estate Phase 3, New Delhi, Delhi",
+            "placeName": "MapmyIndia Head Office New Delhi",
+            "type": ""
+        },
+        {
+            "eLoc": "HSPA8Z",
+            "orderIndex": 14,
+            "placeAddress": "Okhla Industrial Estate Phase 3, New Delhi, Delhi. 13 m from MapmyIndia Head Office New Delhi pin-110020",
+            "placeName": "MapmyIndia Head Office New Delhi, Okhla Industrial Estate Phase 3, New Delhi, Delhi",
+            "type": ""
         }
     ],
     "suggestedSearches": [
         {
-            "keyword": "corona testing lab",
+            "keyword": "mapmyindia",
             "identifier": "near",
             "location": "me",
-            "hyperLink": "https://atlas.mappls.com/api/places/nearby/json?explain&richData&username=atlasuser&refLocation=28.550592,77.26877&keywords=hsptst",
+            "hyperLink": "https://atlas.mappls.com/api/places/nearby/json?explain&richData&username=atlasuser&refLocation=28.627133913995547,77.23553525204144&keywords=mapmyindia",
             "orderIndex": 0,
             "eLoc": null
         }

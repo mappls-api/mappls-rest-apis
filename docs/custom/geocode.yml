@@ -133,8 +133,8 @@ components:
         - state
         - formattedAddress
         - eLoc
-        - latitude
-        - longitude
+        # - latitude
+        # - longitude
         - geocodeLevel
         - confidenceScore
       properties:
@@ -213,16 +213,16 @@ components:
           description: 'It is the Six or eight digit unique code offered only by mappls to search for any address through this eLoc.'
           format: string
           example: '2LH9OC'
-        latitude:
-          type: integer
-          description: 'It shows us the latitude of the location searched. Geometry information is NOT available in most use-case driven response; and is RESTRICTED.'
-          format: double
-          example: 'RESTRICTED'
-        longitude:
-          type: integer
-          description: 'It shows us the longitude of the location searched. Geometry information is NOT available in most use-case driven response; and is RESTRICTED.'
-          format: double
-          example: 'RESTRICTED'
+        # latitude:
+        #   type: integer
+        #   description: 'It shows us the latitude of the location searched. Geometry information is NOT available in most use-case driven response; and is RESTRICTED.'
+        #   format: double
+        #   example: 'RESTRICTED'
+        # longitude:
+        #   type: integer
+        #   description: 'It shows us the longitude of the location searched. Geometry information is NOT available in most use-case driven response; and is RESTRICTED.'
+        #   format: double
+        #   example: 'RESTRICTED'
         geocodeLevel:
           type: string
           description: 'This shows the level of the geocode means on which basis the poi has been geocoded.'
