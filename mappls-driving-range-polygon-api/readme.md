@@ -7,7 +7,7 @@ MapmyIndia Driving Range Polygon API computes areas that are reachable within sp
 
 ## What it looks like
 
-[](https://mappls-api.github.io/mappls-rest-apis/images/driving-range-polygon1.gif)
+![](https://mappls-api.github.io/mappls-rest-apis/images/driving-range-polygon1.gif)
 
 ## Getting Access
 
