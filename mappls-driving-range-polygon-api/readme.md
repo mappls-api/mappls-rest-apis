@@ -1,9 +1,9 @@
-[<img src="https://www.mapmyindia.com/api/img/mapmyindia-api.png" height="40"/> </p>](https://www.mapmyindia.com/api)
+[<img src="https://about.mappls.com/api/img/mapmyindia-api.png" height="40"/> </p>](https://about.mappls.com/api/)
 
 # Driving Range Polygon API
 
 ## Introduction
-MapmyIndia Driving Range Polygon API computes areas that are reachable within specified time or distance intervals from a location, and returns the reachable regions as contours of polygons or lines that you can display on a map. This create the drive time polygons that use actual street networks based on given distance or time. This is required in order to quickly determine how much time or distance one will need to get to other locations on map and in specified time where can he reached.
+Mappls Driving Range Polygon API computes areas that are reachable within specified time or distance intervals from a location, and returns the reachable regions as contours of polygons or lines that you can display on a map. This create the drive time polygons that use actual street networks based on given distance or time. This is required in order to quickly determine how much time or distance one will need to get to other locations on map and in specified time where can he reached.
 
 ## What it looks like
 
@@ -24,12 +24,12 @@ Before using the Plugin in the your solution, please ensure that the related acc
     - The `access token` is a valid by default for 24 hours from the time of generation. This can be configured by you in the API console.
 2. **`Security Type`**
     
-    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php)
+    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php)
 
 ## URL
 
 ```html
-https://apis.mapmyindia.com/advancedmaps/v2/isopolygon?
+https://apis.mappls.com/advancedmaps/v2/isopolygon?
 ```
 
 ## Input Method
@@ -75,7 +75,7 @@ Input is specified as a pair comprising of:
 5. `id`: Name of the input request. If `id` is specified, the same is returned with the response.
 6. `show_locations`(boolean): A boolean indicating whether the input locations should be returned as MultiPoint features: one feature for the exact input coordinates and one feature for the coordinates of the network node it snapped to. Default false.
 
-Please contact [API Support](mailto:apisupport@mapmyindia.com) in case you have any queries related to above request parameters.
+Please contact [API Support](mailto:apisupport@mappls.com) in case you have any queries related to above request parameters.
 
 
 ## Response Status Codes
@@ -107,7 +107,7 @@ Please contact [API Support](mailto:apisupport@mapmyindia.com) in case you have 
 ## Sample cURL Request
 
 ```curl
-curl --location --request GET 'https://apis.mapmyindia.com/advancedmaps/v2/isopolygon?locations=28.632282,77.218527&costing=auto&rangeType=time&contours=1,ff0000&speedTypes=predictive&date_time=1,2021-12-12T15:00&denoise=0.5&polygons=false&generalize=1.2&id=walk from office&show_locations=true' \
+curl --location --request GET 'https://apis.mappls.com/advancedmaps/v2/isopolygon?locations=28.632282,77.218527&costing=auto&rangeType=time&contours=1,ff0000&speedTypes=predictive&date_time=1,2021-12-12T15:00&denoise=0.5&polygons=false&generalize=1.2&id=walk from office&show_locations=true' \
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6'
 ```
 
@@ -115,13 +115,13 @@ curl --location --request GET 'https://apis.mapmyindia.com/advancedmaps/v2/isopo
 
 | Version | Last Updated | Author |
 | ---- | ---- | ---- |
-| 0.0.1 | June 2022 | MapmyIndia API Team ([KB](https://github.com/kunalbharti)) |
+| 0.0.1 | June 2022 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
 
 ## API Version History
 
 | Version | Last Updated | Author | Revised Sections |
 | ---- | ---- | ---- | ---- |
-| 0.1 | 2021-06-17 | MapmyIndia API Team ([PS](https://github.com/map-123)) | Initial release |
+| 0.1 | 2021-06-17 | Mappls API Team ([PS](https://github.com/map-123)) | Initial release |
 
 
 <br>
