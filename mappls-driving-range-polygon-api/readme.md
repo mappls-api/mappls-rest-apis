@@ -9,6 +9,8 @@ MapmyIndia Driving Range Polygon API computes areas that are reachable within sp
 
 ![](https://mappls-api.github.io/mappls-rest-apis/images/driving-range-polygon1.gif)
 
+> In the above clip, you can see the driving range calculated from Bhuntar Airport, Kullu for a 30 mins (purple) and a 60 mins (pink) driving range. 
+
 ## Getting Access
 
 Before using the Plugin in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://apis.mappls.com/console/), in the same project you set up for the Maps SDK.
