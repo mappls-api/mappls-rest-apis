@@ -39,12 +39,15 @@ The Goal in vehicle routing problem (VRP) is to get an optimal set of routes for
   <img src="https://about.mappls.com/api/optimisation/images/carrying_capacity.gif?raw=true" style="margin-left:auto;margin-right:auto"/>
 
 - **Vehicle Routing Problem with Time Windows (VRPTW)** - The delivery locations have time windows within which the deliveries (or visits) must be made.
+
   <img src="https://about.mappls.com/api/optimisation/images/time_window.jpg?raw=true" style="margin-left:auto;margin-right:auto"/>
 
 - **Vehicle Routing Problem with Profits/Priority (VRPP)** - A maximization problem where it is not mandatory to visit all customers. The aim is to visit once customers maximizing the sum of collected profits while respecting a vehicle time limit. Vehicles are required to start and end at the depot.
+
   <img src="https://about.mappls.com/api/optimisation/images/profitability_priority.jpg?raw=true" style="margin-left:auto;margin-right:auto"/>
 
 - **Vehicle Routing Problem with Skill Sets** - List of vehicle skill(s). A delivery/pickup can only be served by the vehicle if its required skills is a subset of vehicle skills.
+
   <img src="https://about.mappls.com/api/optimisation/images/certain_jobs_1.gif?raw=true" style="margin-left:auto;margin-right:auto"/>
 
 # Input
