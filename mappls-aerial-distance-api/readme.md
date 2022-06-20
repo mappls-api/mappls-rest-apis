@@ -5,7 +5,7 @@
 **Easy To Integrate Maps & Location APIs & SDKs For Web & Mobile Applications**
 
 Powered with India's most comprehensive and robust mapping functionalities.
-**Now Available**  for Srilanka, Nepal, Bhutan and Bangladesh
+**Now Available**  for Srilanka, Nepal, Bhutan, Myanmar and Bangladesh
 
 You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
@@ -23,24 +23,46 @@ Adding Aerial Distance API would help to calculate the distance between two poin
 
 You can now easily estimate how big the lake near your house is, or just the **aerial distance** between Delhi and Mumbai is 1150.06 km (714.61 mi). Same time this **API  doesn't calculate road distance between two points.**
 
-## Security Type
+## Getting Access
 
-- License key based authentication
-- IP/domain based whitelisting
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://apis.mappls.com/console/), in the same project you set up for the Maps SDK.
+
+1. Copy and paste the generated `access token` from your API [keys](https://apis.mappls.com/console/) available in the dashboard in the path of the API URL at the appropriate place.
+    - This APIs follow OAuth2 based security.
+    - `Access Token` can be generated using Token Generation API.
+    - To know more on how to create your access tokens, please use our authorization API URL. More details available [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php)
+    - The `access token` is a valid by default for 24 hours from the time of generation. This can be configured by you in the API console.
+2. **`Security Type`**
+    
+    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php)
 
 ## Input Method
 GET
 
 
-### Example URL: 
+### Example URL using coordinates: 
 ```html
-https://apis.mappls.com/advancedmaps/v1/<assigned_licence_key>/distanceA?x1=34.506172&y1=76.108652 &x2=28.4586&y2=77.85698&unit=K
+https://apis.mappls.com/advancedmaps/v1/<access_token>/distanceA?from=34.506172,76.108652&to=28.4586,77.85698&unit=K
 ```
 where: 
 - "distanceA" is the chosen resource.
--  profile is "x1y1 & x2y2"
-- "34.506172,76.108652"is the start position.
-- "28.4586,77.85698" is the end position of the route.
+- `from` request parameter denotes the start position.
+	- Example: `from=34.506172,76.108652`
+- `to` request parameter denotes the destination position.
+	- Example: `to=28.4586,77.85698`
+
+**Note**: The position input is in decimal degree notation of latitude,longitude.
+
+### Example URL using eLoc: 
+```html
+https://apis.mappls.com/advancedmaps/v1/<access_token>/distanceA?from=mmi000&to=17zul7&unit=K
+```
+where: 
+- "distanceA" is the chosen resource.
+- `from` request parameter denotes the start position.
+	- Example: `from=mmi000`
+- `to` request parameter denotes the destination position.
+	- Example: `to=17zul7`
 
 **Note**: The position input is in decimal degree notation of longitude,latitude.
 
@@ -49,31 +71,28 @@ where:
 
 ###  Mandatory Parameters:
 
-1.  x1: Latitude of start point.
-2.  y1: Longitude of start point.
-3.  x2: Latitude of destination point
-4.  y2: Longitude of destination point.`
+1.  `from` request parameter denotes the start position.
+2.  `to` request parameter denotes the destination position.
 
 ### Optional Parameters:
 
-1. Unit: unit of distance (default value is K)
-2. K: Kilometre
-3. N: Nautical Miles
-4. M: Miles
+1. `Unit`: unit of distance (default value is K)
+	- K: Kilometre
+	- N: Nautical Miles
+	- M: Miles
 
-
-## Response Parameters
-
-1.	`responseCode`: See the service dependent and general status codes.
-2.	`version`: API’s version information.
-3.	`results`: array of results, each consisting of the following parameters:
-	- `code`: if the request was successful, code is ok.
-	- `durations`: Duration in seconds for source to source (default 0), 1st, 2nd, 3rd secondary locations... from source.
-	- `distances`: Distance in meters for source to source (default 0), 1st, 2nd, 3rd secondary locations... from source.
 
 ## Response Type
 JSON: response will served as JSON
 
+## Response Parameters
+
+The Aerial_Distance API will return only one result object. The following output parameters will be supported in the Aerial_Dstance API response.
+
+1. `responseCode`: See the service dependent and general status codes.
+2.  `results`: array of results, each consisting of the following parameters.
+	- `distance`: a distance between strart & destinaton.
+	- `unit`: unit of distance.
 
 ## Response Codes {as HTTP response code}
 
@@ -87,20 +106,13 @@ JSON: response will served as JSON
 - 500: Internal Server Error, the request caused an error in our systems.
 - 503: Service Unavailable, during our maintenance break or server down-times.
 
-## Response Parameters
 
-The Aerial_Distance API will return only one result object. The following output parameters will be supported in the Aerial_Dstance API response.
-
-1. `responseCode`: See the service dependent and general status codes.
-2.  `results`: array of results, each consisting of the following parameters.
-	- `distance`: a distance between strart & destinaton.
-	- `unit`: unit of distance.
  
 ## Sample Request:
 
 URL: 
 ```html
-https://apis.mapmyindia.com/advancedmaps/v1/<Assigned_licence_key>/distanceA?x1=34.506172&y1=76.108652&x2=28.4586&y2=77.85698&unit=K
+https://apis.mappls.com/advancedmaps/v1/<access_token>/distanceA?from=34.506172,76.108652&to=28.4586,77.85698&unit=K
 ```
 
 
