@@ -56,6 +56,14 @@ paths:
             example: 1.5
             schema:
               type: number
+          - name: uniqueResults
+            in: query
+            description: >-
+              '(valueless): to provide unique results in the `addressInformation` object with alternatives present in the `alternatives` array.
+            allowEmptyValue: true
+            schema:
+              type: boolean
+            example: ''
         responses:
           '200':
             description: OK
@@ -87,6 +95,8 @@ components:
         - remainingAddress
         - referentialInformation
         - addressInformation
+        - alternatives
+        - formattedAddress
       properties:
         inputAddress:
           type: string
@@ -102,9 +112,20 @@ components:
           $ref: '#/components/schemas/WP1'
         addressInformation:
           $ref: '#/components/schemas/WP3'
+        alternatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/WP10'
+        formattedAddress:
+          type: string
+          description: >-
+            The full fomatted human readable address provided after address standardization.
+          format: string
+          example: '237,Mapmyindia Head Office, Okhla Industrial Estate Phase 3, New Delhi, Delhi, 110020'
     WP1:
       title: Woodpecker Referential Information
-      description: The result object which contains the Address Standardization API results.
+      description: >-
+        The result object which contains the Address Standardization API results.
       type: object
       required:
         - pincodes
@@ -114,6 +135,7 @@ components:
         - careOfs
         - landmarks
         - houseNumbers
+        - poi/buildingName
       properties:
         pincodes:
           type: string
@@ -146,8 +168,13 @@ components:
           format: string
           example: ''
         houseNumbers:
-          description: House number information tagged from the input address if found any.
           $ref: '#/components/schemas/WP2'
+        poi/buildingName:
+          type: array
+          items:
+            type: string
+          example:
+            - "mapmyindia head office"
     WP2:
       title: House Numbers Array
       description: The result object which contains the House Number Arrays of Woodpecker API.
@@ -267,6 +294,31 @@ components:
           description: ''
           format: string
           example: 'Okhla'
+    WP10:
+      title: alternatives
+      type: object
+      required:
+        - adminPattern
+        - originalName
+        - addressParts
+      properties:
+        adminPattern:
+          type: string
+          description: >-
+            one of the list of standardized `adminType` tags extracted from the input address.
+          format: string
+          example: 'locality'
+        originalName:
+          type: string
+          description: 'Original name of the admin.'
+          format: string
+          example: 'Okhla'
+        addressParts:
+          type: string
+          description: >-
+            the input address sub-string againsts which this alternate address object is provided.
+          format: string
+          example: 'Okhla Industrial Estate Phase 1'
   securitySchemes:
     BearerAuth: 
       type: http

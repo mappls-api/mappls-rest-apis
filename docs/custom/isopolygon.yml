@@ -1,0 +1,178 @@
+openapi: 3.0.3
+info:
+  title: Driving Range Polygon API
+  description: >-
+    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php). <br><br>The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: "{`token_type`} {`access_token`}”. <br><strong>Authorization</strong>: `token_type` `access_token`.<br><br> **Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Search APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between Mappls (MapmyIndia) & it's API consumers. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact Mappls API support.</li><li> <strong>PREMIUM APIs</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
+  termsOfService: 'https://about.mappls.com/api/terms-&-conditions'
+  version: 1.0.0
+  license:
+    name: Mappls License Key Signup
+    url: https://about.mappls.com/api/
+  contact:
+    name: Mappls API Support
+    email: apisupport@mappls.com
+    url: https://about.mappls.com/api/
+security: 
+  - BearerAuth: []
+servers:
+        - url: https://apis.mappls.com
+          description: 'Live Prod server for OAuth 2 based APIs'
+paths:
+  /advancedmaps/v2/isopolygon: 
+    get:
+        tags:
+          - Driving Range Polygon API
+        description: >-
+          Mappls Driving Range Polygon API computes areas that are reachable within specified time or distance intervals from a location, and returns the reachable regions as contours of polygons or lines that you can display on a map. This create the drive time polygons that use actual street networks based on given distance or time. This is required in order to quickly determine how much time or distance one will need to get to other locations on map and in specified time where can he reached.<br>This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php)
+        summary: >-
+          Driving Range Polygon API
+        operationId: isopolygon
+        servers:
+        - url: https://apis.mappls.com
+          description: 'Live Prod server for OAuth 2 based APIs'
+        parameters:
+          - name: Authorization
+            in: header
+            description: >-
+              Authorization header with the value: “{token_type} {access_token}”. <br> Please generate your token from token generation API before calling this API.
+            required: true
+            allowEmptyValue: false
+            schema:
+              type: string
+            example: "bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+          - name: locations
+            in: query
+            description: >-
+              Location which will be center point for driving range polygon that will surrounded by roads which can be reached from this point in specified time or distance range(s). The input is supported as a latitude,longitude in decimal degrees.
+            required: true
+            allowEmptyValue: false
+            schema:
+              type: string
+            example: "28.555390931473642,77.08572454324664"
+          - name: rangeType
+            in: query
+            description: >-
+              To specify the type of range which is used to calculate the polygon.<br>
+              Available values are: <ul><li>`time`: to specify driving range calculation reachable within the specified time.</li><li>`distance`: to specify driving range calculation reachable within the specified distance from the reference position specified in the `locations` parameter.</li><ul>
+            required: true
+            allowEmptyValue: false
+            schema:
+              default: "time"
+              enum: 
+              - time
+              - distance
+              type: string
+          - name: costing
+            in: query
+            description: >-
+              Profile for routing engine. Currently the only applicable profile is set to automatic detection or `auto`.
+            example: "auto"
+            required: true
+            allowEmptyValue: false
+            schema:
+              enum: 
+                - auto
+              type: string
+          - name: speedTypes
+            in: query
+            description: >-
+              To specify the type of ETA calculations. <br>
+              Available values are: <ul><li>`predictive` (default) - used to specify predictive ETA calculation. In case if this is used, then the optional parameter of `date_time` becomes mandatory. </li><li>`optimal`: To specify ETA calculation acc. to current time.</li><ul>
+            required: true
+            allowEmptyValue: true
+            schema:
+              enum: 
+                - predictive
+                - optimal
+              type: string
+          - name: contours
+            in: query
+            description: >-
+              An array of contour objects with either time in minutes or distance in kilometers and color to use for each isopolygon contour. One can specify up to five contours.<br>Input is specified as a pair comprising of:<br><ol><li>`time` <strong>OR</strong> `distance`:<ul><li>`time`: A floating point value specifying the time in minutes and maximun value is 120 minutes <strong><br>OR</strong></li><li>`distance`: A floating point value specifying the distance in kilometer and maximun value is 100 kilometer.</li></ul><strong>AND</strong><li>`color`: The color for the output of the contour. Specify it as a Hex value, such as "color":"ff0000" for red. If no color is specified, the driving range polygon service will assign a default color to the output.</li></ol>
+            required: true
+            example: "5,ff0000"
+            schema:
+              type: string
+            allowEmptyValue: false
+          - name: date_time
+            in: query
+            description: >-
+              This is the local date and time at the source location along with its type. The date and time is specified in ISO 8601 format (YYYY-MM-DDThh:mm) in the local time zone of departure. Applicable types are:<br><ul><li>`0`: Current departure time.<li>`1`: Specified departure time</ul>
+            required: false
+            example: "1,2021-12-20T11:00"
+            allowEmptyValue: false
+            schema:
+              type: string
+          - name: denoise
+            in: query
+            description: >-
+              A floating point value from 0 to 1 (default of 1) which can be used to remove smaller contours. A value of 1 will only return the largest contour for a given time value. A value of 0.5 drops any contours that are less than half the area of the largest contour in the set of contours for that same time/distance value.
+            required: false
+            allowEmptyValue: false
+            example: 0.5
+            schema:
+              type: number
+          - name: polygons
+            in: query
+            description: >-
+              (valueless parameter) A boolean value to determine whether to return geojson polygons or linestrings as the contours. The default is false, which returns lines; when true, polygons are returned. Note: When polygons is true, any contour that forms a ring is returned as a polygon.
+            required: false
+            allowEmptyValue: true
+            schema:
+              type: boolean
+          - name: generalize
+            in: query
+            description: >-
+              A floating point value in meters used as the tolerance for Douglas-Peucker generalization. Note: Generalization of contours can lead to self-intersections, as well as intersections of adjacent contours.
+            required: false
+            allowEmptyValue: false
+            example: 1.2
+            schema:
+              type: number
+          - name: id
+            in: query
+            description: >-
+              Name of the input request. If `id` is specified, the same is returned with the response.
+            required: false
+            example: "Site selection from store A"
+            allowEmptyValue: false
+            schema:
+              type: string
+          - name: show_locations
+            in: query
+            description: >-
+              A boolean indicating whether the input locations should be returned as MultiPoint features: one feature for the exact input coordinates and one feature for the coordinates of the network node it snapped to.
+            required: false
+            allowEmptyValue: false
+            schema:
+              type: boolean
+              default: false
+              enum:
+                - true
+                - false
+        responses:
+          '200':
+            description: >-
+              The API on success responds back with an isopolygon that is represented by the following image: <br>
+              <img src="https://mappls-api.github.io/mappls-rest-apis/images/driving-range-polygon1.gif?raw=true" style="margin-left:auto;margin-right:auto"/><br>In the above clip, you can see the driving range calculated from Bhuntar Airport, Kullu for a 30 mins (purple) and a 60 mins (pink) driving range.
+          '204':
+            description: Not found
+          '400':
+            description: Bad request
+          '401':
+            description: API access denied
+          '403':
+            description: Forbidden
+          '500':
+            description: Something went wrong
+          '503':
+            description: Internal server error
+        deprecated: false
+components:
+  # schemas:
+  
+  securitySchemes:
+    BearerAuth: 
+      type: http
+      scheme: bearer
+      bearerFormat: 'bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6'

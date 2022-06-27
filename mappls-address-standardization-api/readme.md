@@ -41,6 +41,7 @@ GET
 ### Optional Parameters
 
 - `bias`(float): parameter value can be set to get the bias result towards the urban or rural side. (Default is 1.5 : urban). Where 1 is neutral and < 1 is rural biased and > 1 is Urban biased.
+- `uniqueResults` (valueless): to provide unique results in the `addressInformation` object with alternatives present in the `alternatives` array. 
 
 ## Response Parameters
 
@@ -54,6 +55,7 @@ GET
 	- `careOfs`(string): Care of (C/O) tagged from the input address if found any.
 	- `landmarks`(string): Landmark tagged from the input address if found any.
 	- `houseNumber`(string): House number information tagged from the input address if found any.
+    - `poi/buildingName` (array of strings): The array of POI or building name detected from the input address.
 4. `addressInformation` (object): 
 	- `adminDetails` (object): 
 		- [`adminType`](#adminTypes) (array of objects or a single object): name & aliases of the state of the input address and how it was deduced from provided info.
@@ -104,7 +106,7 @@ GET
 ## Sample Input cURL
 
 ```js
-curl --location --request GET 'https://atlas.mappls.com/api/places/woodpecker?address=Shri Krishan Lal Nagpal Marg, Greater Kailash 1, E Block, Greater Kailash I, Greater Kailash, New Delhi, Delhi 110048&bias=1.5' \
+curl --location --request GET 'https://atlas.mapmyindia.com/api/places/woodpecker?address=hannah sen cottage, lady irwin college campus, safdar hashmi marg, mandi house, new delhi 110001&bias=1.5&uniqueResults=' \
 --header 'Authorization: bearer 6xxxxxx4-9xxx-xxx7-xxxb-8dxxa7xxxdc'
 ```
 
@@ -112,22 +114,24 @@ curl --location --request GET 'https://atlas.mappls.com/api/places/woodpecker?ad
 
 ```json
 {
-    "inputAddress": "Shri Krishan Lal Nagpal Marg, Greater Kailash 1, E Block, Greater Kailash I, Greater Kailash, New Delhi, Delhi 110048",
-    "remainingAddress": "",
+    "inputAddress": "hannah sen cottage, lady irwin college campus, safdar hashmi marg, mandi house, new delhi 110001",
+    "remainingAddress": "campus house",
+    "cleansing": {
+        "cleansedAddress": "Hannah Sen Cottage, Lady Irwin College Campus, Safdar Hashmi Marg, Mandi House, New Delhi 110001"
+    },
     "referentialInformation": {
-        "pincodes": "110048",
+        "pincodes": "110001",
         "floors": null,
         "roads": [
-            "Shri Krishan Lal Nagpal Marg"
+            "Safdar Hashmi Marg"
         ],
         "postOffices": null,
         "careOfs": null,
         "landmarks": null,
-        "houseNumbers": {
-            "prefix": null,
-            "houseNo": "1",
-            "formatted": "1"
-        }
+        "houseNumbers": null,
+        "poi/buildingName": [
+            "hannah sen cottage"
+        ]
     },
     "addressInformation": {
         "adminDetails": {
@@ -138,25 +142,27 @@ curl --location --request GET 'https://atlas.mappls.com/api/places/woodpecker?ad
                 "originalName": "New Delhi"
             },
             "locality": {
-                "originalName": "Greater Kailash 1"
-            },
-            "subLocality": {
-                "originalName": "Block E"
+                "originalName": "Mandi"
             },
             "pincodes": {
-                "originalName": "110048"
+                "originalName": "110047"
             }
         },
         "adminPattern": [
             "state",
             "city",
             "locality",
-            "subLocality",
             "pincodes"
         ]
     },
-    "alternatives": [],
-    "formattedAddress": "1, Shri Krishan Lal Nagpal Marg, Block E, Greater Kailash 1, New Delhi, Delhi, 110048"
+    "alternatives": [
+        {
+            "adminPattern": "locality",
+            "originalName": "Lady Irwin College Campus",
+            "addressParts": "lady irwin college campus"
+        }
+    ],
+    "formattedAddress": "Hannah Sen Cottage,Safdar Hashmi Marg, Mandi, New Delhi, Delhi, 110047"
 }
 ```
 
