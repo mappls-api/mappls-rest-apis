@@ -1,0 +1,151 @@
+openapi: 3.0.3
+info:
+  title: Geolocation API
+  description: >-
+    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php). <br><br>The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: "{`token_type`} {`access_token`}”. <br><strong>Authorization</strong>: `token_type` `access_token`.<br><br>**Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Search APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between Mappls & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact Mappls API support.</li><li> <strong>PREMIUM APIs/Parameters</strong> are not available for evalulation on signup. To get access, please contact API Support.</li><li><strong>A minimum of one cell tower object is required and a maximum of six cell tower objects are allowed as input.</strong></li><li><strong>To get the best result, a minimum of three cell tower objects should be input >  in accordance with one active and two latest historical cell info objects</strong></li></ol>
+  termsOfService: 'https://about.mappls.com/api/terms-&-conditions'
+  version: 1.0.0
+  license:
+    name: Mappls License Key Signup
+    url: https://about.mappls.com/api/
+  contact:
+    name: Mappls API Support
+    email: apisupport@mappls.com
+    url: https://about.mappls.com/api/
+servers:
+  - url: 'https://atlas.mappls.com'
+    description: 'Live Prod server for OAuth 2 based APIs'
+security: 
+  - BearerAuth: []
+paths:
+  /api/places/geo-location:
+    post:
+      tags: 
+        - Geolocation API
+      description: >-
+        The Geolocation API returns a location on the basis of cell tower information that any mobile client can detect.<br>
+        Any mobile user will send the information of all the connected or recently connected cell towers information in the API, Now API will articulate approximate user location on the basis of the provided cell towers information. Mappls will use its cell towers geo-location database to calculate the approximate geo-location of the user.<br><br>This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php).
+        <p style=text-align:right><strong><a href="https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-vector-maps-auto-suggest-api-example.php">Live Demo</a></p>
+      summary: >-
+         AutoSuggest API
+      operationId: AutoSuggestAPI
+      # parameters:
+      #   # - name: Authorization
+      #   #   in: header
+      #   #   description: >-
+      #   #     Authorization header with the value: “{token_type} {access_token}”. <br> Please generate your token from token generation API before calling this API.
+      #   #   required: true
+      #   #   allowEmptyValue: false
+      #   #   schema:
+      #   #     type: string
+      #   #   example: "bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
+      requestBody:
+          content:
+            'application/x-www-form-urlencoded':
+              schema:
+               properties:
+                  cellTowers: 
+                    description: >-
+                      An array of cell tower objects.
+                    type: array
+                    items: 
+                      $ref: '#/components/schemas/celltower'
+               required:
+                 - cellTowers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/result'
+        '204':
+          description: Not found
+        '400':
+          description: Bad request
+        '401':
+          description: API access denied
+        '403':
+          description: >-
+            Forbidden - Services for this key has been suspended due to daily/hourly transactions limit.
+        '412':
+          description: >-
+            Precondition Failed
+        '500':
+          description: Something went wrong
+        '503':
+          description: Internal server error
+      deprecated: false
+      # servers:
+      #   - url: https://atlas.mapmyindia.com
+      #     description: 'Live Prod server for OAuth 2 based APIs'
+components:
+  schemas:
+    celltower:
+      title: cellTower object
+      description: >-
+        A `cellTower` object consisting of information about that cell tower.
+      type: object
+      required:
+        - cellId
+        - locationAreaCode
+        - mobileCountryCode
+        - mobileNetworkCode
+      properties:
+        cellId:
+          type: integer
+          description: >-
+            Unique identifier of the cell. Required for radioType gsm (default), cdma, wcdma and lte.
+          example: 900372
+          format: integer
+        locationAreaCode:
+          type: integer
+          description: >-
+            The Location Area Code (LAC) for GSM and WCDMA networks.
+          example: 57
+          format: integer
+        mobileCountryCode:
+          type: integer
+          description: >-
+            The cell tower's Mobile Country Code (MCC).<br>Valid range: 0–999.
+          example: 405
+          format: integer
+        mobileNetworkCode: 
+            type: string
+            example: 872
+            description: >-
+              The cell tower's Mobile Network Code. This is the MNC for GSM, WCDMA, LTE and NR.<br> Valid range for MNC: 0-999 and for SID: 0-32767
+            format: string
+    location:
+      title: estimated Location
+      type: object
+      description: >-
+        The estimated geolocation i.e. latitude and longitude, in degrees.
+      required:
+        - lon
+        - lat
+      properties:
+        lon:
+          type: number
+          description: 'It shows us the longitude of the estimated location.'
+          format: double
+          example: 77.268947
+        lat:
+          type: number
+          description: 'It shows us the latitude of the estimated location.'
+          format: double
+          example: 28.550847
+    result:
+      title: Estimated Geolocation
+      description: 'The estimated geolocation i.e. latitude and longitude, in degrees.'
+      type: object
+      required:
+        - location
+      properties:
+        location:
+          $ref: '#/components/schemas/location'
+  securitySchemes:
+    BearerAuth: 
+      type: http
+      scheme: bearer
+      bearerFormat: 'bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6'
