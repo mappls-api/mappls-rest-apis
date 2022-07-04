@@ -28,7 +28,7 @@ paths:
         <p style=text-align:right><strong><a href="https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-vector-maps-auto-suggest-api-example.php">Live Demo</a></p>
       summary: >-
          Geolocation API
-      operationId: AutoSuggestAPI
+      operationId: GeolocationAPI
       # parameters:
       #   # - name: Authorization
       #   #   in: header
