@@ -25,7 +25,6 @@ paths:
       description: >-
         The Geolocation API returns a location on the basis of cell tower information that any mobile client can detect.<br>
         Any mobile user will send the information of all the connected or recently connected cell towers information in the API, Now API will articulate approximate user location on the basis of the provided cell towers information. Mappls will use its cell towers geo-location database to calculate the approximate geo-location of the user.<br><br>This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php).
-        <p style=text-align:right><strong><a href="https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-vector-maps-auto-suggest-api-example.php">Live Demo</a></p>
       summary: >-
          Geolocation API
       operationId: GeolocationAPI
