@@ -74,6 +74,7 @@ curl --location --request GET 'https://apis.mappls.com/advancedmaps/v2/distance?
 1. `date_time`: This is the local date and time at the source location along with its type. The date and time is specified in ISO 8601 format (YYYY-MM-DDThh:mm) in the local time zone of departure. For example `2020-07-24T12:00`. Applicable types are: 
 	- `0`: Current departure time.
 	- `1`: Specified departure time.
+    - `2`: Specified arrival time. 
 - Example: `date_time=1,2021-12-20T11:00`
 
 
