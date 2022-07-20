@@ -73,7 +73,7 @@ paths:
           in: query
           description: >-
             This is the local date and time at the source location along with its type. The date and time is specified in ISO 8601 format (YYYY-MM-DDThh:mm) in the local time zone of departure. For example `2020-07-24T12:00`.
-            Applicable types are: <br><ul><li>`0`: Current departure time.</li><li>`1`: Specified departure time.</li></ul>
+            Applicable types are: <br><ul><li>`0`: Current departure time.</li><li>`1`: Specified departure time.</li><li>`2`: Specified arrival time.</li></ul>
           allowEmptyValue: false
           schema:
             type: string
