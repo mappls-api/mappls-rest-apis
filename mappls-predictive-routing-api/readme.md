@@ -44,7 +44,7 @@ GET
 ## Contructing the request cURL
 
 ```c
-curl --location --request GET 'https://apis.mapmyindia.com/advancedmaps/v2/route?locations=80.014307,12.993915;81.835378,25.358969&profile=driving&speedTypes=optimal&date_time=0,""' \
+curl --location --request GET 'https://apis.mappls.com/advancedmaps/v2/route?locations=80.014307,12.993915;81.835378,25.358969&profile=driving&speedTypes=optimal&date_time=0,""' \
 --header 'Authorization: bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6'
 ```
 
@@ -202,7 +202,7 @@ curl --location --request GET 'https://apis.mapmyindia.com/advancedmaps/v2/route
 ## Sample cURL Request
 
 ```c
-curl --location --request GET 'https://apis.mapmyindia.com/advancedmaps/v2/route?locations=77.231416,28.6186381;77.2355289,28.627248&profile=driving&speedTypes=traffic&date_time=0,""' \
+curl --location --request GET 'https://apis.mappls.com/advancedmaps/v2/route?locations=77.231416,28.6186381;77.2355289,28.627248&profile=driving&speedTypes=traffic&date_time=0,""' \
 --header 'Authorization: bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6'
 ```
 
