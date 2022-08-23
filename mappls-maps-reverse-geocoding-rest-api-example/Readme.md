@@ -32,6 +32,20 @@ GET
 JSON
 
 
+## Response Codes {as HTTP response code}
+
+- 200: To denote a successful API call.
+- 204: DB Connection error.
+- 400: Bad Request, User made an error while creating a valid request.
+- 401: Unauthorized, Developer’s key is not allowed to send a request.
+- 403: Forbidden, Developer’s key has hit its daily/hourly limit or IP or domain not white-listed.
+- 404: HTTP not found
+- 412: Precondition Failed, i.e. Mandatory parameter is missing
+- 500: Internal Server Error, the request caused an error in our systems.
+- 503: Service Unavailable, during our maintenance break or server down-times.
+
+<br><br>
+
 ## Request Parameters
 The “**bold**” one’s are mandatory, and the “*italic*” one’s are optional.
 
@@ -40,6 +54,30 @@ The “**bold**” one’s are mandatory, and the “*italic*” one’s are opt
 3.  **`Licence_key`**: The REST API licence key allocated to you by signing into our services and registering yourself as a developer (28 Char Alphanumeric).
 4.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md). Default is India (IND)
 5.  *`lang`* (string): This parameter accepts the "hi" (ISO 639-1 Language Code for Hindi) as a value. 
+
+## Response Parameters
+1. **`responseCode`**: The response code value for the API request call.
+2. **`version`**: The version changes after data update. The version numbers are internal.
+3. **`results`**: The data returned for the request made with input parameters. Below are the each response components :
+   - **`houseNumber`**: The house number (if exists) of the location sent in the request. 
+   - **`houseName`**: The house name (if exists) of the location sent in the request.
+   - **`poi`**: The POI name of the location (if exists) for the given location.
+   - **`poi_dist`**: The distance between of the given location and the POI.
+   - **`street`**: The available street name for the given location or the nearest street name from the given location.
+   - **`street_dist`**:  The distance from street to the point given in the request.
+   - **`subSubLocality`**: The sub-sub locality name (if exists) for the given location.
+   - **`subLocality`**: The sub locality name (if exists) for the given location.
+   - **`locality`**: The locality name (if exists) for the given location.
+   - **`village`**: The village name if the given location in request is nearby village. If village name is coming in the response, city name and locality names will not be present in the response. The locations are defined on the basis of urban and rural regions.
+   - **`district`**: The district name of the given location.
+   - **`subDistrict`**: The sub district name of the given location.
+   - **`city`**: The city name of the given location. There will be no village name in case of the availibilty of city name.  The locations are defined on the basis of urban and rural regions.
+   - **`state`**: The state name of the given location.
+   - **`pincode`**:  The pincode of the given location. 
+   - **`lat`**: The latitude value of the given location in the request. 
+   - **`lng`**: The longitude value of the given location in the request.
+   - **`area`**: The country name of the given location.
+   - **`formatted_address`**: The compelete formatted address for the passed location in the request.
 
 
 ## Sample Input
