@@ -16,13 +16,15 @@ Before using the API in the your solution, please ensure that the related access
     - To know more on how to create your access tokens, please use our authorization API URL. More details available [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php)
     - The `access token` is a valid by default for 24 hours from the time of generation. This can be configured by you in the API console.
 2. **`Security Type`**
-    
+    VRP
     This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php)
 
 ## Introduction
-The Goal in vehicle routing problem (VRP) is to get an optimal set of routes for a fleet of vehicles to traverse in order to deliver to a given set of customers. It generalizes the well-known travelling salesman problem (TSP). The objective of this API is to minimize the duration, vehicles used & distance travelled(optimized route), so it can reduce the overall cost and provide maximum profit.
+The Goal in route optimization (Job Assignment & Route Optimization) is to get an optimal set of routes for a fleet of vehicles to traverse in order to deliver to a given set of customers. It generalizes the well-known travelling salesman problem (TSP). 
 
-This is the `GET` method API where we need to pass the `requestID` received from Post Optimization API output to get the status or the desired output of VRP.
+The objective of this API is to minimize the duration, determine and minimize vehicles used & optimize the distance travelled(optimized route), so it can reduce the overall cost and provide maximum profit.
+
+This is the `GET` method API where we need to pass the `requestID` received from Post Optimization API output to get the status or the desired output of Route Optimization.
 
 ## Output Description
 
@@ -203,7 +205,7 @@ There is only one parameter in the Get Optimization Solution API. The query para
 7. 503: Maintenance Break.
 ### Sample Input (cURL)
 ```
-Curl --location --request	GET 'https://apis.mappls.com/advancedmaps/vrp/v1/getOptimizationSolution?requestId=1da827b1-bf8f-11eb-afd9-4134b973424d' \
+Curl --location --request	GET 'https://apis.mappls.com/advancedmaps/Route Optimization/v1/getOptimizationSolution?requestId=1da827b1-bf8f-11eb-afd9-4134b973424d' \
 --header 'token: axxfxxddxxexx29xx5xx0xxdxxeexx77'
 ```
 ### Sample Output(JSON) 

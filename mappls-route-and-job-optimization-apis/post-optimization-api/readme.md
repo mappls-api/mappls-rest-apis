@@ -20,9 +20,11 @@ Before using the API in the your solution, please ensure that the related access
 
 
 ## Introduction
-The Goal in vehicle routing problem (VRP) is to get an optimal set of routes for a fleet of vehicles to traverse in order to deliver to a given set of customers. It generalizes the well-known travelling salesman problem (TSP). The objective of this API is to minimize the duration, vehicles used & distance travelled(optimized route), so it can reduce the overall cost and provide maximum profit.
+The Goal in route optimization (Job Assignment & Route Optimization) is to get an optimal set of routes for a fleet of vehicles to traverse in order to deliver to a given set of customers. It generalizes the well-known travelling salesman problem (TSP). 
 
-The Post Optimization API request will provide a `requestID` which then needs to pass through a `GET` request method Get Optimization API to get the status or the desired output of VRP.
+The objective of this API is to minimize the duration, determine and minimize vehicles used & optimize the distance travelled(optimized route), so it can reduce the overall cost and provide maximum profit.
+
+The Post Optimization API request will provide a `requestID` which then needs to pass through a `GET` request method Get Optimization API to get the status or the desired output of Route Optimization.
 
 <img src="https://about.mappls.com/api/optimisation/images/cost-efficient-route.gif?raw=true" style="margin-left:auto;margin-right:auto"/>
 
@@ -150,7 +152,6 @@ An error is reported if two `delivery` (resp. `pickup`) objects have the same `i
 - if `end` is omitted, the resulting route will stop at the last visited task, whose choice is determined by the optimization process.
 - if `start` is omitted, the resulting route will start at the first visited task, whose choice is determined by the optimization process.
 - to request a round trip, just specify both `start` and `end` with the same coordinates.
-- Currently available driving profile is "car" only(by default).
 
 
 ### Capacity restrictions
@@ -297,7 +298,7 @@ The “bold” one’s are mandatory, and the “italic” one’s are optional.
 7. 503: Maintenance Break.
 
 ### Sample Input (cURL)
-```c
+```js
 curl --location --request POST 'https://apis.mappls.com/advancedmaps/vrp/v1/postOptimizationRequest' \
 --header 'token: 9bxxxxxx-xx1c-4xxx-xxx6-xxxxd54dxxxf' \
 --header 'Content-Type: application/json' \

@@ -1,9 +1,11 @@
 [<img src="https://about.mappls.com/api/img/mapmyindia-api.png" height="40"/> </p>](https://about.mappls.com/api/)
 
-# Vehicle Routing Problem APIs
+# Route Optimization APIs
 
 ## Introduction
-The Goal in vehicle routing problem (VRP) is to get an optimal set of routes for a fleet of vehicles to traverse in order to deliver to a given set of customers. It generalizes the well-known travelling salesman problem (TSP). The objective of this API is to minimize the duration, vehicles used & distance travelled(optimized route), so it can reduce the overall cost and provide maximum profit.
+The Goal in route optimization (Job Assignment & Route Optimization) is to get an optimal set of routes for a fleet of vehicles to traverse in order to deliver to a given set of customers. It generalizes the well-known travelling salesman problem (TSP). 
+
+The objective of this API is to minimize the duration, determine and minimize vehicles used & optimize the distance travelled(optimized route), so it can reduce the overall cost and provide maximum profit.
 
 <img src="https://about.mappls.com/api/optimisation/images/cost-efficient-route.gif?raw=true" style="margin-left:auto;margin-right:auto"/>
 
@@ -32,21 +34,21 @@ The Goal in vehicle routing problem (VRP) is to get an optimal set of routes for
 
 
 
-## VRP Variants
+## Route Optimization Variants
 - **Travelling Salesman Problem(TSP)** - This is basically Route Via point Optimization.  
 
-- **Capacitated Vehicle Routing Problem (CVRP)** - The vehicles have a limited carrying capacity of the goods that must be delivered. It can be single or multi quantity dimensions(e.g. volume, weight, number of packets etc.)
+- **Capacitated Route Optimization** - The vehicles have a limited carrying capacity of the goods that must be delivered. It can be single or multi quantity dimensions(e.g. volume, weight, number of packets etc.)
   <img src="https://about.mappls.com/api/optimisation/images/carrying_capacity.gif?raw=true" style="margin-left:auto;margin-right:auto"/>
 
-- **Vehicle Routing Problem with Time Windows (VRPTW)** - The delivery locations have time windows within which the deliveries (or visits) must be made.
+- **Route Optimization with Time Windows** - The delivery locations have time windows within which the deliveries (or visits) must be made.
 
   <img src="https://about.mappls.com/api/optimisation/images/time_window.jpg?raw=true" style="margin-left:auto;margin-right:auto"/>
 
-- **Vehicle Routing Problem with Profits/Priority (VRPP)** - A maximization problem where it is not mandatory to visit all customers. The aim is to visit once customers maximizing the sum of collected profits while respecting a vehicle time limit. Vehicles are required to start and end at the depot.
+- **Route Optimization with Profits/Priority** - A maximization problem where it is not mandatory to visit all customers. The aim is to visit once customers maximizing the sum of collected profits while respecting a vehicle time limit. Vehicles are required to start and end at the depot.
 
   <img src="https://about.mappls.com/api/optimisation/images/profitability_priority.jpg?raw=true" style="margin-left:auto;margin-right:auto"/>
 
-- **Vehicle Routing Problem with Skill Sets** - List of vehicle skill(s). A delivery/pickup can only be served by the vehicle if its required skills is a subset of vehicle skills.
+- **Route Optimization with Skill Sets** - List of vehicle skill(s). A delivery/pickup can only be served by the vehicle if its required skills is a subset of vehicle skills.
 
   <img src="https://about.mappls.com/api/optimisation/images/certain_jobs_1.gif?raw=true" style="margin-left:auto;margin-right:auto"/>
 
@@ -64,6 +66,8 @@ Format: JSON
 <br>
 
 ## Vehicles
+
+**Bold** ones are mandatory; *italic* ones are optional parameters.
 
 A `vehicle` object has the following properties:
 
@@ -86,47 +90,50 @@ Note: An error will be reported if two `break` objects have the same `id` for th
 
 ## Jobs
 
+**Bold** ones are mandatory; *italic* ones are optional parameters.
+
 It is assumed that all delivery-related amounts for jobs are loaded at vehicle start, while all pickup-related amounts for jobs are brought back at vehicle end.
 
 A `job` object has the following properties:
 
 - **`id`** (integer) : Unique id assigned to job.
-- **`description`** (string) : A string describing this job.
+- *`description`* (string) : A string describing this job.
 - **`location`** (array) : Coordinates array of job location.
-- **`service`** (integer) : job service duration (defaults to 0).
+- *`service`* (integer) : job service duration (defaults to 0).
 - **`delivery`** (integer) : An array of integers describing multidimensional quantities for delivery.
 - **`pickup`** (integer) : An array of integers describing multidimensional quantities for pickup. 
-- **`skills`** (integer) :  An array of integers defining mandatory skills.
-- **`priority`** (integer) : An integer in the `[0, 100]` range describing priority level (defaults to 0).
-- **`time_windows`** (array) : An array of `time_window` objects describing valid slots for job service start.   
+- *`skills`* (integer) :  An array of integers defining mandatory skills.
+- *`priority`* (integer) : An integer in the `[0, 100]` range describing priority level (defaults to 0).
+- *`time_windows`* (array) : An array of `time_window` objects describing valid slots for job service start.   
 Note: An error is reported if two `job` objects have the same `id`.
 
 ## Shipments
+**Bold** ones are mandatory; *italic* ones are optional parameters.
 
 A `shipments` object has the following properties:
 
-1. `pickup`(object):  object describing pickup shipments step.
-    - `id`(integer): unique ID of the shipments step.
-    - `description`(string): a string describing this step
-    - `location`(array): coordinate pair [lon,lat]
-    - `setup`(integer): task setup duration (defaults to 0)
-    - `service`(intger): task service duration (defaults to 0)
-    - `time_windows`(array): an array of `time_window` objects describing valid slots for task service start
-2. `delivery`(object):  object describing delivery shipments step.
-    - `id`(integer): unique ID of the shipments step.
-    - `description`(string): a string describing this step
-    - `location`(array): coordinate pair [lon,lat]
-    - `setup`(integer): task setup duration (defaults to 0)
-    - `service`(intger): task service duration (defaults to 0)
-    - `time_windows`(array): an array of `time_window` objects describing valid slots for task service start
-3. `amount`(array): an array of integers describing multidimensional quantities
-4. `skills`(array): an array of integers defining mandatory skills
-5. `priority`(integer): an integer in the `[0, 100]` range describing priority level (defaults to 0)
+1. **`pickup`**(object):  object describing pickup shipments step.
+    - **`id`**(integer): unique ID of the shipments step.
+    - *`description`*(string): a string describing this step
+    - **`location`**(array): coordinate pair [lon,lat]
+    - *`setup`*(integer): task setup duration (defaults to 0)
+    - *`service`*(intger): task service duration (defaults to 0)
+    - *`time_windows`*(array): an array of `time_window` objects describing valid slots for task service start
+2. **`delivery`**(object):  object describing delivery shipments step.
+    - **`id`**(integer): unique ID of the shipments step.
+    - *`description`*(string): a string describing this step
+    - **`location`**(array): coordinate pair [lon,lat]
+    - *`setup`*(integer): task setup duration (defaults to 0)
+    - *`service`*(intger): task service duration (defaults to 0)
+    - *`time_windows`*(array): an array of `time_window` objects describing valid slots for task service start
+3. *`amount`*(array): an array of integers describing multidimensional quantities
+4. *`skills`*(array): an array of integers defining mandatory skills
+5. *`priority`*(integer): an integer in the `[0, 100]` range describing priority level (defaults to 0)
 
 ### 3.A shipments Step
 
 A `shipments_step` is similar to a `job` object (expect for shared keys already present in `shipments`)
-An error is reported if two `delivery` (resp. `pickup`) objects have the same `id`.
+An error is reported if two `delivery` (or `pickup`) objects have the same `id`.
 
 
 ## Notes
@@ -138,11 +145,10 @@ An error is reported if two `delivery` (resp. `pickup`) objects have the same `i
 - all distances are in meters
 - `waiting_time` is calculated on the earliness factor, It means if a vehicle has arrived before the time_window of the job to be performed then the wait between the start time (in time_window) and arrival time(of vehicle) is `waiting_time`.
 - `cost` values in output are the one used in the optimization objective (currently equal to duration)
-- key `start` and end are optional for a vehicle, as long as at least one of them is present
+- key `start` and `end` are optional for a vehicle, as long as at least one of them is present
 - if `end` is omitted, the resulting route will stop at the last visited task, whose choice is determined by the optimization process
 - if `start` is omitted, the resulting route will start at the first visited task, whose choice is determined by the optimization process
 - to request a round trip, just specify both `start` and `end` with the same coordinates
-- Currently available driving profile is "car" only(by default).
 
 <br>
 
@@ -177,6 +183,7 @@ some control on which tasks are unassigned. Setting a high `priority`
 value for some tasks will tend as much as possible to have them
 included in the solution over lower-priority tasks.
 <br> <br>
+
 ### Time windows
 
 - **absolute values**, "real" timestamps. In that case all times reported in output with the `arrival` key can be interpreted as timestamps.
@@ -192,7 +199,7 @@ vehicles/tasks time windows.
 <br>
 
 ## Asynchronous API Call
-At first input(vehicles & jobs) is given via `POST` Request which will provide a `requestID` which then needs to pass through a `GET` Request to get the status or the desired output of VRP. So in this asynchronous call you do not halt all other operations while waiting for the API call to return.
+At first input(vehicles & jobs) is given via `POST` Request which will provide a `requestID` which then needs to pass through a `GET` Request to get the status or the desired output of Route Optimization. So in this asynchronous call you do not halt all other operations while waiting for the API call to return.
 
 The details of `POST` and `GET` request of the API are given in the separate documents.
 <br>
