@@ -217,15 +217,15 @@ The “**bold**” one’s are mandatory, and the “*italic*” one’s are opt
 				- `out`: index into the bearings/entry array. Used to extract the bearing just after the turn. Namely, The clockwise angle from true north to the direction of travel immediately after the maneuver/passing the intersection. The value is not supplied for arrive maneuvers.
 				- `lanes`: Array of Lane objects that denote the available turn lanes at the intersection. If no lane information is available for an intersection, the lanes property will not be present.
 					- `valid`: verifying lane info.
-					- `indications`: Indicating a sign of directions like Straight, Slight Left, Right, etc. To see the complete list of indications, please see [article](https://github.com/Mappls-api/mappls-rest-api/wiki/indications) in wiki.
+					- `indications`: Indicating a sign of directions like Straight, Slight Left, Right, etc. To see the complete list of indications, please see [article](https://github.com/Mappls-api/mappls-rest-api/docs/indications) in wiki.
 			- `driving_side`: “Left” (default) for India, Sri Lanka, Nepal, Bangladesh & Bhutan.
 			- `mode`: signifies the mode of transportation; driving as default.
 			- `maneuver`: A StepManeuver object representing a maneuver
 				- `location`: A [longitude, latitude] pair describing the location of the turn.
 				- `bearing_before`: The clockwise angle from true north to the direction of travel immediately before the maneuver.
 				- `bearing_after`: The clockwise angle from true north to the direction of travel immediately after the maneuver.
-				- `modifier`: An optional string indicating the direction change of the maneuver. To see the complete list of modifiers, please see [article](https://github.com/Mappls-api/mappls-rest-api/wiki/modifiers) in wiki.
-				- `type`: A string indicating the type of maneuver. New identifiers might be introduced without API change. Types unknown to the client should be handled like the ‘turn’ type, the existence of correct modifier values is guaranteed. To see the complete list of types, please see [article](https://github.com/Mappls-api/mappls-rest-api/wiki/types) in wiki.
+				- `modifier`: An optional string indicating the direction change of the maneuver. To see the complete list of modifiers, please see [article](https://github.com/Mappls-api/mappls-rest-api/docs/modifiers) in wiki.
+				- `type`: A string indicating the type of maneuver. New identifiers might be introduced without API change. Types unknown to the client should be handled like the ‘turn’ type, the existence of correct modifier values is guaranteed. To see the complete list of types, please see [article](https://github.com/Mappls-api/mappls-rest-api/docs/types) in wiki.
 			- `distance`: The distance of travel to the subsequent step, in float meters
 			- `duration`: The estimated travel time, in float number of seconds
 			- `geometry`: The un-simplified geometry of the route segment, depends on the given geometries parameter.
@@ -314,12 +314,12 @@ JSON: response will served as JSON
 
 ### JavaScript Methods
 
-#### [Decoding Geometry](https://github.com/Mappls-api/mappls-rest-api/wiki/Decoding-Geometry---JavaScript)
+#### [Decoding Geometry](https://github.com/Mappls-api/mappls-rest-api/docs/Decoding-Geometry---JavaScript)
 This method is utilized for decoding the geometry sent in the response of the Routing API. 
-#### [Parsing Instructions](https://github.com/Mappls-api/mappls-rest-api/wiki/Parsing-Instructions---JavaScript)
+#### [Parsing Instructions](https://github.com/Mappls-api/mappls-rest-api/docs/Parsing-Instructions---JavaScript)
 This method is utilized for parsing instructions from the Routing API in easy to understand manner for all possible routes offered in the response.
 Apart from the JavaScript methods, this method also utilizes the following CSS for providing the corresponding icons for the instructions.
-##### [CSS for Instruction Icons](https://github.com/Mappls-api/mappls-rest-api/wiki/Instruction-Icons---CSS)
+##### [CSS for Instruction Icons](https://github.com/Mappls-api/mappls-rest-api/docs/Instruction-Icons---CSS)
 
 For more details, please visit our full documentation.
 
