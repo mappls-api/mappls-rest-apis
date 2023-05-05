@@ -34,7 +34,7 @@ Optionally one can specify the `date_time` parameter and get the distance and du
 Supported region (countries) is India at the moment. Please note that maximum number of points are limited to 100 only including source and destination positions.
 
 ## Security Type
-This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php)
+This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://developer.mappls.com/mapping/tokenGeneration)
 
 ## Request Headers
 

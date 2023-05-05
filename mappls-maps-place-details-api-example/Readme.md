@@ -42,7 +42,7 @@ The Atlas API leverages OAuth 2.0 based security. Hence, the developer would nee
 
 ## [1. Security Type](#1_Security_Type)
 
-Atlas OAuth 2.0 based security using AES 256 and SHA-1. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php)
+Atlas OAuth 2.0 based security using AES 256 and SHA-1. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://developer.mappls.com/mapping/tokenGeneration)
 
 ## [1.1 Response Type](#1_1_Response_Type)
 

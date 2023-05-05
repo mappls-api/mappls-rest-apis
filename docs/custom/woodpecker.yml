@@ -1,8 +1,9 @@
 openapi: 3.0.3
 info:
-  title: Address Standardization API
+  title: Address Analytics API
   description: >-
-    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php).<br><br>The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: "{`token_type`} {`access_token`}”. <br><strong>Authorization</strong>: `token_type` `access_token`.<br><br> **Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Search APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between Mappls & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact Mappls API support.</li><li> <strong>PREMIUM APIs/Parameters</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
+    <strong>(erstwhile Address Standardization API)</strong><br><br>
+    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://developer.mappls.com/mapping/tokenGeneration).<br><br>The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: "{`token_type`} {`access_token`}”. <br><strong>Authorization</strong>: `token_type` `access_token`.<br><br> **Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Search APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between Mappls & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact Mappls API support.</li><li> <strong>PREMIUM APIs/Parameters</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
   termsOfService: 'https://about.mappls.com/api/terms-&-conditions'
   version: 1.0.0
   license:
@@ -21,12 +22,13 @@ paths:
   /api/places/woodpecker:
       get:
         tags:
-          - Address Standardization API
+          - Address Analytics API
         description: >-
-          Address Standardization API is a process to convert the non formatted address into the user readable format by omitting unnecessary information in the address. Mappls address standardization API provides real addresses along with admin and other information.<br>This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://about.mappls.com/api/advanced-maps/doc/authentication-api.php).
-          <p style=text-align:right><strong><a href="https://www.mapmyindia.com/api/advanced-maps/woodpecker_demo/">Live Demo</a> </p>
+          MapmyIndia's Address Analytics API is a parsing and standardisation engine enabling a complete flow of address cleansing, extraction, validation and standardisation activities.<br><br>
+          The engine is trained on MapmyIndia’s Comprehensive Address Directory. Address directory is a unified data product representing India addresses at different level of granularity while keeping the hierarchical sanctity of each address. This API supports modular functions (cleansing / parsing / standardization) to utilize the workflow as per the business needs.<br><br>This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://developer.mappls.com/mapping/tokenGeneration).
+          <p style=text-align:right><strong><a href="https://mmi.mapmyindia.com/api/addressparser_demo/">Live Demo</a> </p>
         summary: >-
-          Address Standardization API
+          Address Analytics API
         operationId: WoodpeckerAPI
         servers:
         - url: https://atlas.mappls.com
@@ -43,27 +45,12 @@ paths:
           #   example: "bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
           - name: address
             in: query
-            description: 'The full human readable address that needs to be standardized'
+            description: 'The full human readable address that needs to be cleansed, parsed and standardized.'
             schema:
               type: string
             allowEmptyValue: false
             required: true
-            example: '237 Okhla industrial estate phase 3 new Delhi, Delhi 110020'
-          - name: bias
-            in: query
-            description: 'parameter value can be set to get the bias result towards the urban or rural side. (Default is 1.5 : urban). Where 1 is neutral and < 1 is rural biased and > 1 is Urban biased.'
-            allowEmptyValue: false
-            example: 1.5
-            schema:
-              type: number
-          - name: uniqueResults
-            in: query
-            description: >-
-              '(valueless): to provide unique results in the `addressInformation` object with alternatives present in the `alternatives` array.
-            allowEmptyValue: true
-            schema:
-              type: boolean
-            example: ''
+            example: '237 Okhla industrial estate phase 3 new Delhi, Delhi 110020'          
         responses:
           '200':
             description: OK
@@ -88,237 +75,131 @@ components:
   schemas:
     WoodpeckerResults:
       title: Woodpecker Result
-      description: The result object which contains the Address Standardization API results.
+      description: The result object which contains the Address Analytics API results.
       type: object
       required: 
         - inputAddress
-        - remainingAddress
-        - referentialInformation
-        - addressInformation
-        - alternatives
-        - formattedAddress
+        - parsedData
+        - standardizedData
       properties:
         inputAddress:
           type: string
-          description: this is the address entered by the user.
+          description: Address given by the user in the request.
           format: string
-          example: '237, MapmyIndia Head Office, Okhla Phase 3, New Delhi, Delhi 110010'
-        remainingAddress:
-          type: string
-          description: this is the address striked out by the API.
-          format: string
-          example: 'mapmyindia head office, okhla new'
-        referentialInformation:
-          $ref: '#/components/schemas/WP1'
-        addressInformation:
+          example: 'Hannah Sen Cottage, Lady Irwin College Campus, Sikandra Road, Mandi House, New Delhi 110001'
+        parsedData:
+          $ref: '#/components/schemas/parsedData'
+        standardizedData:
           $ref: '#/components/schemas/WP3'
-        alternatives:
-          type: array
-          items:
-            $ref: '#/components/schemas/WP10'
+    parsedData:
+      title: parsedData object
+      description: >-
+        The result object which contains the Address Parsing results.
+      type: object
+      required:
+        - formattedAddress
+        - remainingAddress
+        - parsedTokens       
+      properties:
         formattedAddress:
           type: string
-          description: >-
-            The full fomatted human readable address provided after address standardization.
+          description: Concatenated sequence of the parsed tokens.
           format: string
-          example: '237,Mapmyindia Head Office, Okhla Industrial Estate Phase 3, New Delhi, Delhi, 110020'
-    WP1:
-      title: Woodpecker Referential Information
-      description: >-
-        The result object which contains the Address Standardization API results.
-      type: object
-      required:
-        - pincodes
-        - floors
-        - roads
-        - postOffices
-        - careOfs
-        - landmarks
-        - houseNumbers
-        - poi/buildingName
-      properties:
-        pincodes:
+          example: 'Hannah Sen Cottage, Sikandra Road, Lady Irwin College Campus, New Delhi, 110001'
+        remainingAddress:
           type: string
-          description: PIN code tagged from input address if found any.
-          format: string
-          example: '110010'
-        floors:
-          type: string
-          description: Floor info tagged from input address if found any.
-          format: string
-          example: 'Floor No 1'
-        roads:
-          type: string
-          description: Road tagged from the input address if found any.
-          format: string
-          example: 'Okhla Road'
-        postOffices:
-          type: string
-          description: Post offices tagged from the input address if found any.
+          description: Part of input address left after tagging the token information.
           format: string
           example: ''
-        careOfs:
-          type: string
-          description: Care of (C/O) tagged from the input address if found any.
-          format: string
-          example: ''
-        landmarks:
-          type: string
-          description: Landmark tagged from the input address if found any.
-          format: string
-          example: ''
-        houseNumbers:
-          $ref: '#/components/schemas/WP2'
-        poi/buildingName:
+        parsedTokens:
           type: array
           items:
-            type: string
-          example:
-            - "mapmyindia head office"
+            $ref: '#/components/schemas/WP2' 
+          example: 
+            - token: 'Mandi House;Hannah Sen Cottage'
+              tokenType: 'poi/buildingName' 
+            - token: 'Sikandra Road'
+              tokenType: 'street'
+            - token: 'Lady Irwin College Campus'
+              tokenType: 'neighbourhood' 
+            - token: 'New Delhi'
+              tokenType: 'city'
+            - token: '110001'
+              tokenType: 'pincode'                    
     WP2:
-      title: House Numbers Array
-      description: The result object which contains the House Number Arrays of Woodpecker API.
+      title: tokens and token type
+      description: The address token information tagged from the provided input address, if any are found.
       type: object
       required:
-        - prefix
-        - houseNo
-        - formatted
+        - token
+        - tokenType
       properties:
-        prefix:
+        token:
           type: string
-          description: ''
+          description: 'The value(s) of the parsed address component. If an address token has more than one value, they are separated by a semicolon (";").'
           format: string
-          example: ''
-        houseNo:
+        tokenType:
           type: string
-          description: ''
+          description: 'the type of the token for this address component. Token type can belong to any one of the following types:'
           format: string
-          example: '237'
-        formatted:
-          type: string
-          description: ''
-          format: string
-          example: '237'
+          enum: ['careOf','floor','buildingNumber','poi/buildingName','street','landmark','neighbourhood','village','postOffice','subDistrict','district','city','state','pincode','country']
     WP3:
-      title: Address Information Object
-      description: The result object which contains the Address Standardization API results.
+      title: standardizedData Object
+      description: The result object which contains the standardized Data results.
       type: object
       required:
-        - adminDetails
-        - adminPattern
+        - formattedAddress
+        - remainingAddress
+        - standardizedTokens
       properties:
-        adminDetails:
-          $ref: '#/components/schemas/WP4'
-        adminPattern:
+        formattedAddress:
+          type: string
+          description: Concatenated sequence of the parsed and standardized tokens.
+          format: string
+          example: 'Hannah Sen Cottage, Sikandra Road, Mandi  Lady Irwin College Campus, New Delhi, Delhi, 110001'
+        remainingAddress:
+          type: string
+          description: Part of input address left after tagging the admin and other information.
+          format: string
+          example: 'Campus House'
+        standardizedTokens:
           type: array
           items:
-            type: string
-          example:
-            - "state"
-            - "city"
-            - "locality"
-            - "subLocality"
+            $ref: '#/components/schemas/WP4' 
+          example: 
+            - token: 'Hannah Sen Cottage'
+              tokenType: 'poi/buildingName' 
+            - token: 'Sikandra Road'
+              tokenType: 'street'
+            - token: '110001'
+              tokenType: 'pincode'
+            - token: 'Mandi; Lady Irwin College Campus'
+              tokenType: 'locality' 
+            - token: 'New Delhi'
+              tokenType: 'city'
+            - token: 'Delhi'
+              tokenType: 'state'
     WP4:
-      title: Admin Details of Woodpecker API
-      description: The result object which contains the Admin Details of Address Standardization API results
+      title: tokens and token type
+      description: The information tagged, standardized/corrected from the input address as well as additional information in the form of missing components(if applicable) while validating the address.
       type: object
       required:
-        - state
-        - locality
-        - city
-        - sublocality
-        - subsublocality
+        - token
+        - tokenType
       properties:
-        state:
-          $ref: '#/components/schemas/WP5'
-        locality:
-          $ref: '#/components/schemas/WP6'
-        city:
-          $ref: '#/components/schemas/WP7'
-        sublocality:
-          $ref: '#/components/schemas/WP8'
-        subsublocality:
-          $ref: '#/components/schemas/WP9'
-    WP5:
-      title: State Original Name
-      type: object
-      required:
-        - originalName
-      properties:
-        originalName:
+        token:
           type: string
-          description: ''
+          description: 'The value(s) of the parsed address component. If an address token has more than one value, they are separated by a semicolon (";").'
           format: string
-          example: 'Delhi'
-    WP6:
-      title: locality Original Name
-      type: object
-      required:
-        - originalName
-      properties:
-        originalName:
-          type: string
-          description: ''
-          format: string
-          example: 'New Moti Nagar'
-    WP7:
-      title: city Original Name
-      type: object
-      required:
-        - originalName
-      properties:
-        originalName:
-          type: string
-          description: ''
-          format: string
-          example: 'New Delhi'
-    WP8:
-      title: sublocality Original Name
-      type: object
-      required:
-        - originalName
-      properties:
-        originalName:
-          type: string
-          description: ''
-          format: string
-          example: 'Phase 3'
-    WP9:
-      title: subsublocality Original Name
-      type: object
-      required:
-        - originalName
-      properties:
-        originalName:
-          type: string
-          description: ''
-          format: string
-          example: 'Okhla'
-    WP10:
-      title: alternatives
-      type: object
-      required:
-        - adminPattern
-        - originalName
-        - addressParts
-      properties:
-        adminPattern:
+        tokenType:
           type: string
           description: >-
-            one of the list of standardized `adminType` tags extracted from the input address.
+            The type of the token for this address component.
+            <br>
+            Note: For `pincode` field: Standardized pincode information. It can have multiple value seperated by semicolon(";"). In case of multiple values, the first value indicates the parsed pincode as extracted from input address followed by the standardized pincode values.
+            <br>Token type can belong to any one of the following types:
           format: string
-          example: 'locality'
-        originalName:
-          type: string
-          description: 'Original name of the admin.'
-          format: string
-          example: 'Okhla'
-        addressParts:
-          type: string
-          description: >-
-            the input address sub-string againsts which this alternate address object is provided.
-          format: string
-          example: 'Okhla Industrial Estate Phase 1'
+          enum: ['careOf','floor','buildingNumber','poi/buildingName','street','landmark','subSubLocality','subLocality','locality',village','postOffice','subDistrict','district','city','state','pincode']
   securitySchemes:
     BearerAuth: 
       type: http
