@@ -46,7 +46,7 @@ GET
 ## Input URL
 
 ```html
-https://atlas.mapmyindia.com/api/places/addressAnalytics?
+https://atlas.mappls.com/api/places/addressAnalytics?
 ```
 
 ## Request Parameters
@@ -131,7 +131,7 @@ Not Applicable
 ## Sample Input cURL
 
 ```js
-curl --location 'https://atlas.mapmyindia.com/api/places/addressAnalytics?address=Hannah%20Sen%20Cottage%2C%20Lady%20Irwin%20College%20Campus%2C%20Sikandra%20Road%2C%20Mandi%20House%2C%20New%20Delhi%20110001' \
+curl --location 'https://atlas.mappls.com/api/places/addressAnalytics?address=Hannah%20Sen%20Cottage%2C%20Lady%20Irwin%20College%20Campus%2C%20Sikandra%20Road%2C%20Mandi%20House%2C%20New%20Delhi%20110001' \
 --header 'Authorization: bearer 6xxxxxx4-9xxx-xxx7-xxxb-8dxxa7xxxdc' 
 ```
 

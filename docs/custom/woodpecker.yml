@@ -19,7 +19,7 @@ servers:
 security: 
   - BearerAuth: []
 paths:
-  /api/places/woodpecker:
+  /api/places/addressAnalytics:
       get:
         tags:
           - Address Analytics API
