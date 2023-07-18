@@ -1,4 +1,4 @@
-﻿[<img src="https://about.mappls.com/api/img/mapmyindia-api.png" height="40"/> </p>](https://about.mappls.com/api/)
+﻿[<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 # Nearby API
 
 **Easy To Integrate Maps & Location APIs & SDKs For Web & Mobile Applications**

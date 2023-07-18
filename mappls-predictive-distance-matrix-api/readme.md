@@ -1,4 +1,4 @@
-[<img src="https://about.mappls.com/api/img/mapmyindia-api.png" height="40"/> </p>](https://about.mappls.com/api/)
+[<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 
 # Mappls Distance-Time Matrix API for Predictive ETA
 
@@ -18,12 +18,14 @@ You can get your api key to be used in this document here: [https://about.mappls
 | Version | Last Updated | Author |
 | ---- | ---- | ---- |
 | 0.0.1 | November 2021 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
+| 0.0.2 | July 2023 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
 
 ## API Version History
 
 | Version | Last Updated | Author | Revised Sections |
 | ---- | ---- | ---- | ---- |
 | 0.1 | 2021-06-17 | Mappls API Team ([PS](https://github.com/map-123)) | Initial release |
+| 0.2 | 2021-07-01 | Mappls API Team ([PS](https://github.com/map-123)) | standardizing request & response |
 
 ## Introduction
 
@@ -49,7 +51,7 @@ GET
 ## Contructing the request cURL
 
 ```c
-curl --location --request GET 'https://apis.mappls.com/advancedmaps/v2/distance?source=28.550614332693453,77.26893112158996&target=28.566618140144396,77.20815617692985&costing=auto&speedTypes=predictive&date_time=1,2021-12-20T11:00' \
+curl --location --request GET 'https://apis.mappls.com/advancedmaps/v2/distance?source=77.26893112158996,28.550614332693453&target=77.20815617692985,28.566618140144396&profile=driving&speedTypes=predictive&date_time=1,2021-12-20T11:00' \
 --header 'Authorization: bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6'
 ```
 
@@ -59,14 +61,22 @@ curl --location --request GET 'https://apis.mappls.com/advancedmaps/v2/distance?
 ### Mandatory Parameters
 
 1.  `source`: The set of source positions, separated by a semi-colon. The input is supported as a set of latitude,longitude separated by a semi-colon(;).
-	- For example `28.555390931473642,77.08572454324664;28.152390931473642,77.42172454324664`.
+	- For example `77.08572454324664,28.555390931473642;77.42172454324664,28.152390931473642`.
 2. `target`: The set of destination positions, separated by a semi-colon. The input is supported as a set of latitude,longitude separated by a semi-colon(;).
-	- For example `28.555390931473642,77.08572454324664;28.152390931473642,77.42172454324664`.
-3. `costing`:  Profile for routing engine. Currently the only applicable profile is set to automatic detection or `auto`. 
-	- Example `costing=auto`.
+	- For example `77.08572454324664,28.555390931473642;77.42172454324664,28.152390931473642`.
+3. `profile`:  Profile for routing engine. Choose of the available profiles available: 
+    - `driving`: for 4 wheelers.
+    - `walking`: for pedestrians.
+    - `biking`: for motorized 2 wheelers.
+    - `trucking`: for heavy vehicles.
+
+    Example `profile=driving`.
 4. `speedTypes`: To specify the type of ETA calculations. Available values are: 
 	- `predictive` (default) - used to specify predictive ETA calculation. In case if this is used, then the optional parameter of `date_time` becomes mandatory.
-	- `optimal`: To specify ETA calculation acc. to current time.
+	- `optimal`: To specify ETA calculation acc. to current time but on the basis of historical traffic patterns.
+    - `traffic`: To specify ETA calculation on the basis of live traffic. If `speedTypes` is `traffic`, then input `date_time` value of `0,""` is required.
+
+    The default value is `optimal`.
 
 
 ### Optional Parameters
@@ -97,6 +107,15 @@ JSON: response will served as JSON
     - `to_index` - The destination index into the locations array.
 5.  `units`: Distance units for output. Allowable unit types are mi (miles) and km (kilometers). If no unit type is specified, the units defaults to kilometers.
 
+### Optional Parametes for `trucking` profile
+
+1. `height`: (float)  - The height of the truck (in meters).
+2. `width`: (float)  - The width of the truck (in meters).
+3. `length`: (float)  - The length of the truck (in meters). Default is `21.64`.
+4. `weight`: (float)  - The weight of the truck (in metric tons). Default is `21.77`.
+5. `axle_load`: (float)  - The axle load of the truck (in metric tons). Default is `9.07`.
+6. `hazmat`: (boolean)  - A value indicating if the truck is carrying hazardous materials. Default is `false`.
+
 
 ## Response Codes {as HTTP response code}
 
@@ -107,11 +126,11 @@ JSON: response will served as JSON
 | 	400	 | 	Failed to parse request	 | 	You need a valid request
 | 	400	 | 	Failed to parse location	 | 	You need a valid location object in your json request
 | 	400	 | 	Failed to parse correlated location	 | 	There was a problem with the location once correlated to the routing network
-| 	400	 | 	No costing provided	 | 	You forgot the costing parameter
+| 	400	 | 	No profile provided	 | 	You forgot the profile parameter
 | 	400	 | 	Insufficient number of locations provided	 | 	You didn't provide enough locations
 | 	400/401	 | 	Exceeded max route locations of X	 | 	You are asking for too many locations
 | 	400	 | 	Locations are in unconnected regions.  | 	You are routing between regions of no connectivity
-| 	400	 | 	No costing method found for 'X'	 | 	You are asking for a non-existent costing mode
+| 	400	 | 	No profile method found for 'X'	 | 	You are asking for a non-existent profile mode
 | 	400	 | 	No suitable road network near location	 | 	There were no roads applicable to your mode of travel near the input location
 | 	400	 | 	No data found for location	 | 	There was no route data found at the input location
 | 	400	 | 	No path could be found for input	 | 	There was no path found between the input locations
