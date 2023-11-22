@@ -453,7 +453,7 @@ components:
           format: string
           example: 'Delhi'
         pincode:
-          type: integer
+          type: string
           description: PINcode of the location.
           format: string
           example: '110010'
