@@ -31,29 +31,13 @@ paths:
         content:
           'application/x-www-form-urlencoded':
             schema:
-             properties:
-                grant_type: 
-                  description: >-
-                    The grant type applicable to the token. By default, it is set at "client_credentials".
-                  type: string
-                  example: "client_credentials"
-                client_id:
-                  description: >-
-                    The client ID provided to thec client for accessing oAuth 2 based APIs.
-                  type: string
-                  example: "this-is-client-id-provided-to-client"
-                client_secret: 
-                  description: >-
-                    The client secret provided to thec client for accessing oAuth 2 based APIs.
-                  type: string
-                  example: "this-is-client-secret-provided-to-client"
-             required:
-               - grant_type
-               - client_id
-               - client_secret
+             $ref: '#/components/schemas/clientDetails'
       responses:
         '200':
-          description: OK
+          description: >-
+            OK.
+            <br><br>
+            Note: If you face CORS errors while using Mappls MapmyIndia APIs, please request API support to enable CORS on your "client_credentials". However, it is not recommended to expose credentials by using them in a JS (for CORS) environment.
           content:
             application/json:
               schema:
@@ -104,3 +88,29 @@ components:
         client_id: 
           type: 'string'
           example: 'thisistheplace-whereyour-clientIdisprovidedback'
+    clientDetails:
+      title: client credentials
+      description: >-
+        This schema defines the client credentials as input body along with grant type.
+      type: object
+      properties:
+        grant_type: 
+          description: >-
+            The grant type applicable to the token. By default, it is set at "client_credentials".
+          type: string
+          enum: 
+            - "client_credentials"
+        client_id:
+          description: >-
+            The client ID provided to thec client for accessing oAuth 2 based APIs.
+          type: string
+          example: "this-is-client-id-provided-to-client"
+        client_secret: 
+          description: >-
+            The client secret provided to thec client for accessing oAuth 2 based APIs.
+          type: string
+          example: "this-is-client-secret-provided-to-client"
+      required:
+                - grant_type
+                - client_id
+                - client_secret

@@ -15,8 +15,6 @@ info:
 servers:
   - url: 'https://atlas.mappls.com'
     description: 'Live Prod server for OAuth 2 based APIs'
-security: 
-  - BearerAuth: []
 paths:
   /api/places/geo-location:
     post:
@@ -40,7 +38,7 @@ paths:
       #   #   example: "bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6"
       requestBody:
           content:
-            'application/x-www-form-urlencoded':
+            'application/json':
               schema:
                properties:
                   cellTowers: 
@@ -144,7 +142,8 @@ components:
         location:
           $ref: '#/components/schemas/location'
   securitySchemes:
-    BearerAuth: 
+    bearerAuth:
       type: http
       scheme: bearer
-      bearerFormat: 'bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6'
+security:
+  - bearerAuth: []
