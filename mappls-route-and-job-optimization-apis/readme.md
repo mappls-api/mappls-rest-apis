@@ -18,6 +18,9 @@ The objective of this API is to minimize the duration, determine and minimize ve
 - Break Time
 - Skills
 - Time Window
+- Maximum Travel Time
+- Maximum Tasks
+- Cost
 ### jobs
 - Time Window
 - Service Time
@@ -27,15 +30,16 @@ The objective of this API is to minimize the duration, determine and minimize ve
 ### shipments
 - Time Window
 - Service Time
-- setup time
+- Setup time
 - Delivery/Pickup Capacity
 - Skills
 - Priority
+- Amount
 
 
 
 ## Route Optimization Variants
-- **Travelling Salesman Problem(TSP)** - This is basically Route Via point Optimization.  
+- **Travelling Salesman Problem(TSP)** - This is basically Route Via point Sequencing.  
 
 - **Capacitated Route Optimization** - The vehicles have a limited carrying capacity of the goods that must be delivered. It can be single or multi quantity dimensions(e.g. volume, weight, number of packets etc.)
   <img src="https://about.mappls.com/api/optimisation/images/carrying_capacity.gif?raw=true" style="margin-left:auto;margin-right:auto"/>
@@ -84,6 +88,8 @@ A `vehicle` object has the following properties:
   - `time_windows` (array) :  an array of `time_window` objects describing valid slots for break start.
   - `service` (integer) : break duration (defaults to 0).
   - `description` (string) : a string describing this break.
+- `max_tasks` (integer): Defines the maximum number of tasks in a route for this vehicle.
+- `max_travel_time` (integer): Defines the maximum travel time for this vehicle.
   
 Note: An error will be reported if two `break` objects have the same `id` for the same vehicle.
 
@@ -299,7 +305,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2024 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://www.mapmyindia.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mapmyindia.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mapmyindia.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mapmyindia.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mapmyindia.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

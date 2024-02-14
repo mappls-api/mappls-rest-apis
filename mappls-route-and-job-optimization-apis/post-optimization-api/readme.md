@@ -37,6 +37,9 @@ The Post Optimization API request will provide a `requestID` which then needs to
 - Break Time
 - Skills
 - Time Window
+- Maximum Travel Time
+- Maximum Tasks
+- Cost
 
 ### `jobs`
 - Time Window
@@ -48,10 +51,12 @@ The Post Optimization API request will provide a `requestID` which then needs to
 ### `shipments`
 - Time Window
 - Service Time
-- setup time
+- Setup time
 - Delivery/Pickup Capacity
 - Skills
 - Priority
+- Amount
+
 <br> <br>
 
 # Input
@@ -67,77 +72,75 @@ Content-Type:application/json
 
 ## Vehicles
 
+**Bold** ones are mandatory; *italic* ones are optional parameters.
+
 A `vehicle` object has the following properties:
 
-| Key         | Description |
-| ----------- | ----------- |
-| `id` | integer |
-| [`profile`] | routing profile includes "driving", "biking" & "trucking" (defaults to `driving`). Only needed as input in the first vehicle, for the remaining vehicles same profile will be used. Currently mixed profiles are not supported. |
-| [`description`] | a string describing this vehicle |
-| [`start`] | coordinates array |
-| [`end`] | coordinates array |
-| [`capacity`] | an array of integers describing multidimensional quantities |
-| [`skills`] | an array of integers defining skills |
-| [`time_window`] | a `time_window` object describing working hours |
-| [`breaks`] | an array of `break` objects |
-
-<br>
-
-A `break` object has the following properties:
-
-| Key         | Description |
-| ----------- | ----------- |
-| `id` | integer |
-| [`time_window`] | an array of `time_window` objects describing valid slots for break start |
-| [`service`] | break duration (defaults to 0) |
-| [`description`] | a string describing this break |
-
-An error is reported if two `break` objects have the same `id` for the same vehicle.
+- **`id`** (integer): assigned unique id for the vehicle. 
+- *`profile`* (string): routing profile includes "driving", "biking" & "trucking" (defaults to `driving`). Only needed as input in the first vehicle, for the remaining vehicles same profile will be used. Currently mixed profiles are not supported.
+- *`description`* (string) : a string describing this vehicle.
+- **`start`** (float) : coordinates array of the start position.
+- **`end`** (float) : coordinates array of the end postion.
+- *`capacity`* (integer) : an array of integers describing multidimensional quantities.
+- *`skills`* (integer) : an array of integers defining skills.
+- *`time_window`* (integer) : a `time_window` object describing working hours.
+- *`breaks`* : an array of `break` objects.
+  - `id` (integer) : id defined for the `breaks`.
+  - `time_windows` (array) :  an array of `time_window` objects describing valid slots for break start.
+  - `service` (integer) : break duration (defaults to 0).
+  - `description` (string) : a string describing this break.
+- `max_tasks` (integer): Defines the maximum number of tasks in a route for this vehicle.
+- `max_travel_time` (integer): Defines the maximum travel time for this vehicle.
+  
+Note: An error will be reported if two `break` objects have the same `id` for the same vehicle.
 
 
 ## Jobs
-It is assumed that all delivery-related quantity for jobs are loaded at vehicle start, while all pickup-related quantity for jobs are brought back at vehicle end.
+
+**Bold** ones are mandatory; *italic* ones are optional parameters.
+
+It is assumed that all delivery-related amounts for jobs are loaded at vehicle start, while all pickup-related amounts for jobs are brought back at vehicle end.
 
 A `job` object has the following properties:
 
-| Key         | Description |
-| ----------- | ----------- |
-| `id` | integer |
-| [`description`] | a string describing this job |
-| [`location*`] | coordinates array |
-| [`service`] | job service duration (defaults to 0) |
-| [`delivery`] | an array of integers describing multidimensional quantities for delivery |
-| [`pickup`] | an array of integers describing multidimensional quantities for pickup |
-| [`skills`] | an array of integers defining mandatory skills |
-| [`priority`] | an integer in the `[0 to 100]` range describing priority level (defaults to 0) |
-| [`time_window`] | an array of `time_window` objects describing valid slots for job service start |
-
-An error is reported if two `job` objects have the same `id`.
+- **`id`** (integer) : Unique id assigned to job.
+- *`description`* (string) : A string describing this job.
+- **`location`** (array) : Coordinates array of job location.
+- *`service`* (integer) : job service duration (defaults to 0).
+- **`delivery`** (integer) : An array of integers describing multidimensional quantities for delivery.
+- **`pickup`** (integer) : An array of integers describing multidimensional quantities for pickup. 
+- *`skills`* (integer) :  An array of integers defining mandatory skills.
+- *`priority`* (integer) : An integer in the `[0, 100]` range describing priority level (defaults to 0).
+- *`time_windows`* (array) : An array of `time_window` objects describing valid slots for job service start.   
+Note: An error is reported if two `job` objects have the same `id`.
 
 ## Shipments
+**Bold** ones are mandatory; *italic* ones are optional parameters.
 
 A `shipments` object has the following properties:
 
-| Key         | Description |
-| ----------- | ----------- |
-| `pickup` |  object describing pickup shipments step |
-| `delivery` |object describing delivery shipments step |
-| [`amount`] | an array of integers describing multidimensional quantities |
-| [`skills`] | an array of integers defining mandatory skills |
-| [`priority`] | an integer in the `[0, 100]` range describing priority level (defaults to 0) |
+1. **`pickup`**(object):  object describing pickup shipments step.
+    - **`id`**(integer): unique ID of the shipments step.
+    - *`description`*(string): a string describing this step
+    - **`location`**(array): coordinate pair [lon,lat]
+    - *`setup`*(integer): task setup duration (defaults to 0)
+    - *`service`*(intger): task service duration (defaults to 0)
+    - *`time_windows`*(array): an array of `time_window` objects describing valid slots for task service start
+2. **`delivery`**(object):  object describing delivery shipments step.
+    - **`id`**(integer): unique ID of the shipments step.
+    - *`description`*(string): a string describing this step
+    - **`location`**(array): coordinate pair [lon,lat]
+    - *`setup`*(integer): task setup duration (defaults to 0)
+    - *`service`*(intger): task service duration (defaults to 0)
+    - *`time_windows`*(array): an array of `time_window` objects describing valid slots for task service start
+3. *`amount`*(array): an array of integers describing multidimensional quantities
+4. *`skills`*(array): an array of integers defining mandatory skills
+5. *`priority`*(integer): an integer in the `[0, 100]` range describing priority level (defaults to 0)
 
-A `shipment_step` is similar to a `job` object (expect for shared keys already present in `shipments`)   :
+### 3.A shipments Step
 
-| Key         | Description |
-| ----------- | ----------- |
-| `id` | integer |
-| [`description`] | a string describing this step |
-| [`location`] |  coordinate pair [lon,lat]|
-| [`setup`] | task setup duration (defaults to 0) |
-| [`service`] | task service duration (defaults to 0) |
-| [`time_windows`] | an array of `time_window` objects describing valid slots for task service start |
-
-An error is reported if two `delivery` (resp. `pickup`) objects have the same `id`.
+A `shipments_step` is similar to a `job` object (expect for shared keys already present in `shipments`)
+An error is reported if two `delivery` (or `pickup`) objects have the same `id`.
 
 ## Notes
 
@@ -474,6 +477,7 @@ curl --location --request POST 'https://apis.mappls.com/advancedmaps/vrp/v1/post
 | ---- | ---- | ---- |
 | 0.0.1 | November 2021 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
 | 0.0.2 | March 2022 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
+| 0.0.3 | Feb 2024 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
 
 ## API Version History
 
@@ -505,7 +509,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2024 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://www.mapmyindia.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mapmyindia.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mapmyindia.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mapmyindia.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mapmyindia.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 
