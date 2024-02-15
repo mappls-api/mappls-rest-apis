@@ -33,7 +33,7 @@ POST
 ## Contructing the request cURL
 
 ```c
-curl --location 'https://route.mapmyindia.in/advancedmaps/v2/trace_route' \
+curl --location 'https://apis.mappls.com/advancedmaps/v2/trace_route' \
 --header 'Authorization: bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'points=72.8632,21.207756;72.86322,21.207582;72.86325,21.207506;72.86324,21.207438;72.86321,21.207426;72.8632,21.207474;72.8632,21.207546;72.86319,21.20757;72.863174,21.207487;72.863174,21.20747;72.86319,21.20743;72.863174,21.207357;72.863144,21.2073;72.862976,21.207394;72.86255,21.207676;72.86244,21.207796;72.86244,21.207764' \
