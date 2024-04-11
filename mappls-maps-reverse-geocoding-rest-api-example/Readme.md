@@ -79,6 +79,21 @@ The “**bold**” one’s are mandatory, and the “*italic*” one’s are opt
    - **`area`**: The country name of the given location.
    - **`formatted_address`**: The compelete formatted address for the passed location in the request.
 
+## Premium Response Parameters (only for India region)
+1. Census Information: (as per last census)
+    - `sttCenCd` (string): State's census code.
+    - `dstCenCd` (string): District's census code.
+    - `sdbCenCd` (string): Subdistrict's census code.
+    - `vlgCenCd` (string): Village's census code, if address is rural.
+    - `twnCenCd` (string): Town's census code, if address is within any census town. <br>
+    Note: Here town means a census town - an urban agglomeration defined by GoI during census; which is different from a city.
+    - `twnName` (string): Town's name as per last census.
+2. Local Government Directory (LGD Information)
+    - `sttLgdCd` (string): State's LGD code.
+    - `dstLgdCd` (string): District's LGD code.
+    - `sdbLgdCd` (string): Subdistrict's LGD code.
+    - `vlgLgdCd` (string): Village's LGD code, if address is rural.
+    - `twnLgdCd` (string): Town's LGD code, if address is within any census town.
 
 ## Sample Input
 

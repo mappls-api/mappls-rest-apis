@@ -69,6 +69,7 @@ Allowed values are:
 	- `state` : state
 5. *`bound`*  (string): This parameter can be used to set admin boundary, which means geocoding will be done within the given admin. The allowed admin bounds are **Sub-District**, **District**, **City**, **State** and **Pincode**. The parameter accepts the admin eLoc as value.
 6. *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md).
+7. *`actualGeoLevel`* (valueless): returns the actual geocoding level which indicates the best possible match till which the API is able to extrapolate to.
 
 **Note**: Please note that `podFilter` & `bound` parameters are mutually exclusive. They cannot be used together in an API call.
 
@@ -118,8 +119,27 @@ Server-Side Issues:
 13. `pincode`(string): the pincode of the location.
 14. `formattedAddress`(string): the general protocol following address.
 15. `eloc`(string): eloc of the particular location.
-16. `geocodeLevel`(string): the best matched address component.
+16. `geocodeLevel`(string): the exact matched address component.
 17. `confidenceScore`(float): the confidence for current of geocodelevel.
+18. `elocAdminType` (string): the best matched (including extrapolations) address component.
+
+## Premium Response Parameters (only for India region)
+1. Census Information: (as per last census)
+    - `sttCenCd` (string): State's census code.
+    - `dstCenCd` (string): District's census code.
+    - `sdbCenCd` (string): Subdistrict's census code.
+    - `vlgCenCd` (string): Village's census code, if address is rural.
+    - `twnCenCd` (string): Town's census code, if address is within any census town. <br>
+    Note: Here town means a census town - an urban agglomeration defined by GoI during census; which is different from a city.
+    - `twnName` (string): Town's name as per last census.
+2. Local Government Directory (LGD Information)
+    - `sttLgdCd` (string): State's LGD code.
+    - `dstLgdCd` (string): District's LGD code.
+    - `sdbLgdCd` (string): Subdistrict's LGD code.
+    - `vlgLgdCd` (string): Village's LGD code, if address is rural.
+    - `twnLgdCd` (string): Town's LGD code, if address is within any census town.
+    
+
 
 ## Sample Input
 
