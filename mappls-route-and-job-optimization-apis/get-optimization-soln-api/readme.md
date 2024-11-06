@@ -26,6 +26,12 @@ The objective of this API is to minimize the duration, determine and minimize ve
 
 This is the `GET` method API where we need to pass the `requestID` received from Post Optimization API output to get the status or the desired output of Route Optimization.
 
+## URL
+
+```
+https://apis.mappls.com/advancedmaps/vrp/v1/getOptimizationSolution
+```
+
 ## Output Description
 
 Format: JSON
@@ -111,6 +117,7 @@ A `step` object has the following properties:
 
 ## HTTPS Method
 GET
+
 ## Security Type
 This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://developer.mappls.com/mapping/tokenGeneration)
 
@@ -126,6 +133,8 @@ The API leverages OAuth 2.0 based security. Hence, the developer would need to s
 <br><br>
 ## Request Parameters
 There is only one parameter in the Get Optimization Solution API. The query parameter in the URL of Get Optimization Solution API where unique id received from **Post Optimization API** request will be given as an input.
+
+1. `requestId` (string): The request ID received in response of the `postOptimizationRequest` API.
 
 ## Response Parameters
 
@@ -205,146 +214,171 @@ There is only one parameter in the Get Optimization Solution API. The query para
 7. 503: Maintenance Break.
 ### Sample Input (cURL)
 ```
-Curl --location --request	GET 'https://apis.mappls.com/advancedmaps/Route Optimization/v1/getOptimizationSolution?requestId=1da827b1-bf8f-11eb-afd9-4134b973424d' \
+Curl --location --request	GET 'https://apis.mappls.com/advancedmaps/vrp/v1/getOptimizationSolution?requestId=1da827b1-bf8f-11eb-afd9-4134b973424d' \
 --header 'token: axxfxxddxxexx29xx5xx0xxdxxeexx77'
 ```
 ### Sample Output(JSON) 
 ```json
 {
-  "msg": "Completed",
-  "code": 200,
-  "response": {
     "summary": {
-      "duration": 3222,
-      "delivery": [
-        10,
-        2
-      ],
-      "cost": 3222,
-      "computing_times": {
-        "routing": 4,
-        "total": 110,
-        "solving": 0,
-        "loading": 106
-      },
-      "distance": 32013,
-      "waiting_time": 0,
-      "service": 600,
-      "pickup": [
-        0,
-        0
-      ],
-      "unassigned": 3,
-      "priority": 0
-    },
-    "routes": [
-      {
-        "duration": 3222,
         "delivery": [
-          10,
-          2
+            3
         ],
-        "cost": 3222,
-        "distance": 32013,
+        "cost": 5813,
+        "computing_times": {
+            "routing": 0.007,
+            "total": 0.12100000000000001,
+            "solving": 0.0,
+            "loading": 0.114
+        },
+        "distance": 63877,
         "waiting_time": 0,
-        "service": 600,
-        "description": "Tata Ace Dstr01",
+        "violations": [],
         "pickup": [
-          0,
-          0
+            1
         ],
-        "geometry": "mpgmDsnrvMBfA@b@DLD@DB@BDH@D?JADCFCBEBE@I?E?CCGGKCM?iBDgBFeBD_A@KAGAGEGEQQMQE@C?CAEAECeAp@m@d@KHcAj@b@hAb@`AXn@b@x@^l@PP^Tn@Zl@TxC`Ah@Pj@PbAXr@Pj@Pv@AlBf@~Af@|@\\vAdARRd@l@Rd@x@ZNFRFL@p@E~Bq@vAa@vAa@nBo@nBm@hAYfCq@`AWn@Sf@MlA_@HEb@M~CaA~C_At@UvAc@|@YvC}@vC}@xC_A|Bq@dBi@fBi@VIJEdA[pA_@~@[lA_@|@WfA]tBo@tAa@tAc@PGd@OnBk@~@]dAc@|@e@hAq@LGdBgAtA{@tA{@\\k@DMJe@BS@QAQGi@q@cBs@eBw@mBq@cBs@eBm@wAm@yAKWs@cBs@eBGM{@wB{@yBi@uAGKMWaAwBqAsCs@wBu@uBaAaC]}@aAmCo@eCo@eCw@yCY}@IYo@sB}@yCaA_DaAaDcA_D_@mASq@Uu@eAeDcA_Da@kAk@cB_@aAo@_BiAuDo@{Bq@}B}@oC{@oCs@yBs@sBs@qBm@iBGWGUq@mCw@}Ce@gBw@qCk@{B_@wAKY[{@_@{@We@q@_AiA{AW[IMc@k@w@cA}AoBeBqBIMCKE]DWL]zBsCz@eApBqC`AqBj@cAHe@}AiA}AgAeB}@[UOO_AiAgAqAw@oAoBcCqBcCoBaCoAcBqAaBMMs@_AmAyAkAwAyAiByAkByAiBi@o@qA_BqAaBqAyASWa@e@Ui@}A_BW]a@g@mAwAg@i@[c@aAwAy@mA{@mAu@aBu@cBKSc@mAUo@_@eAm@cBw@cCw@eCu@cCW_ASy@Og@{@mC_A{C_A{C}@{Cu@eCu@gCu@gCe@a@s@cCu@cCu@cCe@mA[kAMq@w@wCi@sBKm@GYAEK[MW_@g@u@}@WWU[OSGIw@i@Y]Yc@e@eAI]KQoB{CmB{CgBcCgBeC{AwByAwB{AyBkAcBiAcBUBG?GAEAGCECIIIKCGCI@U?GBIBGDIcBcCoBqCw@mAsAmBqAoBuAsBuAsBS]wAsBuAuBu@cAOSk@{@y@oAmAgBmAgBCEy@wAgBeCSYg@s@w@gAm@{@MO_@i@_AyA_AyAk@y@w@kA[e@{@oAIMOWo@y@U[mBuCq@}@kAcBGKi@y@QWe@s@g@u@a@o@{AwBu@eAWa@m@_AsAmBaB}BES?C@CBAD@JB^j@V\\PXRXp@`AlAJf@a@lAkAlAiAvBwBxBuBiA}BUiAWsBWuBnAUREYiBBOXs@Yr@CNXhBSDoATVtBVrBThAhA|ByBtBwBvBmAhAmAjAg@`@@`BpAfBx@jAV\\n@|@X`@b@p@f@p@`@p@PVbAvAj@x@dBbCtApBX^bArA~A|B~A~B|@tA`@n@BFDHTZZd@\\h@TZb@r@^j@~@vA~@vArArBpArBr@bA|@nANRvAtBdA`BdA~AhA~Av@hAfA|AzA|B|A~BhA`BhAbB|AvBHCFAN?NDDBHDFHDFDL@F?NANEJ^l@hBzCbAxAx@lA|@vAlAdBLP|AzB~AzBpAhBpAhBnAhBZ^JJdBhCT^rBzCz@bBBD@@BHNb@Pf@V|@z@lCd@p@Vr@Nf@Tv@P|@VdAp@pCd@fBf@dBr@jCt@hCt@hC|@xC|@xC|@xCb@xA\\v@j@rANlAjAvDjAvDHV|@jCLZTn@d@pAxA`Df@~@^n@hA~ARXpBlCpBxBlAtAtAvAdAhANNDD^b@zAfBxAhBl@p@t@|@b@V^NdAV~AZ~BVnAvApAvApBhCpBhCbBtBbBrBdBtB~AtBXZd@h@fBbCf@p@HLFLp@dBRlBGn@Ij@K`@k@jAcAjBuBrCuAdBsAdBKPGLEPJb@BHFJVX^d@nB`ClBbC`@h@dAtA|@pAR\\`@v@X|@Nd@ZbAl@bCl@`Cl@`C`AhDh@vBFRJTNj@^bA~@rC~@tCVz@t@~Bv@~Bt@|Bz@jCx@hCVj@h@dBbA~Cf@bBd@bBfAhDHV\\dATr@RLJTRd@Pd@z@dCf@~Af@~Ab@rARl@p@vBh@`BJZHVL^b@nB@XANCVCVCFELABU\\UZYRWJk@Tq@LQBS?OAQAOCICg@W{@_@SEOCQ?WDQHYNWL]PmAj@MFgAf@{@J{@j@gCzA{@l@eChBeCfBcCfBaCdBcCfBkAv@_Bv@uAj@iBt@iBr@qCvAsA~@gAjAWTe@d@gCtBiCtB{@r@sBtAuBtAeCbBeC`BeCbBeC`BeCbBQ\\KPQNmAjAmCbBsA|@sAz@MJIHGJILEJENEXAd@@J@`@`AbCbAdClAzCnAzCP\\JPJNVRh@\\PP^Tn@Zl@TxC`Ah@Pj@PbAXr@Pj@Pv@AlBf@~Af@|@\\vAdARRd@l@?N?HCFCBC@GAEAMGe@i@a@a@aAm@w@[sAc@}C}@a@K_AYw@Sc@OOEsBo@sBm@_Ac@YOs@g@q@k@W_@KSWImAqCkAqC@ODKBAFEJCB?L?D@HFx@`B\\GNGb@W\\YtAmA@C@CBADCD@D?D@D@@B@@BF@D?B?DDHBFJNFDHDF@J@|CKbCItAEHCHA@EBEDCDABAF?EMAc@CgA",
+        "unassigned": 0,
         "priority": 0,
-        "steps": [
-          {
-            "duration": 0,
-            "load": [
-              10,
-              2
+        "duration": 5813,
+        "routes": 1,
+        "service": 1200,
+        "setup": 0
+    },
+    "msg": "Completed",
+    "routes": [
+        {
+            "delivery": [
+                3
             ],
-            "distance": 0,
-            "arrival": 1600419678,
-            "location": [
-              77.268443,
-              28.55168
-            ],
-            "type": "start"
-          },
-          {
-            "duration": 1620,
-            "load": [
-              0,
-              0
-            ],
-            "distance": 16003,
+            "cost": 5813,
+            "distance": 63877,
             "waiting_time": 0,
-            "arrival": 1600421298,
-            "service": 300,
-            "description": "Customer 1 , address , city, postalcode",
-            "location": [
-              77.370176,
-              28.578955
+            "violations": [],
+            "pickup": [
+                1
             ],
-            "id": 1,
-            "type": "job",
-            "job": 1
-          },
-          {
-            "duration": 3222,
-            "load": [
-              0,
-              0
+            "priority": 0,
+            "steps": [
+                {
+                    "duration": 0,
+                    "load": [
+                        3
+                    ],
+                    "distance": 0,
+                    "waiting_time": 0,
+                    "arrival": 1600419146,
+                    "service": 0,
+                    "violations": [],
+                    "setup": 0,
+                    "location": [
+                        77.26894638016765,
+                        28.550833533042766
+                    ],
+                    "type": "start"
+                },
+                {
+                    "duration": 454,
+                    "load": [
+                        2
+                    ],
+                    "distance": 4125,
+                    "waiting_time": 0,
+                    "arrival": 1600419600,
+                    "service": 300,
+                    "violations": [],
+                    "setup": 0,
+                    "location": [
+                        77.25014802489044,
+                        28.56370655591404
+                    ],
+                    "id": 1,
+                    "type": "job",
+                    "job": 1
+                },
+                {
+                    "duration": 1678,
+                    "load": [
+                        1
+                    ],
+                    "distance": 20637,
+                    "waiting_time": 0,
+                    "arrival": 1600421124,
+                    "service": 300,
+                    "violations": [],
+                    "setup": 0,
+                    "location": [
+                        77.25046301534559,
+                        28.67277872908568
+                    ],
+                    "id": 5,
+                    "type": "job",
+                    "job": 5
+                },
+                {
+                    "duration": 3259,
+                    "load": [
+                        2
+                    ],
+                    "distance": 34731,
+                    "waiting_time": 0,
+                    "arrival": 1600423005,
+                    "service": 300,
+                    "violations": [],
+                    "setup": 0,
+                    "location": [
+                        77.13402954533225,
+                        28.687340657215927
+                    ],
+                    "id": 2,
+                    "type": "job",
+                    "job": 2
+                },
+                {
+                    "duration": 4901,
+                    "load": [
+                        1
+                    ],
+                    "distance": 54721,
+                    "waiting_time": 0,
+                    "arrival": 1600424947,
+                    "service": 300,
+                    "violations": [],
+                    "setup": 0,
+                    "location": [
+                        77.20054141166888,
+                        28.563214295078236
+                    ],
+                    "id": 6,
+                    "type": "job",
+                    "job": 6
+                },
+                {
+                    "duration": 5813,
+                    "load": [
+                        1
+                    ],
+                    "distance": 63877,
+                    "waiting_time": 0,
+                    "arrival": 1600426159,
+                    "service": 0,
+                    "violations": [],
+                    "setup": 0,
+                    "location": [
+                        77.26894638016765,
+                        28.550833533042766
+                    ],
+                    "type": "end"
+                }
             ],
-            "distance": 32013,
-            "waiting_time": 0,
-            "arrival": 1600423200,
-            "service": 300,
-            "id": 2,
-            "type": "break"
-          },
-          {
-            "duration": 3222,
-            "load": [
-              0,
-              0
-            ],
-            "distance": 32013,
-            "arrival": 1600423500,
-            "location": [
-              77.268443,
-              28.55168
-            ],
-            "type": "end"
-          }
-        ],
-        "vehicle": 52
-      }
+            "vehicle": 1,
+            "duration": 5813,
+            "service": 1200,
+            "setup": 0,
+            "geometry": "_kgmDsqrvMDb@Bl@Bb@@ZDl@FbAcAFk@Cm@?MACFCBEBE@I?E?CCGGKCM?gBDiBFgBHeABKAGCGCGEa@k@GACCCCMFIDo@h@mA|@m@\\b@hAb@`AP^FNb@x@^l@b@^TLd@Vn@TxC~@h@Pj@Pj@NjAZj@P^AzCn@hA^|@\\vAdARRd@l@?N?HADEDG?EAQGe@i@a@a@aAm@w@[sAc@}C}@a@KQGUGOE_AWc@OOEsBo@sBm@e@Ss@_@s@g@i@Dc@Jc@Pe@Rc@Pq@\\aAt@e@`@w@~@[^}@v@i@b@}BlB_ClBw@n@iA~@gA|@OJwAnAi@f@YX_@f@[b@[l@M\\GNQj@m@`Bk@`Be@xAIVIl@CZAZJdE@P?zBBfEBfEAjACj@O|BMnBE`AEf@Gf@GVMd@Ur@_@r@KPMPg@`@WFUFw@Lq@BK?k@@q@@aBJqBLo@Du@FAUGcBK}AIk@Ic@EQIYo@eA}@uAkA{@]SsAo@sAm@_@Oc@Qo@W_@QWe@eBm@u@[g@Y[WWUa@e@i@s@a@q@KSg@sAUs@IOUa@a@q@m@u@u@iAqAqB_AaBiAkBiAkBoAyBmAwBS_@gAkBeAmBgBaDiBaDsAkCwAeCw@sAy@qAa@k@}@mAc@k@_A_@cBi@i@Is@Gc@C[?k@Bs@Hi@Jm@Tk@XmB`Ag@v@w@lAy@pA{@pA_AxA]x@}AhC_A~AaA~Ay@xAy@xAeApBYf@ABYj@QT]d@m@j@o@f@WNQHi@Tq@Rm@RUFq@FgB^gCl@eCl@eCj@}Ct@_Dr@}Cr@c@L]JeCv@eCt@eCv@kCp@kCp@yB@}AMo@Gg@Ik@OWIc@Qi@WaAw@{@}@s@eAq@sAc@sAWy@m@gBq@qBq@oBoAsDmAqDoAqDmAqDoAqDmAqDaAwCaAwCi@cB?MAKCIGUOa@a@sAKYI[ESESC[y@iC{@iCkAiDkAkDeAyCcAyCu@sB_@gAs@wBo@cBi@oAg@kAgAqBi@{@mAgBg@u@eAmAcAiAmAeA}BsBoBgBqBeBc@SUKc@YQMy@q@a@[YQSKQGWG]WkAcAQCS?WBkATyAt@uBjAsBjAk@B[NyAz@yAx@OFSJSLmBfAmBfAWN[Pc@Vy@d@{C|AuC~A}BvA}BxAyAz@{A|@sAv@sAt@[RuChBuAv@w@b@eAl@]X_@^e@p@e@z@S`@g@vA_@`AYv@c@jA]l@_@f@a@d@WTg@\\k@XcAZWFUD{@Fm@?kBGkBG_BCi@Bs@Nm@RoBlAoBhAmBhAOFMDsBHuA@o@AiAAeDNeDNeDNeDN}CP_DRcBNeBNk@Fu@FwBLyBHwBHyBHq@D_BJyBHwBHyBHy@FkBJmBJyBLyBLy@Hu@NgA\\y@Z[NcBfAsAv@qAv@k@`@{B|AyB|AyB|AcCdBkAt@UVQNe@`@i@f@kA~@iA~@aCtAoBlAg@XmBvAmBvAWPiAt@o@d@gAv@uChB}AbA}BbBi@`@]Zm@p@W\\i@hAo@|@iArB_A|A_A|AQPSNk@ZYTGJQd@k@nBi@lBaAnDWjACV?NB`@m@^k@Ta@JaBRc@COCOCKEMMGIIQIWu@}DYkAKg@E]e@}Dm@Ay@JSDk@Je@N]@_@BwA@}AC]CaBA_BCy@E[Ay@IgBYo@IMFIHGHKRGj@UhCUjCWhCEf@IfAGn@Yv@YvCWtCd@JPLVD@G@KWCUBe@KYzCWzCE`AC\\CNSdAEXQzAYbDYdDK`BAz@EfBDnABh@Br@JhAJt@RrAVbAv@pCt@rCv@pCt@rCh@pBDNz@zCz@|Cz@|Cz@|Cz@|Cn@`Cp@~Bp@vDp@tDl@fDl@fDl@fDl@fDXlAJ`@`@pAT|@Jj@TzAh@|Ch@|CRlA\\bBNfAT~A^bC^dCRnARnAVtBd@lCFh@NfARvCDr@?^Eh@Ih@[zCE`@QfBCNOfAGn@Mv@Gj@ChASxBUrBOxAEl@Ct@Bl@Dp@Hr@Lz@J^\\v@\\dAGLMPGRE^G~@Gt@BXBDBFFFXNl@NPDtBp@~Ab@v@TfB^n@Nn@PVFNDjA`@r@Vb@PWp@g@a@QI{Ak@m@~Co@~CAh@Kx@UlAWhAq@vBSv@UpBSfBSdBE\\QfAW~AETi@tCg@vCSjAId@[fB[fBI^_@vB[lB]nBa@vBe@hCIf@QbAi@zCi@|Ci@zCGXEVi@bDk@bDk@bDY`B[`Bi@bDS`BIr@E|@EjAIzDGbDArB?tBARC|@CrAA^KrBMrBGnAQrAW|B[fCWvBMlAMdAQnAWvBKx@Gd@e@zDa@rDCVW~CG`@IZa@nAWx@Un@Md@Up@Sn@ENK`@Kh@CXC^Cj@Al@B~AFr@FXJ\\ZdAn@hBj@pAXl@R^r@vAHNZn@bAnBvAfAz@l@\\XLHVLNF\\L^JR?^FN@LDNHJHHJHJDNFHDJ@P?L?DCNCFCDIJEBKDM?@t@MZk@~Ai@`Bm@lBk@hBQf@_AtC}@tCW~@Kf@MbAMrBEn@Ej@[v@c@fDEd@[xCSbB[pCYnCS|BUlCEt@WlCWlCStCUnCKpASrCOhCOhCIjAGdAMnBOpBMlBOnBUtDNx@KpAUnCUnCUpCIr@LPFNDR?F?NCPGJKNIFKBE@I?GAKEIEGGGIIUGQkBe@QLKFQBM@_@E[KcBa@cBa@wAUwAU]CY@e@P[NGNyCbByCbBo@`@EFEHABQ`CSbCEN[Ci@Ag@?_@A_DCqCAm@Am@Ac@?m@Aa@?_@A]?]?WAS?r@fBRr@H^BJBR@L@N@J?PA\\C`A?JK?i@Ag@?g@Ak@?y@AoBAqBAmCCm@DI@KFIHGLYr@@J?DADCJCZCj@AFEXGp@c@hCCJICBG@G@C^aCHwA@s@E?E?IEEICCAG?KBKBEBCDCBAhAaANGLEXARAj@@rA?vA@x@@|B@rA@~@@RQNQJQ?g@?[CYEYAKIWQk@GOIUGQSg@Oc@c@kAm@cBQc@o@gBOa@k@_B_AeC]cAOi@Mg@Gc@Iq@E_@Gs@AMA[@{@@g@@UDUTuAh@eBPa@\\i@NWHKHKHKNMTUrAgAtAgAf@a@v@m@l@e@JPZf@l@dAVb@bAbBbAbB|AlCFj@p@hAj@~@RXl@t@\\\\j@`@h@\\j@ZZLZH~A^\\Fr@NfDp@hDp@v@TnCl@nCj@nCl@nCl@fCv@hCx@vC|@vC~@fAd@`@Rb@Rl@b@t@n@\\Xp@v@p@v@z@fAjB~B|AlB|AjB|AlB^b@lA|AlA|AbApAt@ZfAvAhAxA`AlA`AnARTLPdBlBrAzAt@`Aj@`@p@j@VJJBPBp@BpBFnBFvABH@d@C~@Lv@Pt@PbBxAdAbAdAbAtBpBDh@`BxA`Az@fBzAfBzAnAhAnAfAh@^r@^z@Zl@L`AJbAAt@Gh@Ep@MzAg@rCgAxBw@zBy@rBm@rBo@rBm@nC{@f@MjBe@t@Sn@SxBm@JCjA]xAa@xAc@tCy@pBm@nBm@x@Up@QdD}@b@Kh@MtCw@tCy@tCy@zBm@|Bm@xCy@xCy@`Co@~Bq@`Co@x@UpBo@rBm@n@St@UvCy@h@OdCq@bCs@dCs@rCy@zAa@xAa@zAa@xAc@lCu@lCw@lCu@lCw@pBk@pBi@|Aa@|A_@b@Gd@CnDDpDDhAB`DG`DG`B@vCGrAEx@CfAE|@IhBa@p@[f@[lBwAr@c@rA_AtAmAtAmAb@YlBoAb@Ev@g@p@m@l@a@l@a@VQb@[dBoA|@m@v@u@bBmBr@}@fAiBv@eB^iAJ]TgCVsBJi@XiALu@RgBRgB\\gEZ}DX{DXcDVcDXcDVeDXcDV}CX_DDg@XeBV_Ab@gAz@wAz@yAlBuCnBwCtAyBrAwBpAgBnAgBpBqC`AqA^i@jBkChAaAt@k@jBiA|A_A~AaA|A_AzA}@tAy@nAu@tAy@pA{@RKz@_@fBs@bAa@fBq@pB{@x@i@l@a@rAy@rAw@`@Wl@_@nAu@nAu@Z[ZUPKLGb@Ux@e@pAs@hAk@fAo@lBgAz@e@bB{@rAo@jCwAxBcAbAe@bBu@vBeAd@UrCuAr@]fAg@n@]ZMfCgAfCiA`Bw@xAs@hCoAjCqA~BmAl@[b@SvAu@vBkAvBiAvBsA`Am@xBqBhAqAfAyApAcCd@y@Ve@`@}@rAaDb@wAReADi@Ba@HqAFmBPgDDi@DiAHyARmDRkDP{CP}CP}CDkB@aCAmACcCAqAAe@Ag@G{AAo@Ck@OgDE_AEiAQYMiDOiDAy@GuA?Qz@Av@Ax@AlDGJ?J?tACt@K^GdA_@pCqAh@Qv@Mh@GPAPArAOpBWvC_@tC_@@N_BRUD{Cd@yBRK@o@Fk@FQB{@Hs@Lo@RqAl@y@b@mA^_@Fs@HgBDqDDu@?{@D}@@?QEcBAo@?s@?y@?WHwCFoBRi@FkDDgBBeBLeEDiB@k@?m@AWCUIe@So@SYkAgBeAwBISU{@CU?s@Ba@Ha@DOZm@NWVYLKfA_An@_@`@[JMJWDMNi@ToA?wA@u@FgDFiDDgDFmCFoCDsC@O@i@DgB@wADkBH{D?]@Y@gAFuDBqABqA@w@BwAFw@JyAN{AViBTiA|@sCJa@t@aCr@_Cr@aCt@eCRm@jAoDv@qC`@mBFa@Do@Ba@HoAHiBPeENcEPsDNqDPsD@y@LcDLaDNaDNaDAwDKqDIoD_@mAI{BI{BGgBIgBGiBCm@ASE_BCc@Ag@Aa@GgBGgBGkBAu@Cg@E}AAUt@E|@Gj@CdBK|AI~AIt@IPCPCZO`@[FKLOR]Vk@Pi@DUFYBO@QD[P}CP{C@i@BiAEqDCqD?iA?}AAQCiBCiB?[BYD]HYbAoCPg@t@aCJ]JSR_@N[Vc@x@eAHKTURQvAoAJKfAw@jAcAlAcAbA{@jAcA\\WpAiAVSPMPS|@aAnAkAJIb@[r@g@|@e@\\ShAs@MSIKKSWImAqCkAqCDQDIFGJCP?D@HFx@`B\\GNGHEt@m@bA}@FEPG@CBEDA\\a@b@c@rAkArAkArAkArAiAZ]X]?K?EDGDGFCH?HBBBDFXOl@Ox@rCBLDNNn@FTBP@P@L"
+        }
     ],
-    "code": 0,
-    "unassigned": [
-      {
-        "location": [
-          77.523416,
-          12.96941
-        ],
-        "id": 6
-      },
-      {
-        "location": [
-          77.523459,
-          12.969498
-        ],
-        "id": 5
-      },
-      {
-        "location": [
-          77.523442,
-          12.969504
-        ],
-        "id": 2
-      }
-    ]
-  }
+    "unassigned": [],
+    "respCode": 200
 }
 ```
 

@@ -310,12 +310,12 @@ curl --location --request POST 'https://apis.mappls.com/advancedmaps/vrp/v1/post
         {
             "id": 1,
             "start": [
-                2.35044,
-                48.71764
+                77.26894638016765,
+                28.550833533042766
             ],
             "end": [
-                2.35044,
-                48.71764
+                77.26894638016765,
+                28.550833533042766
             ],
             "capacity": [
                 4
@@ -332,12 +332,12 @@ curl --location --request POST 'https://apis.mappls.com/advancedmaps/vrp/v1/post
         {
             "id": 2,
             "start": [
-                2.35044,
-                48.71764
+                77.26894638016765,
+                28.550833533042766
             ],
             "end": [
-                2.35044,
-                48.71764
+                77.26894638016765,
+                28.550833533042766
             ],
             "capacity": [
                 4
@@ -372,8 +372,8 @@ curl --location --request POST 'https://apis.mappls.com/advancedmaps/vrp/v1/post
                 1
             ],
             "location": [
-                1.98935,
-                48.701
+                77.25014802489044,
+                28.56370655591404
             ],
             "skills": [
                 1
@@ -392,8 +392,8 @@ curl --location --request POST 'https://apis.mappls.com/advancedmaps/vrp/v1/post
                 1
             ],
             "location": [
-                2.03655,
-                48.61128
+                77.13402954533225,
+                28.687340657215927
             ],
             "skills": [
                 1
@@ -406,8 +406,8 @@ curl --location --request POST 'https://apis.mappls.com/advancedmaps/vrp/v1/post
                 1
             ],
             "location": [
-                2.28325,
-                48.5958
+                77.25046301534559,
+                28.672778729085678
             ],
             "skills": [
                 14
@@ -420,38 +420,12 @@ curl --location --request POST 'https://apis.mappls.com/advancedmaps/vrp/v1/post
                 1
             ],
             "location": [
-                2.89357,
-                48.90736
+                77.20054141166888,
+                28.563214295078236
             ],
             "skills": [
                 14
             ]
-        }
-    ],
-    "shipments": [
-        {
-            "amount": [
-                1
-            ],
-            "skills": [
-                2
-            ],
-            "pickup": {
-                "id": 4,
-                "service": 300,
-                "location": [
-                    2.41808,
-                    49.22619
-                ]
-            },
-            "delivery": {
-                "id": 3,
-                "service": 300,
-                "location": [
-                    2.39719,
-                    49.07611
-                ]
-            }
         }
     ]
 }'

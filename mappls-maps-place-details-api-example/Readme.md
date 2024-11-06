@@ -21,6 +21,21 @@
 
 The Place detail API is to extract the details of a place with the help of its eLoc i.e. a 6 character code. Since a place may or may not have additional attributes associated with it, the response from the place details may be different for each record. However the response will be an extract from an existing set of master key-value pairs grouped as objects.
 
+## Getting Access
+
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://apis.mappls.com/console/), in the same project you set up for the Maps SDK.
+
+1. Copy and paste the generated `access token` from your API [keys](https://apis.mappls.com/console/) available in the dashboard in the Authorization header of this API.
+    - This APIs follow OAuth2 based security.
+    - `Access Token` can be generated using Token Generation API.
+    - To know more on how to create your access tokens, please use our authorization API URL. More details available [here](https://developer.mappls.com/mapping/tokenGeneration)
+    - The `access token` is a valid by default for 24 hours from the time of generation. This can be configured by you in the API console.
+2. **`Security Type`**
+    
+    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://developer.mappls.com/mapping/tokenGeneration)
+
+
+
 ## [Input URL](#Input_URL) 
 https://explore.mappls.com/apis/O2O/entity/{eLoc}
 
@@ -36,13 +51,9 @@ GET
 
 ## [Request Headers](#Request-Headers)
 
-The Atlas API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: “{token_type} {access_token}”.
 
 1. **`Authorization:`** `“{token_type} {access_token}”`
 
-## [1. Security Type](#1_Security_Type)
-
-Atlas OAuth 2.0 based security using AES 256 and SHA-1. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://developer.mappls.com/mapping/tokenGeneration)
 
 ## [1.1 Response Type](#1_1_Response_Type)
 
@@ -112,10 +123,10 @@ The parameters are group in sub templates. Here is the list of attributes with s
 
 #### [Subtemplate 4 : Contact Details (PREMIUM OFFERING)](#Subtemplate_4_:_sbt_contact_details)
 
-1.	Email
-2.	Mobile
-3.	Telephone
-4.	Website
+1.	email
+2.	mobile
+3.	telephone
+4.	website
 
 
 #### [Subtemplate 5 : Location Coordinates (PREMIUM OFFERING)](#Subtemplate_5_:_sbt_loc_coordinates)
@@ -125,10 +136,70 @@ The parameters are group in sub templates. Here is the list of attributes with s
 
 #### [Subtemplate 6 : E/E Coordinates (PREMIUM OFFERING)](#Subtemplate_6_:_sbt_nav_coordinates)
 
-1.	Entry_lat(double):The entry latitude of the location.
-2.	Entry_lon(double):The entry longitude of the location.
+1.	entry_lat(double):The entry latitude of the location.
+2.	entry_lon(double):The entry longitude of the location.
 
+#### [Subtemplate 7 : Category details of place (PREMIUM OFFERING)](#Subtemplate_7_:_sbt_place_cat)
 
+1. placeCategory(onject): Category of place 
+2. placeType(string): Type of place
+
+#### [Subtemplate 8 : Category details of place (PREMIUM OFFERING)](#Subtemplate_8_:_sbt_amenities)
+
+Adds applicable `values` within an array of objects available within the `keyInfo` array of object, which itself is within `richInfo` object.
+
+- `richInfo` (object)
+  - `keyInfo` (array of objects) - a generic object array containing a wide list of response properties available as 
+    - `heading` (string) - the value of this property represents the type of details available.
+    - `icon` (string) - the icon url applicable for this heading.
+    - `values` (array of objects) - each containing key-value pairs of applicable details.
+      - `icon` (string) - icon applicable to this detail.
+      - `title` (string) - the name of this detail.
+      - `value` (string) - the value of this detail.
+
+#### [Subtemplate 9 : EV details of place (PREMIUM OFFERING)](#Subtemplate_9_:_sbt_ev_details)
+
+Adds applicable `values` within an array of objects available within the `evInformation` object, which itself is within `richInfo` object.
+
+- `richInfo` (object)
+  - `evInformation` (object) - a generic ev information object  containing a wide list of response properties available within it. 
+    - `evses` (array of objects) containing ev charging machine details within it per evse.
+      - `powerType`(string): power type of machine/evseId possible values AC & DC
+      - `evseId`(string): Unique machine/evse id
+      - `connectors` (array of objects): contains details of connectors: 
+         1. `plugTyp`(string): type of plug
+         2. `level`(string): Level of plug
+         3. `power`(string): Power of connector in KW
+         4. `connectorId`(string): Unique id of connector
+
+#### [Subtemplate 10 : EV  Machine details of place (PREMIUM OFFERING)](#Subtemplate_10_:_sbt_ev_machine_details)
+
+Adds applicable `values` within an array of objects available within the `evInformation` object, which itself is within `richInfo` object.
+
+- `richInfo` (object)
+  - `evInformation` (object) - a generic ev information object  containing a wide list of response properties available within it. 
+    - `evses` (array of objects) containing ev charging machine details within it per evse.
+      - `powerType`(string): power type of machine/evseId possible values AC & DC
+      - `evseId`(string): Unique machine/evse id
+
+#### [Subtemplate 11 : EV details with tariff of place (PREMIUM OFFERING)](#Subtemplate_11_:_sbt_ev_details_with_tariff)
+
+Adds applicable `values` within an array of objects available within the `evInformation` object, which itself is within `richInfo` object.
+
+- `richInfo` (object)
+  - `evInformation` (object) - a generic ev information object  containing a wide list of response properties available within it. 
+    - `evses` (array of objects) containing ev charging machine details within it per evse.
+      - `powerType`(string): power type of machine/evseId possible values AC & DC
+      - `evseId`(string): Unique machine/evse id
+      - `connectors` (array of objects): contains details of connectors: 
+         1. `plugTyp`(string): type of plug
+         2. `level`(string): Level of plug
+         3. `power`(string): Power of connector in KW
+         4. `connectorId`(string): Unique id of connector5.
+         5. `payMode`(string) : Mode of payment
+         6. `payDuration`(string): Price/cost/tariff in time based system
+         7. `priceUnit`(string): Price/cost/tariff per `Unit` of electricity consumed
+   
 
 ## [Sample Response](#Sample-Response)
 
