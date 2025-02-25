@@ -37,16 +37,16 @@ The following input parameters will be supported in the POI Along The Route API 
 2. `category` {string} The POI category code to be searched. Only one category input supported by default. API does have the capability to search across multiple categories  simultaneously (`PREMIUM` Offering). To access multiple category search, please contact [API Support](mailto:apisupport@mappls.com).  
 
 ### Optional Parameters
-3. `sort` (valueless): Gets the sorted POIs along route.
+3. `sort` (valueless): Gets the sorted POIs along route as per distance from the origin in meters.
 4. `geometries` (string): Type of geometry encoding, accepted values are `polyline5`, `polyline6`, and `base64`. Default value is `polyline5`.
-5. `buffer` (number): Buffer of the road. Minimum value is `25`, maximum is `1000` and default is `25`.
+5. `buffer` (number): Buffer of the road in meters. Minimum value is `25`, maximum is `1000` and default is `25`.
 6. `page` (number): Used for pagination. By default, a request returns maximum `10` results and to get the next `10` or so on pass the page value accordingly. Default is 1.
 
 
 
 ### Important Note
 1. When using POST method, the parameters are sent as `multipart/form-data`
-2. The length of polyline as input is limited as of now. The API can take in polyline of length not more than 30 kms long.
+2. The length of polyline as input is limited as of now. The API can take in polyline of length not more than 30 kms long. (`PREMIUM` Offering). To access search along larger distances, please contact [API Support](mailto:apisupport@mappls.com).
 
 
 ## Response Type
