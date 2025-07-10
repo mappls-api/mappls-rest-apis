@@ -42,12 +42,23 @@ Part of Body
 
 ### [a. Mandatory Parameters](#a_Mandatory_Parameters)
 
+#### For 2G Connections
 
 1.	**`cellTowers`** (array of objects) : 	An array of cell tower objects. The following are the parameters are required in Cell Tower Objects:
     - **`cellId`** (number) : Unique identifier of the cell. Required for radioType gsm (default), cdma, wcdma and lte.
     - **`locationAreaCode`** (number) : The Location Area Code (LAC) for GSM and WCDMA networks.
     - **`mobileCountryCode`** (number) : The cell tower's Mobile Country Code (MCC).<br>Valid range: 0–999.
     - **`mobileNetworkCode`** (number) : The cell tower's Mobile Network Code. This is the MNC for GSM, WCDMA, LTE and NR.<br> Valid range for MNC: 0-999 and for SID: 0-32767
+
+#### For 4G & 5G Connections
+
+There is an additional request property that you have to send: 
+
+1. **`radioType`** (string): a string indicating whether the radio type for the connection is 4G or 5G. Can take in the following values: 
+   - `lte` - indicating that the radio of 4G connection type.
+   - `NR` - indicating that the radio of 5G connection type.
+
+>> Only in case of when `radioType` is `NR`, `cellId` variable changes to `newRadioCellId`. 
 
 Note: 
 1. **A minimum of one cell tower object is required and a maximum of six cell tower objects are allowed as input.**
@@ -61,6 +72,8 @@ Note:
 
  
 ## [Sample cURL Request](#Sample-cURL_Request)
+
+### 2G Connections
 
 ```
 curl --location --request POST 'https://atlas.mapmyindia.com/api/places/geo-location' \
@@ -77,6 +90,45 @@ curl --location --request POST 'https://atlas.mapmyindia.com/api/places/geo-loca
     ]
 }'
 ```
+
+### 4G Connections
+
+```curl
+curl --location --request POST 'https://atlas.mapmyindia.com/api/places/geo-location' \
+--header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "radioType": "lte",
+    "cellTowers": [
+        {
+            "cellId": 900372,
+            "locationAreaCode": 57,
+            "mobileCountryCode": 405,
+            "mobileNetworkCode": 872
+        }
+    ]
+}'
+```
+
+### 5G Connections
+
+```curl
+curl --location --request POST 'https://atlas.mapmyindia.com/api/places/geo-location' \
+--header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "radioType": "NR",
+    "cellTowers": [
+        {
+            "newRadioCellId": 900372,
+            "locationAreaCode": 57,
+            "mobileCountryCode": 405,
+            "mobileNetworkCode": 872
+        }
+    ]
+}'
+```
+
 
 ## [Sample Response](#Sample_Response)
 ```
