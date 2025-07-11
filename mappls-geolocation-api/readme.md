@@ -80,6 +80,7 @@ curl --location --request POST 'https://atlas.mapmyindia.com/api/places/geo-loca
 --header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
 --header 'Content-Type: application/json' \
 --data-raw '{
+    "radioType": "gsm",
     "cellTowers": [
         {
             "cellId": 900372,
@@ -133,6 +134,9 @@ curl --location --request POST 'https://atlas.mapmyindia.com/api/places/geo-loca
 ## [Sample Response](#Sample_Response)
 ```
 {
+    "accuracy": {
+        "nearest": 0
+    },
     "location": {
         "lon": 77.268947,
         "lat": 28.550847
