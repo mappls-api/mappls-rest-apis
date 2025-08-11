@@ -4,11 +4,23 @@
 
 The Still Map Image API creates a map based on URL parameters sent through a standard HTTP request and returns the map as an image which you can display on your application. The API lets you embed Mappls Maps image according to geo-position, pixel size and zoom level of the map on your application without requiring any dynamic page loading. The image can be a retina image and markers can be added to the image to indicate position of any object.
 
+## Getting Access
+
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
+
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
+
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
+
 ## API URL
 
-1.  The API URL should be of the following construct:  https://apis.mappls.com/advancedmaps/v1/<licence_key>/still_image?<Parameters>
+1.  The API URL should be of the following construct:  https://tile.mappls.com/map/raster_tile/still_image?<Parameters>
 2. **Output**  format will be an 8-bit PNG image of varying sizes.
-3.  The method used is  **POST**.
+3.  The method used is  **GET**.
 
 ## Request Parameters
 
@@ -16,8 +28,7 @@ Returns PNG data to draw map tile at position specified with coordinates (centre
 
 ### Mandatory Parameters:
 
-1.  `licence_key:` The REST API licence key allocated to you.
-2.  `center:` A WGS-84 position coordinate that specifies the centre of the image requested.
+1.  `center:` A WGS-84 position coordinate that specifies the centre of the image requested.
 
 ### Optional Parameters:
 
@@ -52,10 +63,10 @@ One Request (which returns one image) using the API link will be considered as o
 ## Example
 
 **Input**:  
-https://apis.mappls.com/advancedmaps/v1/<REST_KEY>/still_image?center=28.5959394,77.2255611&zoom=15&size=400x400&ssf=1&markers=28.5959394,77.2255611
+https://tile.mappls.com/map/raster_tile/still_image?center=28.5959394,77.2255611&zoom=15&size=400x400&ssf=1&markers=28.5959394,77.2255611&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm
 
 ### Output: :
-![enter image description here](https://mmi-api-team.s3.ap-south-1.amazonaws.com/API%20Team/still_image.png)
+![enter image description here](https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/still_image.png)
 
 <br>
 

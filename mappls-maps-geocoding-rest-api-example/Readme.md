@@ -6,7 +6,7 @@
 Powered with India's most comprehensive and robust mapping functionalities.
 ## Global Coverage Now Available !
 
-Geocoding API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.
+Geocoding API is **Now Available**  for [238 countries](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) across the world.
 
 You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
@@ -21,23 +21,26 @@ All mapping APIs that are used in mobile or web apps need some geo-position coor
 
 ## Live Demo
 
-[Click here to visit live demonstration page](https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-vector-maps-atlas-geocoding-rest-api-example.php)
+[Click here to visit live demonstration page](https://about.mappls.com/api/advanced-maps/doc/sample/mapmyindia-vector-maps-atlas-geocoding-rest-api-example.php)
 
 ## Input URL
 
-`https://atlas.mappls.com/api/places/geocode?`
+`https://search.mappls.com/search/address/geocode?`
 
 ## Input Method
 GET
 
-## Security Type
-This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
+## Getting Access
 
-## Request Headers
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
 
-The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: “{token_type} {access_token}”.
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
 
--  `Authorization:  “token_type access_token”`.
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
 
 ## Request Parameters
 
@@ -68,7 +71,7 @@ Allowed values are:
 	- `pincode` :pincode
 	- `state` : state
 5. *`bound`*  (string): This parameter can be used to set admin boundary, which means geocoding will be done within the given admin. The allowed admin bounds are **Sub-District**, **District**, **City**, **State** and **Pincode**. The parameter accepts the admin eLoc as value.
-6. *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md).
+6. *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md).
 7. *`actualGeoLevel`* (valueless): returns the actual geocoding level which indicates the best possible match till which the API is able to extrapolate to.
 
 **Note**: Please note that `podFilter` & `bound` parameters are mutually exclusive. They cannot be used together in an API call.
@@ -143,7 +146,7 @@ Server-Side Issues:
 
 ## Sample Input
 
-`https://atlas.mappls.com/api/places/geocode?address=mapmyindia 237 okhla phase 3`
+`https://search.mappls.com/search/address/geocode?address=mapmyindia 237 okhla phase 3`
 
 ## Sample Output
 
@@ -261,7 +264,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

@@ -9,20 +9,19 @@ Any mobile user will send the information of all the connected or recently conne
 
 ## Getting Access
 
-Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://apis.mappls.com/console/), in the same project you set up for the Maps SDK.
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
 
-1. Copy and paste the generated `access token` from your API [keys](https://apis.mappls.com/console/) available in the dashboard in the sample code for interactive map development.
-    - This APIs follow OAuth2 based security.
-    - `Access Token` can be generated using Token Generation API.
-    - To know more on how to create your access tokens, please use our authorization API URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
-    - The `access token` is a valid by default for 24 hours from the time of generation. This can be configured by you in the API console.
-2. **`Security Type`**
-    
-    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
+
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
 
 ## [Input URL](#Input_URL) 
 
-https://atlas.mappls.com/api/places/geo-location
+https://search.mappls.com/search/places/geo-location
 
 ## [Method](#Method)
 
@@ -39,8 +38,6 @@ POST
 ## [Request Parameters](#Request_Parameter)
 
 Part of Body
-
-### [a. Mandatory Parameters](#a_Mandatory_Parameters)
 
 #### For 2G Connections
 
@@ -69,6 +66,8 @@ Note:
 1.	`location`(object): The estimated geolocation i.e. latitude and longitude, in degrees. Contains the following parameters:
     - `lon` (number): longitude of the estimated location.
     - `lat` (number): latitude of the estimated location.
+2. `accuracy`(object): The estimated accuracy in meters of the provided location.
+    - `nearest`(integer): accuracy as per closest triangulation. 0 indicates unable to determine accuracy.  
 
  
 ## [Sample cURL Request](#Sample-cURL_Request)
@@ -76,10 +75,9 @@ Note:
 ### 2G Connections
 
 ```
-curl --location --request POST 'https://atlas.mapmyindia.com/api/places/geo-location' \
---header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
+curl --location 'https://search.mappls.com/search/places/geo-location?access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm' \
 --header 'Content-Type: application/json' \
---data-raw '{
+--data '{
     "radioType": "gsm",
     "cellTowers": [
         {
@@ -95,10 +93,9 @@ curl --location --request POST 'https://atlas.mapmyindia.com/api/places/geo-loca
 ### 4G Connections
 
 ```curl
-curl --location --request POST 'https://atlas.mapmyindia.com/api/places/geo-location' \
---header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
+curl --location 'https://search.mappls.com/search/places/geo-location?access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm' \
 --header 'Content-Type: application/json' \
---data-raw '{
+--data '{
     "radioType": "lte",
     "cellTowers": [
         {
@@ -110,14 +107,12 @@ curl --location --request POST 'https://atlas.mapmyindia.com/api/places/geo-loca
     ]
 }'
 ```
-
 ### 5G Connections
 
 ```curl
-curl --location --request POST 'https://atlas.mapmyindia.com/api/places/geo-location' \
---header 'Authorization: Bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
+curl --location 'https://search.mappls.com/search/places/geo-location?access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm' \
 --header 'Content-Type: application/json' \
---data-raw '{
+--data '{
     "radioType": "NR",
     "cellTowers": [
         {
@@ -129,7 +124,6 @@ curl --location --request POST 'https://atlas.mapmyindia.com/api/places/geo-loca
     ]
 }'
 ```
-
 
 ## [Sample Response](#Sample_Response)
 ```
@@ -204,7 +198,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

@@ -7,16 +7,16 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 ## Getting Access
 
-Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://apis.mappls.com/console/), in the same project you set up for the Maps SDK.
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), in the same project you set up for the Maps SDK.
 
-1. Copy and paste the generated `access token` from your API [keys](https://apis.mappls.com/console/) available in the dashboard in the sample code for interactive map development.
+1. Copy and paste the generated `access token` from your API [keys](https://auth.mappls.com/console/) available in the dashboard in the sample code for interactive map development.
     - This APIs follow OAuth2 based security.
     - `Access Token` can be generated using Token Generation API.
-    - To know more on how to create your access tokens, please use our authorization API URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
+    - To know more on how to create your access tokens, please use our authorization API URL. More details available [here](https://developer.mappls.com/mapping/tokenGeneration)
     - The `access token` is a valid by default for 24 hours from the time of generation. This can be configured by you in the API console.
 2. **`Security Type`**
     
-    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
+    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://developer.mappls.com/mapping/tokenGeneration)
 
 
 ## Introduction
@@ -205,7 +205,7 @@ vehicles/tasks time windows.
 POST
 
 ## Security Type
-This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
+This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://developer.mappls.com/mapping/tokenGeneration)
 
 ## Request Headers
 

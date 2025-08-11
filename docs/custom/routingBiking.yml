@@ -2,6 +2,7 @@ openapi: 3.0.3
 info:
   title: Routing API for Two Wheelers
   description: >-
+    Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.<br><ol><li>Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.</li><br><ul><li>Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app).</li><br><li>Your static key obtained from your Console is to be passed as a query parameter: `access_token`.</li></ul></ol><br>
     **Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Routing APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between Mappls & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact Mappls API support.</li><li> <strong>PREMIUM APIs</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
   termsOfService: 'https://about.mappls.com/api/terms-&-conditions'
   version: 1.0.0
@@ -12,28 +13,30 @@ info:
     name: Mappls API Support
     email: apisupport@mappls.com
     url: https://about.mappls.com/api/
+security: 
+  - staticKeyAuth: []
 servers:
-  - url: https://apis.mappls.com/advancedmaps/v1
+  - url: https://route.mappls.com
     description: 'Live Prod server for Routing APIs'
 paths:
-  /{REST_KEY}/{resources}/biking/{geopositions}:
+  /route/direction/{resources}/biking/{geopositions}:
     get: 
       tags: 
         - Routing API with Biking Profile
       description: >-
         Routing and displaying driving directions on map, including instructions for navigation, distance to destination, traffic etc. are few of the most important parts of developing a map based application. This REST API calculates driving routes between specified locations including via points based on route calculation type(optimal or shortest).<br>Please note that maximum number of points are limited to 100 only including source and secondary positions. The Mappls Bike Routing API takes into consideration routes where bikes are allowed to travel as well as those roads which might be non-navigable to larger vehicles.
-        <p style=text-align:right><strong><a href="https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-route-adv-api-example">Live Demo</a> </p>
+        <p style=text-align:right><strong><a href="https://about.mappls.com/api/advanced-maps/doc/sample/mapmyindia-maps-route-adv-api-example">Live Demo</a> </p>
       summary: Routing API with biking profile
       operationId: routingAPI
       parameters: 
-        - name: REST_KEY
-          in: path
-          description: 'The REST API licence key allocated to you by signing into our services and registering yourself as a developer.'
-          allowEmptyValue: false
-          required: true
-          example: "threstapikeywillcomeheretoaccess"
-          schema:
-            type: string
+        # - name: REST_KEY
+        #   in: path
+        #   description: 'The REST API licence key allocated to you by signing into our services and registering yourself as a developer.'
+        #   allowEmptyValue: false
+        #   required: true
+        #   example: "threstapikeywillcomeheretoaccess"
+        #   schema:
+        #     type: string
         - name: resources
           in: path
           description: >-
@@ -553,3 +556,8 @@ components:
           description: >-
              Indicating a sign of directions like Straight, Slight Left, Right, etc. To see the complete list of indications, please see <a href="https://github.com/Mappls-api/mappls-rest-api/wiki/indications">article</a> in wiki.
           example: ["straight", "slight left"]
+  securitySchemes:
+    staticKeyAuth: 
+      type: apiKey
+      in: query
+      name: access_token

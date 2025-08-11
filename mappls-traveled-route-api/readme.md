@@ -4,23 +4,34 @@
 
 This API can be used to get an image of map with traveled route plotted on it. The image size can be specified; which will dynamically create an image of varying zoom levels with the start and end locations plotted on it.
 
+## Getting Access
+
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
+
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
+
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
+
 ## API URL
 
-1.  The API URL should be of the following construct:  http://apis.mappls.com/advancedmaps/v1/<licence_key>/still_image_polyline?
+1.  The API URL should be of the following construct:  https://tile.mappls.com/map/raster_tile/still_image_polyline?
 2. **Output**  format will be an 8-bit PNG image of varying sizes.
 3.  The method used is  **POST**.
 
 ## Request Parameters
 
 The following input parameters will be supported in the Travelled Route API request –  
-The body content will be of ‘form-data’ type, consisting of the following parameters:
+The body content will be of `form-data` type, consisting of the following parameters:
 
 ### Mandatory Parameters:
 
 1.  `height:` The height of the image resolution that is required.
 2.  `width:` The width of the image resolution that is required.
 3.  `polyline:` An array of comma separated [Longitude,Latitude] points that define the polyline along which the route was traversed.
-4.  `licence_key:` The REST API licence key allocated to you.
 
 ### Optional Parameters:
 
@@ -47,7 +58,9 @@ The Traveled Route API is a resource intensive API that consumes considerable co
 ## Example
 
 **Input**:  
-http://apis.mappls.com/advancedmaps/v1/<licence_key>/ still_image_polyline?
+```
+https://tile.mappls.com/map/raster_tile/still_image_polyline?&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm
+```
 
 **Body**
 ```json
@@ -59,7 +72,7 @@ markers:[[77.217698,28.600933],[77.193986,28.595865]]
 markers_icon:https://img.icons8.com/dusk/25/000000/region-code.png
 ```
 ### Output: :
-![enter image description here](https://mmi-api-team.s3.ap-south-1.amazonaws.com/API%20Team/Still_Image_Polyline.png)
+![enter image description here](https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/Still_Image_Polyline.png)
 
 <br>
 
@@ -85,7 +98,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

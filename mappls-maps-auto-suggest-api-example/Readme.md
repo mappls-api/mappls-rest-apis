@@ -6,7 +6,7 @@
 Powered with India's most comprehensive and robust mapping functionalities.
 ## Global Coverage Now Available !
 
-Autosuggest API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.
+Autosuggest API is **Now Available**  for [238 countries](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) across the world.
 
 You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
@@ -17,28 +17,33 @@ You can get your api key to be used in this document here: [https://about.mappls
 4. PREMIUM APIs/Parameters are not available for evalulation on signup. To get access, please contact API Support.
 5. `lang` is a premium response parameter linked to our regional language support. Only clients who have specific agreements for its usage will be able to get this in their response parameter.
 6. The maximum length of valid input query is 45. For longer queries, API will return 400 Bad Request - Too Long Input
+
+
 ## Introduction
 The Autosuggest API helps users to complete queries faster by adding intelligent search capabilities to your web or mobile app. This API returns a list of results as well as suggested queries as the user types in the search field. This API also supports hindi language. If a user enters query in hindi language he will get results in hindi.
 
 ## Live Demo
 
-[Click here to visit live demonstration page](https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php)
+[Click here to visit live demonstration page](https://about.mappls.com/api/advanced-maps/doc/sample/mapmyindia-vector-maps-auto-suggest-api-example.php)
 
-## Security Type
-This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
+## Getting Access
 
-## Request Headers
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
 
-The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: “{token_type} {access_token}”.
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
 
--  `Authorization:  “token_type access_token”`.
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
 
 ## Input Method
 GET
 
 ## Input URL
 
-[https://atlas.mappls.com/api/places/search/json?](https://atlas.mappls.com/api/places/search/json?)
+[https://search.mappls.com/search/places/autosuggest/json?](https://search.mappls.com/search/places/autosuggest/json?)
 
 ## Response Type
 
@@ -53,7 +58,7 @@ The “**bold**” one’s are mandatory, and the “*italic*” one’s are opt
 2.  Optional Parameters:
 	- *`location`*  {string (latitude[double],longitude[double])} e.g. `location=28.454,77.435`. Location is required to get location bias autosuggest results.
 	- *`zoom`*  (double): takes the zoom level of the current scope of the map (min: 4, max: 18). This optional parameter & its related effect on response is not applicable for regions apart from India (IND). 
-	- *`region`* (string): it takes in the country code. Possible values are listed in a table [here](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md). Default is India (IND)
+	- *`region`* (string): it takes in the country code. Possible values are listed in a table [here](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md). Default is India (IND)
 	- *`tokenizeAddress`* (valueless) provides the different address attributes in a structured object.
 	- *`pod`*  (string) = it takes in the place type code which helps in restricting the results to certain chosen type. This optional parameter & its related effect on response is not applicable for regions apart from India (IND).
     Below mentioned are the codes for the pod -
@@ -129,8 +134,7 @@ d. `lang`<sup>1</sup> (string): used to indicate if the response is in some lang
 ## Sample Input cURL
 
 ```js
-curl --location --request GET 'https://atlas.mappls.com/api/places/search/json?bridge=&query=mapmyindia&location=28.627133913995547,77.23553525204144' \
---header 'Authorization: bearer 6xxxxxx4-9xxx-xxx7-xxxb-8dxxa7xxxdc'
+curl --location --request GET 'https://search.mappls.com/search/places/autosuggest/json?bridge=&query=mapmyindia&location=28.627133913995547,77.23553525204144&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm'
 ```
 
 
@@ -218,7 +222,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

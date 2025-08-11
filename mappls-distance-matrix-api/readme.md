@@ -9,7 +9,7 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 ## Global Coverage Now Available !
 
-Distance Matrix API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.
+Distance Matrix API is **Now Available**  for [238 countries](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) across the world.
 
 You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
@@ -18,6 +18,7 @@ You can get your api key to be used in this document here: [https://about.mappls
 
 | Version | Last Updated | Author |
 | ---- | ---- | ---- |
+| 1.0.0 | June 2025 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
 | 0.0.5 | July 2021 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
 | 0.0.4 | December 2020 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
 | 0.0.3 | December 2019 | Mappls API Team ([KB](https://github.com/kunalbharti)) |
@@ -28,7 +29,7 @@ You can get your api key to be used in this document here: [https://about.mappls
 
 | Version | Last Updated | Author | Revised Sections |
 | ---- | ---- | ---- | ---- |
-| 270.19.5222 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) support added for `distance_matrix` resource. |
+| 270.19.5222 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) support added for `distance_matrix` resource. |
 | 250.19.5222 | 2020-12-15 | Mappls API Team ([PS](https://github.com/map-123)) | eLoc support released |
 | 220.19.522 | 2019-12-19 | Mappls API Team ([PS](https://github.com/map-123)) | Data update ver 22.0, Many to Many distance matrix released |
 | 200.17 | 2018-05-21 | Mappls API Team ([PS](https://github.com/map-123)) | Data update ver 20.0, CORS enabled, “distance_matrix_traffic” introduced as resource |
@@ -40,7 +41,20 @@ You can get your api key to be used in this document here: [https://about.mappls
 ### Driving Distance-Time Matrix
 
 Adding driving directions API would help to add predicted travel time & duration from a given origin point to a number of points. This REST API computes the distance and duration of a route between a source/primary position (geographical coordinates) and a list of all supplied secondary positions using to mode of route calculation i.e. optimal and shortest.
-Distance matrix is supported for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) via the region parameter. Please note that maximum number of points are limited to 100 only including source and secondary positions.
+Distance matrix is supported for [238 countries](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) via the region parameter. Please note that maximum number of points are limited to 100 only including source and secondary positions.
+
+## Getting Access
+
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
+
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
+
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
+
 
 ## Security Type
 - License key based authentication
@@ -76,22 +90,13 @@ GET
 							<td class="cellrowborder" rowspan="2" headers="d156249e37 ">Base URL</td>
 							<td class="cellrowborder" headers="d156249e40 ">
 								<code>
-									<span class="keyword">https://apis.mappls.com/advancedmaps/v1/</span>
+									<span class="keyword">https://route.mappls.com/route/dm/</span>
 								</code>
 							</td>
 							<td class="row-nocellborder" headers="d156249e43 ">Production environment</td>
 						</tr>
 						<tr class="&#39;&#39; override_background">
 							</tr>
-						<tr class="&#39;&#39; override_background">
-							<td class="cellrowborder" headers="d156249e37 ">Authorization</td>
-							<td class="cellrowborder" headers="d156249e40 ">
-								<code>
-									<span class="keyword">"assigned_REST_license_key"</span>
-								</code>
-							</td>
-							<td class="row-nocellborder" headers="d156249e43 ">The REST API license key authorized to access the resource</td>
-						</tr>
 						<tr class="&#39;&#39; override_background">
 							<td class="cellrowborder" rowspan="3" headers="d156249e37 ">Resources</td>
 							<td class="cellrowborder" headers="d156249e40 ">
@@ -153,7 +158,7 @@ GET
 
 ### Example URL: 
 ```html
-https://apis.mappls.com/advancedmaps/v1/<assigned_license_key>/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;17ZUL7?
+https://route.mappls.com/route/dm/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;17ZUL7?access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm
 ```
 where: 
 - "distance_matrix" is the chosen resource.
@@ -169,7 +174,7 @@ where:
 
 The “**bold**” one’s are mandatory, and the “*italic*” one’s are optional.
 
-1.  **`lic_key`**: Allocated REST API license key. (part of URL).
+1.  **`access_token`**: Allocated static key.
 2.  **`source`**: The first location is either 
 	- a pair of comma separated longitude & latitude value OR
 	- an eLoc
@@ -184,7 +189,7 @@ For example `77.983936,28.255904;77.05993,28.487555` OR `mmi000`.
 1. *`rtype`* type of route (integer) required for navigation, where values mean:  
 	- `0` optimal (default)  
 	- `1` shortest (it will calculate route by excluding access penalties like private roads, etc.)
-2.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md).
+2.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md).
 
 ### Parameters for Many-to-Many Distance Matrix
 #### Important Note
@@ -225,11 +230,11 @@ JSON: response will served as JSON
 
 ### For 1-to-Many Calculations:
 
-`https://apis.mappls.com/advancedmaps/v1/<lic_key>/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;77.15993,28.587555;17ZUL7?rtype=0&region=ind`
+`https://route.mappls.com/route/dm/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;77.15993,28.587555;17ZUL7?rtype=0&region=ind&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm`
 
 ### For Many-to-Many Calculations: 
 
-`https://apis.mappls.com/advancedmaps/v1/<lic_key>/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;77.15993,28.587555;17ZUL7?sources=0;1&destinations=2;3`
+`https://route.mappls.com/route/dm/distance_matrix/driving/77.983936,28.255904;77.05993,28.487555;77.15993,28.587555;17ZUL7?sources=0;1&destinations=2;3&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm`
 
 ## Sample Response
 
@@ -292,9 +297,7 @@ JSON: response will served as JSON
 
 ## Live Demo
 
-[Click Here](https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-distance-matrix-api-example)
-
-For more details, please visit our full documentation.
+[Click Here](https://about.mappls.com/api/advanced-maps/doc/sample/mapmyindia-maps-distance-matrix-api-example)
 
 <br>
 
@@ -320,7 +323,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

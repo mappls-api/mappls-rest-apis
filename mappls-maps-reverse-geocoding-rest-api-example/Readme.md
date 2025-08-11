@@ -7,7 +7,7 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 ## Global Coverage Now Available !
 
-Reverse Geocoding API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.
+Reverse Geocoding API is **Now Available**  for [238 countries](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) across the world.
 
 You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
@@ -16,16 +16,29 @@ You can get your api key to be used in this document here: [https://about.mappls
 ## Introduction
 Reverse Geocoding is a process to give the closest matching address to a provided geographical coordinates (latitude/longitude). Mappls reverse geocoding API provides real addresses along with nearest popular landmark for any such geo-positions on the map. This API also works in Hindi language so for that you have to add new paramter introduced lang. 
 
+
+## Getting Access
+
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
+
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
+
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
+
 ## Live Demo
 
-[Click here to visit live demonstration page](https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-reverse-geocoding-rest-api-example)
+[Click here to visit live demonstration page](https://about.mappls.com/api/advanced-maps/doc/sample/mapmyindia-vector-maps-reverse-geocoding-rest-api-example.php)
 
 ## Input Method
 GET
 
 ## Input URL
 
-`https://apis.mappls.com/advancedmaps/v1/<licence_key>/rev_geocode?lat=<latidude>&lng=<longitude>`
+`https://search.mappls.com/search/address/rev-geocode?`
 
 ## Response Type
 
@@ -51,9 +64,8 @@ The “**bold**” one’s are mandatory, and the “*italic*” one’s are opt
 
 1.  **`lat`**: The latitude of the location for which the address is required.
 2.  **`lng`**: The longitude of the location for which address is required.
-3.  **`Licence_key`**: The REST API licence key allocated to you by signing into our services and registering yourself as a developer (28 Char Alphanumeric).
-4.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md). Default is India (IND)
-5.  *`lang`* (string): This parameter accepts the "hi" (ISO 639-1 Language Code for Hindi) as a value. 
+3.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md). Default is India (IND)
+4.  *`lang`* (string): This parameter accepts the "hi" (ISO 639-1 Language Code for Hindi) as a value. 
 
 ## Response Parameters
 1. **`responseCode`**: The response code value for the API request call.
@@ -97,7 +109,7 @@ The “**bold**” one’s are mandatory, and the “*italic*” one’s are opt
 
 ## Sample Input
 
-`https://apis.mappls.com/advancedmaps/v1/<licence_key>/rev_geocode?lat=26.5645&lng=85.9914`
+`https://search.mappls.com/search/address/rev-geocode?lat=26.5645&lng=85.9914&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm`
 
 ## Sample Output
 ```json
@@ -157,7 +169,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

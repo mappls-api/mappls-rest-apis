@@ -30,22 +30,15 @@ In summary, our Location Verification API is a vital tool for businesses that re
 
 ## Getting Access
 
-Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://apis.mappls.com/console/), in the same project you set up for the Maps SDK.
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
 
-1. Copy and paste the generated `access token` from your API [keys](https://apis.mappls.com/console/) available in the dashboard in the sample code for interactive map development.
-    - This APIs follow OAuth2 based security.
-    - `Access Token` can be generated using Token Generation API.
-    - To know more on how to create your access tokens, please use our authorization API URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
-    - The `access token` is a valid by default for 24 hours from the time of generation. This can be configured by you in the API console.
-2. **`Security Type`**
-    
-    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
 
-## Request Headers
+## Authentication Object - `access_token` mandatory query parameter.
 
-The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: “{token_type} {access_token}”.
-
--  `Authorization:  “token_type access_token”`.
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
 
 
 ## Input Method
@@ -54,7 +47,7 @@ POST
 ## Input URL
 
 ```html
-https://atlas.mappls.com/api/places/address-verification
+http://search.mappls.com/search/address/address-verification
 ```
 
 ## Request Body
@@ -100,7 +93,7 @@ Content-Type: `application/json`
   - `state`(string): the state of the location.
   - `pincode`(string): the pincode of the location.
 - `requestId` (string): Used to identify requests to this API. The same ID is responded back through a response header called `UID`. If this is absent - a self generated ID is present in same response header.
- 
+
 ## Response Parameters
 
 1. `inputAddress` (string): The input address for verification
@@ -191,10 +184,9 @@ Content-Type: `application/json`
 
 ## Sample Input cURL
 
-```js
-curl --location 'https://atlas.mappls.com/api/places/address-verification' \
+``` curl
+curl --location 'http://search.mappls.com/search/address/address-verification?access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm' \
 --header 'Content-Type: application/json' \
---header 'Authorization: bearer 6xxxxxx4-9xxx-xxx7-xxxb-8dxxa7xxxdc' \
 --data '{
     "inputAddress": "C/O Dr. Savita Sagar, Hannah Sen Cottage, Lady Irwin College, Safdar Hashmi Marg, Mandi House, New Delhi 110001, Delhi, India",
     "latitude": 28.627221171362137,
@@ -213,73 +205,80 @@ curl --location 'https://atlas.mappls.com/api/places/address-verification' \
 
 ```json
 {
-    "inputAddress": "16/466, GALI NO. 15, KAROL BAGH, Karol Bagh, new delhi, Central Delhi, , Delhi, India, 110005,New Delhi,DELHI,110005",
+    "inputAddress": "C/O Dr. Vivek Singh, Hannah Sen Cottage, Lady Irwin College, Safdar Hashmi Marg, Mandi House, New Delhi 110001, Delhi, India",
     "geocodingResponse": {
-        "houseNumber": "15",
+        "houseNumber": "",
         "houseName": "",
-        "poi": "",
-        "street": "Gali Number 1",
+        "poi": "Hannah Sen Cottage",
+        "street": "",
         "subSubLocality": "",
-        "subLocality": "Block 16",
-        "locality": "Karol Bagh",
+        "subLocality": "",
+        "locality": "Lady Irwin College Campus",
         "village": "",
-        "subDistrict": "Pahar Ganj",
-        "district": "Central District",
+        "subDistrict": "Connaught Place",
+        "district": "New Delhi District",
         "city": "New Delhi",
         "state": "Delhi",
-        "pincode": "110005",
+        "pincode": "110001",
         "floorNumber": "",
-        "formattedAddress": "15, Gali Number 1, Block 16, Karol Bagh, Pahar Ganj, Central District, New Delhi, Delhi, 110005",
-        "eLoc": "JLNCRO",
-        "latitude": 28.653679,
-        "longitude": 77.201717,
-        "geocodeLevel": "houseNumber",
+        "formattedAddress": "Hannah Sen Cottage, Lady Irwin College Campus, Connaught Place, New Delhi District, New Delhi, Delhi, 110001",
+        "eLoc": "17ZUL7",
+        "latitude": 28.62719,
+        "longitude": 77.235419,
+        "geocodeLevel": "poi",
+        "elocAdminType": "poi",
         "confidenceScore": 0.8
     },
     "reverseGeocodingResponse": {
-        "houseNumber": "462",
+        "houseNumber": "",
         "houseName": "",
-        "poi": "Food Path",
-        "poi_dist": "10",
-        "street": "Joshi Road",
-        "street_dist": "2",
+        "poi": "Lady Irwin College",
+        "poi_dist": "137",
+        "street": "Sikandra Lane",
+        "street_dist": "40",
         "subSubLocality": "",
-        "subLocality": "Block A",
-        "locality": "Karol Bagh",
+        "subLocality": "",
+        "locality": "Lady Irwin College Campus",
         "village": "",
-        "district": "Central District",
-        "subDistrict": "Karol Bagh",
+        "district": "New Delhi District",
+        "subDistrict": "Connaught Place",
         "city": "New Delhi",
         "state": "Delhi",
-        "pincode": "110005",
-        "lat": "28.6515154",
-        "lng": "77.1991861",
+        "pincode": "110001",
+        "lat": "28.627221171362137",
+        "lng": "77.23554310432878",
         "area": "India",
         "areaCode": "IN",
-        "eLoc": "E87NOU",
+        "eLoc": "38FD1E",
         "isRooftop": false,
-        "formatted_address": "462, Joshi Road, Block A, Karol Bagh, New Delhi, Delhi. 10 m from Food Path, Pin-110005 (India)"
+        "formatted_address": "Sikandra Lane, Lady Irwin College Campus, New Delhi, Delhi. 137 m from Lady Irwin College, Pin-110001 (India)"
     },
     "comparison": {
         "radialProximity": {
-            "distanceMeters": 344.7745939564872,
-            "isWithinThreshold": false,
+            "distanceMeters": 12.598903162702024,
+            "isWithinThreshold": true,
             "thresholdMeters": 200,
-            "message": "The input address and the reverse geocoded address exceed the threshold distance."
+            "message": "The input address and the reverse geocoded address are within the threshold distance."
         },
         "addressHierarchy": {
-            "matchLevel": "locality;district;city;state;pincode",
+            "matchLevel": "locality;district;subDistrict;city;state;pincode",
             "details": [
                 {
                     "field": "locality",
-                    "input": "Karol Bagh",
-                    "reverse": "Karol Bagh",
+                    "input": "Lady Irwin College Campus",
+                    "reverse": "Lady Irwin College Campus",
                     "match": true
                 },
                 {
                     "field": "district",
-                    "input": "Central District",
-                    "reverse": "Central District",
+                    "input": "New Delhi District",
+                    "reverse": "New Delhi District",
+                    "match": true
+                },
+                {
+                    "field": "subDistrict",
+                    "input": "Connaught Place",
+                    "reverse": "Connaught Place",
                     "match": true
                 },
                 {
@@ -296,19 +295,19 @@ curl --location 'https://atlas.mappls.com/api/places/address-verification' \
                 },
                 {
                     "field": "pincode",
-                    "input": "110005",
-                    "reverse": "110005",
+                    "input": "110001",
+                    "reverse": "110001",
                     "match": true
                 }
             ],
-            "message": "The address hierarchy matches up to the locality, district, city, state and pincode levels."
+            "message": "The address hierarchy matches up to the locality, district, subDistrict, city, state and pincode levels."
         }
     },
     "additionalProperties": {
-        "verificationTimestamp": "2024-09-04T04:40:34Z",
+        "verificationTimestamp": "2025-07-03T06:59:05Z",
         "apiVersion": "1.0.0",
-        "sourceSystem": "Mappls 2024.07",
-        "remarks": "The address hierarchy matches up to the specified level, but the radial proximity exceeds the threshold distance."
+        "sourceSystem": "Mappls 2024.11",
+        "remarks": "The input address is verified successfully within the specified thresholds."
     }
 }
 ```

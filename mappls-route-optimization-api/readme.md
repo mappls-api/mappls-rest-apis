@@ -7,7 +7,7 @@
 Powered with India's most comprehensive and robust mapping functionalities.
 ## Global Coverage Now Available !
 
-Route Optimization API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.
+Route Optimization API is **Now Available**  for [238 countries](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) across the world.
 
 You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
@@ -24,7 +24,7 @@ You can get your api key to be used in this document here: [https://about.mappls
 
 | Version | Last Updated | Author | Revised Sections |
 | ---- | ---- | ---- | ---- |
-| 270.19.5222 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) support added for `trip_optimization` resource. |
+| 270.19.5222 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) support added for `trip_optimization` resource. |
 | 1.0 | 2018-05-01 | Mappls API Team ([PS](https://github.com/map-123)) | Intial Release |
 
 <br>
@@ -42,7 +42,7 @@ Route Optimization is the process of determining the most cost-efficient route. 
 
 ## Live Demo
 
-[Click Here](https://www.mapmyindia.com/api/advanced-maps/doc/sample/RouteOptimization/mapmyindia-vector-maps-route_optimization.php)
+[Click Here](https://about.mappls.com/api/advanced-maps/doc/sample/RouteOptimization/mapmyindia-vector-maps-route_optimization.php)
 
 
 ## General Information
@@ -60,8 +60,17 @@ Currently, not all combinations of roundtrip, source and destination are support
 <br>
 
 
-## Security Type
-This APIs follow static API key based security. 
+## Getting Access
+
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
+
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
+
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
 
 
 ## Input Method
@@ -93,22 +102,13 @@ GET
 							<td class="cellrowborder" rowspan="2" headers="d156249e37 ">Base URL</td>
 							<td class="cellrowborder" headers="d156249e40 ">
 								<code>
-									<span class="keyword">https://apis.mappls.com/advancedmaps/v1/</span>
+									<span class="keyword">https://route.mappls.com/route/optimization/</span>
 								</code>
 							</td>
 							<td class="row-nocellborder" headers="d156249e43 ">Production environment</td>
 						</tr>
 						<tr class="&#39;&#39; override_background">
-							</tr>
-						<tr class="&#39;&#39; override_background">
-							<td class="cellrowborder" headers="d156249e37 ">Authorization</td>
-							<td class="cellrowborder" headers="d156249e40 ">
-								<code>
-									<span class="keyword">"assigned_REST_license_key"</span>
-								</code>
-							</td>
-							<td class="row-nocellborder" headers="d156249e43 ">The REST API license key authorized to access the resource</td>
-						</tr>
+							</tr>						
 						<tr class="&#39;&#39; override_background">
 							<td class="cellrowborder" rowspan="3" headers="d156249e37 ">Resources</td>
 							<td class="cellrowborder" headers="d156249e40 ">
@@ -177,7 +177,7 @@ GET
 
 ### Example URL: 
 ```html
-https://apis.mappls.com/advancedmaps/v1/REST_API_KEY/trip_optimization_eta/driving/77.235500,28.627136;77.107227,28.720863;77.120125,28.548559;77.312093,28.675954;77.293948,28.594097;77.268912,28.550820?region=ind&geometries=polyline&overview=full&steps=false&source=first&destination=last&roundtrip=true
+https://route.mappls.com/route/optimization/trip_optimization_eta/driving/77.235500,28.627136;77.107227,28.720863;77.120125,28.548559;77.312093,28.675954;77.293948,28.594097;77.268912,28.550820?region=ind&geometries=polyline&overview=full&steps=false&source=first&destination=last&roundtrip=true&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm
 ```
 where: 
 - "trip_optimization_eta" is the chosen resource.
@@ -195,8 +195,7 @@ JSON
 
 
 1. Mandatory Parameters:
-	- **`REST-API-KEY`**  (path; string) The statuc API key assigned to you for accessing this API resource.
-    - **`coordinates`** (path; string) The pair of longitude & latitude (comma separated) that is taken as the coordinate pairs defining the vertices of the TSP and on which the route optimization is performed.
+	- **`coordinates`** (path; string) The pair of longitude & latitude (comma separated) that is taken as the coordinate pairs defining the vertices of the TSP and on which the route optimization is performed.
 2.  Optional Parameters:
 	- *`source`*  (string) Use location with given index as source. Applicable values: 
         - `first`
@@ -220,7 +219,7 @@ JSON
         - `simplified` (default) simplified geometry for higher zoomed out levels (~state zoom levels).
         - `full` Detailed geometry for display at all zoom levels.
         - `false` to not provide geometry at all.
-    - *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md).
+    - *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md).
 
 ## Response Parameters
 
@@ -272,7 +271,7 @@ JSON
 
 ## Sample Input
 
-`https://apis.mappls.com/advancedmaps/v1/REST-KEY-HERE/trip_optimization_eta/driving/77.235500,28.627136;77.107227,28.720863;77.120125,28.548559;77.312093,28.675954;77.293948,28.594097;77.268912,28.550820?region=ind&geometries=polyline&overview=full&steps=false&source=first&destination=last&roundtrip=true`
+`https://route.mappls.com/route/optimization/trip_optimization_eta/driving/77.235500,28.627136;77.107227,28.720863;77.120125,28.548559;77.312093,28.675954;77.293948,28.594097;77.268912,28.550820?region=ind&geometries=polyline&overview=full&steps=false&source=first&destination=last&roundtrip=true&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm`
 
 ## Sample Response
 ```json
@@ -403,9 +402,6 @@ JSON
 }
 ```
 
-
-
-
 <br>
 
 For any queries and support, please contact: 
@@ -430,7 +426,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

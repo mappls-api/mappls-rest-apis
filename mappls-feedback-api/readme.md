@@ -1,20 +1,33 @@
 [<img src="https://about.mappls.com/about/images/MAPPLS-MapmyIndia-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
 # FEEDBACK API
 
-### Introduction
+## Introduction
 
 The API acts as a feedback loop to improve the user's search pattern by incorporating ML based personalization characteristics to further searches. This API is not billable directly; but has transactions limits to avoid abuse.
 
-### URL
+
+## Getting Access
+
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
+
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
+
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
+
+## URL
 ```html
-https://atlas.mappls.com/api/feedback/search/json?
+https://search.mappls.com/search/places/feedback/json?
 ```
 
-### Method
+## Method
 
-##### POST
+#### POST
 
-### Request Body
+## Request Body
 
 The request must have a JSON body with the below keys and their data types:
 
@@ -30,10 +43,9 @@ The request must have a JSON body with the below keys and their data types:
 8.  *`latitude`*: (double) => the latitude of the location from where the search is made. The latitude must be a double value, must not start with 0 and must not be larger than the longitude.
 9. *`longitude`*: (double) => the longitude of the location from where the search is made. The longitude must be a double value, must not start with 0.
   
-#### Request Headers
-The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their **client_id** and **client_secret** to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: “{token_type} {access_token}”.
-1.  **Authorization:** “{token_type} {passport}”.   
-2.  **Content-Type:** Defines the type of content being sent to the API. It must be set to **“application/x-www-form-urlencoded”.** Please note: sending any request without it or different than it would lead to a 400: Bad request.
+### Request Headers
+
+1.  **Content-Type:** Defines the type of content being sent to the API. It must be set to **“application/x-www-form-urlencoded”.** Please note: sending any request without it or different than it would lead to a 400: Bad request.
     
 
 ### Security Type:
@@ -75,8 +87,7 @@ The response of this API would be empty. Success would be denoted by the respons
 ### Sample cURL Request
 
 ```c
-curl --location --request POST 'https://atlas.mappls.com/api/feedback/search/json' \
---header 'Authorization: bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
+curl --location --request POST 'https://search.mappls.com/search/places/feedback/json?access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'typedKeyword=hotel' \
 --data-urlencode 'selectedEloc=531C42' \
@@ -109,7 +120,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

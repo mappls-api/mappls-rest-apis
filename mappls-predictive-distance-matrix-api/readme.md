@@ -35,14 +35,17 @@ This API computes the distance and duration of a route between a set of source p
 Optionally one can specify the `date_time` parameter and get the distance and duration optimized for that part of day of a week. Time based functionality is available for selected areas only.
 Supported region (countries) is India at the moment. Please note that maximum number of points are limited to 100 only including source and destination positions.
 
-## Security Type
-This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
+## Getting Access
 
-## Request Headers
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
 
-The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: “{token_type} {access_token}”.
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
 
--  `Authorization:  “token_type access_token”`.
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
 
 
 ## Input Method
@@ -51,8 +54,7 @@ GET
 ## Contructing the request cURL
 
 ```c
-curl --location --request GET 'https://apis.mappls.com/advancedmaps/v2/distance?source=77.26893112158996,28.550614332693453&target=77.20815617692985,28.566618140144396&profile=driving&speedTypes=predictive&date_time=1,2021-12-20T11:00' \
---header 'Authorization: bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6'
+curl --location --request GET 'https://route.mappls.com/routev2/dm/distance?source=77.26893112158996,28.550614332693453&target=77.20815617692985,28.566618140144396&profile=driving&speedTypes=predictive&date_time=1,2021-12-20T11:00&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm'
 ```
 
 
@@ -204,7 +206,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

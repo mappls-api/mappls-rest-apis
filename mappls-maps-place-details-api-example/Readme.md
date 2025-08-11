@@ -23,21 +23,23 @@ The Place detail API is to extract the details of a place with the help of its e
 
 ## Getting Access
 
-Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://apis.mappls.com/console/), in the same project you set up for the Maps SDK.
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
 
-1. Copy and paste the generated `access token` from your API [keys](https://apis.mappls.com/console/) available in the dashboard in the Authorization header of this API.
-    - This APIs follow OAuth2 based security.
-    - `Access Token` can be generated using Token Generation API.
-    - To know more on how to create your access tokens, please use our authorization API URL. More details available [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
-    - The `access token` is a valid by default for 24 hours from the time of generation. This can be configured by you in the API console.
-2. **`Security Type`**
-    
-    This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
 
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
+
+
+## Live Demo
+[Click here to visit live demonstration page](https://about.mappls.com/api/advanced-maps/doc/sample/mapmyindia-maps-place-details-api-example)
 
 
 ## [Input URL](#Input_URL) 
-https://explore.mappls.com/apis/O2O/entity/{eLoc}
+https://place.mappls.com/apis/O2O/entity/{eLoc}
 
 ## [Input Method](#Input_Method)
 
@@ -48,11 +50,6 @@ GET
 ### [a. Mandatory Parameters](#a_Mandatory_Parameters)
 
 **`eLoc`** :  eLoc of the place whose details are required. The 6-digit alphanumeric code for any location.
-
-## [Request Headers](#Request-Headers)
-
-
-1. **`Authorization:`** `“{token_type} {access_token}”`
 
 
 ## [1.1 Response Type](#1_1_Response_Type)
@@ -205,7 +202,7 @@ Adds applicable `values` within an array of objects available within the `evInfo
 
 **1.`Subtemplate Claim set`** subTemplates = Admin Tokens, Address Tokens, General Details
 
-**`Input URL:`** https://explore.mappls.com/apis/O2O/entity/3F45CB
+**`Input URL:`** https://place.mappls.com/apis/O2O/entity/3F45CB
 
 **`Response:`**
 
@@ -227,7 +224,7 @@ Adds applicable `values` within an array of objects available within the `evInfo
 
 **2. `Provider with subtemplate claim set: `** subTemplates = General Details, Location Coordinates
 
-<**`Input URL:`** https://explore.mapmyindia.com/apis/O2O/entity/3F45CB
+<**`Input URL:`** https://place.mappls.com/apis/O2O/entity/3F45CB
 
 **`Response:`**
 
@@ -266,7 +263,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

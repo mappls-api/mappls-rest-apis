@@ -7,7 +7,7 @@
 Powered with India's most comprehensive and robust mapping functionalities.
 ## Global Coverage Now Available !
 
-Routing API is **Now Available**  for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) across the world.
+Routing API is **Now Available**  for [238 countries](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) across the world.
 
 You can get your api key to be used in this document here: [https://about.mappls.com/api/](https://about.mappls.com/api/)
 
@@ -26,7 +26,7 @@ You can get your api key to be used in this document here: [https://about.mappls
 
 | Version | Last Updated | Author | Revised Sections |
 | ---- | ---- | ---- | ---- |
-| 270.19.5222 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) support added for `route_adv` resource. |
+| 270.19.5222 | 2021-07-13 | Mappls API Team ([PS](https://github.com/map-123)) | [Global](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) support added for `route_adv` resource. |
 | ETA-5100 | 2020-12-15 | Mappls API Team ([PS](https://github.com/map-123)) | eLoc support introduced |
 | 210.17.5221 | 2019-10-04 | Mappls API Team ([PS](https://github.com/map-123)) |“Trucking” introduced as profile |
 | 210.17.5221 | 2019-08-21 | Mappls API Team ([PS](https://github.com/map-123)) | “walking” introduced as profile |
@@ -43,11 +43,19 @@ You can get your api key to be used in this document here: [https://about.mappls
 ### Route and Navigation
 
 Routing and displaying driving directions on map, including instructions for navigation, distance to destination, traffic etc. are few of the most important parts of developing a map based application. This REST API calculates driving routes between specified locations including via points based on route calculation type(optimal or shortest).
-Routing API is supported for [238 countries](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md) via the region parameter.
+Routing API is supported for [238 countries](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) via the region parameter.
 
-## Security Type
-- License key based authentication
-- IP/domain based whitelisting
+## Getting Access
+
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
+
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
+
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
 
 
 ## Input Method
@@ -79,22 +87,13 @@ GET
 							<td class="cellrowborder" rowspan="2" headers="d156249e37 ">Base URL</td>
 							<td class="cellrowborder" headers="d156249e40 ">
 								<code>
-									<span class="keyword">https://apis.mappls.com/advancedmaps/v1/</span>
+									<span class="keyword">https://route.mappls.com/route/direction/</span>
 								</code>
 							</td>
 							<td class="row-nocellborder" headers="d156249e43 ">Production environment</td>
 						</tr>
 						<tr class="&#39;&#39; override_background">
 							</tr>
-						<tr class="&#39;&#39; override_background">
-							<td class="cellrowborder" headers="d156249e37 ">Authorization</td>
-							<td class="cellrowborder" headers="d156249e40 ">
-								<code>
-									<span class="keyword">"assigned_REST_license_key"</span>
-								</code>
-							</td>
-							<td class="row-nocellborder" headers="d156249e43 ">The REST API license key authorized to access the resource</td>
-						</tr>
 						<tr class="&#39;&#39; override_background">
 							<td class="cellrowborder" rowspan="3" headers="d156249e37 ">Resources</td>
 							<td class="cellrowborder" headers="d156249e40 ">
@@ -161,7 +160,7 @@ GET
 
 ### Example URL: 
 ```html
-https://apis.mappls.com/advancedmaps/v1/<assigned_license_key>/route_adv/driving/77.131123,28.552413;17ZUL7?
+https://route.mappls.com/route/direction/route_adv/driving/77.131123,28.552413;17ZUL7&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm?
 ```
 where: 
 - "route_adv" is the chosen resource.
@@ -195,7 +194,7 @@ The “**bold**” one’s are mandatory, and the “*italic*” one’s are opt
 4. *`rtype`* type of route (integer) required for navigation, where values mean:  
 	- `0` optimal (default)  
 	- `1` shortest (it will calculate route by excluding access penalties like private roads, etc.)
-5.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/Mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md).
+5.  *`region`*(string): This parameter is optional for India; for other countries (such as Sri Lanka, Nepal, Bangladesh, Bhutan + many more) this parameter is mandatory. Possible values are listed in a table [here](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md).
 6. *`bearings`*(integer): Limits the search to segments with given bearing in degrees. The referencing will be to the true north and in clockwise direction. (shall be part of premium offering)
 7. *`alternatives`* Search for alternative routes. Passing a number:  e.g. alternatives=n searches for up to n alternative routes. Please note that even if alternative routes are requested, a result cannot be guaranteed.
 8. *`radiuses`* Limits the search to given radius in meters. For all way-points including start and end points. {radius};{radius}[;{radius} ...]. (shall be part of premium offering).
@@ -269,7 +268,7 @@ JSON: response will served as JSON
 
 ## Sample Input
 
-`https://apis.mappls.com/advancedmaps/v1/<lic_key>/route_adv/driving/77.131123,28.552413;17ZUL7?steps=false&rtype=1`
+`https://route.mappls.com/route/direction/route_adv/driving/77.131123,28.552413;17ZUL7?steps=false&rtype=1&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm`
 
 ## Sample Response
 ```json
@@ -308,18 +307,18 @@ JSON: response will served as JSON
 
 ## Live Demo
 
-[Click Here](https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-route-adv-api-example)
+[Click Here](https://about.mappls.com/api/advanced-maps/doc/sample/mapmyindia-maps-route-adv-api-example)
 
 ## Addendums
 
 ### JavaScript Methods
 
-#### [Decoding Geometry](https://github.com/Mappls-api/mappls-rest-apis/blob/main/docs/Decoding%20Geometry%20JavaScript.md)
+#### [Decoding Geometry](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/Decoding%20Geometry%20JavaScript.md)
 This method is utilized for decoding the geometry sent in the response of the Routing API. 
-#### [Parsing Instructions](https://github.com/Mappls-api/mappls-rest-apis/blob/main/docs/Parsing%20Instructions%20JavaScript.md)
+#### [Parsing Instructions](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/Parsing%20Instructions%20JavaScript.md)
 This method is utilized for parsing instructions from the Routing API in easy to understand manner for all possible routes offered in the response.
 Apart from the JavaScript methods, this method also utilizes the following CSS for providing the corresponding icons for the instructions.
-##### [CSS for Instruction Icons](https://github.com/Mappls-api/mappls-rest-apis/blob/main/docs/Instruction%20Icons%20CSS.md)
+##### [CSS for Instruction Icons](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/Instruction%20Icons%20CSS.md)
 
 For more details, please visit our full documentation.
 
@@ -347,7 +346,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

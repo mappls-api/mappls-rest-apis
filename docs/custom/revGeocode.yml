@@ -2,7 +2,8 @@ openapi: 3.0.3
 info:
   title: Reverse Geocode API
   description: >-
-    <br><br> <strong>Global Coverage</strong> Now Available ! <br>Reverse Geocode API is **Now Available**  for [238 countries](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) across the world.<br><br>**Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Search APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between Mappls & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact Mappls API support.</li><li> <strong>PREMIUM APIs</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
+    Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.<br><ol><li>Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.</li><br><ul><li>Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app).</li><br><li>Your static key obtained from your Console is to be passed as a query parameter: `access_token`.</li></ul></ol><br>
+    <strong>Global Coverage</strong> Now Available ! <br>Reverse Geocode API is **Now Available**  for [238 countries](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) across the world.<br><br>**Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Search APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between Mappls & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact Mappls API support.</li><li> <strong>PREMIUM APIs</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
   termsOfService: 'https://about.mappls.com/api/terms-&-conditions'
   version: 1.0.0
   license:
@@ -12,11 +13,13 @@ info:
     name: Mappls API Support
     email: apisupport@mappls.com
     url: https://about.mappls.com/api/
+security: 
+  - staticKeyAuth: []
 servers:
-        - url: https://apis.mappls.com/advancedmaps/v1
-          description: 'Live Prod server for Static Key based APIs'
+  - url: https://search.mappls.com
+    description: 'Live Prod server for APIs'
 paths:
-  /{REST_KEY}/rev_geocode:
+  /search/address/rev-geocode:
       get:
         tags:
           - Reverse Geocode API
@@ -27,8 +30,8 @@ paths:
           Reverse Geocode API
         operationId: ReverseGeocodeAPI
         servers:
-        - url: https://apis.mappls.com/advancedmaps/v1
-          description: 'Live Prod server for Static Key based APIs'
+        - url: https://search.mappls.com
+          description: 'Live Prod server for APIs'
         parameters:
           - name: lat
             in: query
@@ -46,14 +49,14 @@ paths:
             example: 77.856954
             schema:
               type: number
-          - name: REST_KEY
-            in: path
-            description: 'The rest key allocated to your account.'
-            allowEmptyValue: false
-            required: true
-            example: "threstapikeywillcomeheretoaccess"
-            schema:
-              type: string
+          # - name: REST_KEY
+          #   in: path
+          #   description: 'The rest key allocated to your account.'
+          #   allowEmptyValue: false
+          #   required: true
+          #   example: "threstapikeywillcomeheretoaccess"
+          #   schema:
+          #     type: string
           - name: region
             in: query
             description: 'It takes in the country code. Possible values are listed in a table [here](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md). Default is India (IND).'
@@ -216,3 +219,8 @@ components:
           description: 'This shows the formatted address of the POI.'
           format: string
           example: '237, MMI Building, MapmyIndia Head Office, Okhla industrial phase 3, Okhla Vilage, South Delhi, New Delhi, Delhi, 110010'
+  securitySchemes:
+    staticKeyAuth: 
+      type: apiKey
+      in: query
+      name: access_token

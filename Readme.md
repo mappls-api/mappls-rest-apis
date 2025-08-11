@@ -1,4 +1,10 @@
 ﻿
+## **Important Note** – Please read first
+
+> The [main](https://github.com/mappls-api/mappls-rest-apis/tree/main) branch contains the documentation for releases using the updated Authorization & Authentication mechanism introduced in August 2025.  
+> If you wish to use the releases that use the legacy authentication method based on OAuth 2.0, please refer to the [auth-legacy](https://github.com/mappls-api/mappls-rest-apis/tree/auth-legacy) branch.
+
+
 # Mappls Map APIs (REST) !
 
 **Easy To Integrate Maps & Location APIs & SDKs For Web & Mobile Applications**
@@ -7,7 +13,7 @@ Powered with India's most comprehensive and robust mapping functionalities.
 **Now Available**  for Srilanka, Nepal, Bhutan, Myanmar and Bangladesh
 
 Full documentation available here: [https://about.mappls.com/api/](https://about.mappls.com/api/). 
-You can get your api key to be used in this document here: [https://apis.mapmyindia.com/console/](https://apis.mapmyindia.com/console/)
+You can get your api key to be used in this document here: [https://auth.mappls.com/console/](https://auth.mappls.com/console/)
 
 ## Store-To-Door
 
@@ -54,7 +60,7 @@ Integrating Mappls Maps API is easy and effortless. We provide you with an exper
 
 ## Our many happy customers
 
-![](https://www.mapmyindia.com/api/img/logos1/PhonePe.png)![](https://about.mappls.com/images/client_logo/amazon-a.svg)![](https://www.mapmyindia.com/api/img/logos1/delhivery.png)![](https://www.mapmyindia.com/api/img/logos1/hdfc.png)![](https://www.mapmyindia.com/api/img/logos1/TVS.png)![](https://www.mapmyindia.com/api/img/logos1/Paytm.png)![](https://about.mappls.com/images/client_logo/mcdonalds-01.svg)![](https://www.mapmyindia.com/api/img/logos1/ICICI-Pru.png)![](https://about.mappls.com/images/client_logo/honda.svg)![](https://www.mapmyindia.com/api/img/logos1/TTSL.png)![](https://www.mapmyindia.com/api/img/logos1/Novire.png)![](https://about.mappls.com/images/client_logo/airtel.svg)![](https://www.mapmyindia.com/api/img/logos1/Sensel.png)![](https://www.mapmyindia.com/api/img/logos1/TATA-MOTORS.png)![](https://www.mapmyindia.com/api/img/logos1/Wipro.png)![](https://about.mappls.com/api/images_page/grofers.svg)  [<img src="https://about.mappls.com/images/original/avis_logo-01.svg" height="30"/>]()    [<img src="https://about.mappls.com/images/client_logo/CBDT.svg" height="60"/>]()   [<img src="https://about.mappls.com/images/client_logo/finance.png" height="60"/> </p>]()
+![](https://about.mappls.com/api/api-assets/images/client_logo/phonepe-1.svg)  &emsp; ![](https://about.mappls.com/images/client_logo/amazon-a.svg)  &emsp; ![](https://about.mappls.com/api/api-assets/images/client_logo/boat-logo.svg)  &emsp; ![](https://about.mappls.com/api/api-assets/images/client_logo/hdfc-bank-vector-logo.svg)  &emsp; ![](https://about.mappls.com/api/api-assets/images/client_logo/hero.svg)  &emsp; ![](https://about.mappls.com/api/api-assets/images/client_logo/paytm.svg)  &emsp; ![](https://about.mappls.com/images/client_logo/mcdonalds-01.svg)  &emsp; ![](https://about.mappls.com/api/api-assets/images/client_logo/axis-bank.svg)  &emsp; ![](https://about.mappls.com/images/client_logo/honda.svg)  &emsp; ![](https://about.mappls.com/api/api-assets/images/client_logo/hyundai.svg)  &emsp; ![](https://about.mappls.com/api/api-assets/images/client_logo/state-bank-of-india-logo.svg)  &emsp; ![](https://about.mappls.com/images/client_logo/airtel.svg)  &emsp; ![](https://about.mappls.com/api/api-assets/images/client_logo/flipkart.svg)  &emsp; ![](https://about.mappls.com/api/api-assets/images/client_logo/bajaj.svg)  &emsp; ![](https://about.mappls.com/api/api-assets/images/client_logo/goods-and-service-tax-network.svg)  &emsp; ![](https://cdn-public.mappls.com/about-mappls/assets/images/client_logo/maruti-suzuki-logo.svg)  [<img src="https://about.mappls.com/images/original/avis_logo-01.svg" height="30"/>]()    [<img src="https://about.mappls.com/images/client_logo/CBDT.svg" height="60"/>]()   [<img src="https://about.mappls.com/images/client_logo/finance.png" height="60"/> </p>]()
 
 <br>
 

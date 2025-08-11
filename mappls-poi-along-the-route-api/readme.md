@@ -10,21 +10,24 @@
 
 With POI Along the Route API user will be able to get the details of POIs of a particular category along his set route. The main focus of this API is to provide convenience to the user and help him in locating the place of his interest on his set route.
 
-## Security Type
-This APIs follow OAuth2 based security. **To know more on how to create your authorization tokens, please use our authorization token URL. More details available**  [here](https://github.com/mappls-api/mappls-rest-apis/tree/main/mappls-token-generation-api)
+## Getting Access
 
-## Request Headers
+Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.
 
-The API leverages OAuth 2.0 based security. Hence, the developer would need to send a request for access token using their client_id and client_secret to the OAuth API. Once validated from the OAuth API, the access_token and the token_type need to be sent as Authorization header with the value: “{token_type} {access_token}”.
+1. Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.
+    - Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app)
+    - Your static key obtained from your Console is to be passed as a query parameter: `access_token`.
 
--  `Authorization:  “token_type access_token”`.
+## Authentication Object - `access_token` mandatory query parameter.
+
+-  `access_token`: "hklmgbwzrxncdyavtsuojqpiefrbhqplnm".
 
 ## Input Method
 GET/POST
 
 ## URL
 
-https://atlas.mappls.com/api/places/along_route/
+https://search.mappls.com/search/places/along-route
 
 
 ## Request Parameters
@@ -108,8 +111,7 @@ suggestedPOIs ([object array])
 ### cURL for single category search
 
 ```curl
-curl --location --request POST 'https://atlas.mappls.com/api/places/along_route' \
---header 'Authorization: bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
+curl --location --request POST 'https://search.mappls.com/search/places/along-route?access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm' \
 --form 'geometries=polyline5' \
 --form 'path=mfvmDcalvMB?B?@EB}@lABzABrBDAaAFoDFuCFuC@{@@m@DoAFu@D_@VmAFWHSHKBCFCbA]n@S`@IX?^BdAL|ANtCV~ANXBfBDfBBl@Bp@BrA@Pa@FKHMf@@`CHXDLBJFHJHRbD@`D@Z?h@@f@@h@@bAB^@jDDlBB~@BT@N?dDDV?x@Bt@@dCFdCFzB@nD?N?|BEzBEzBE`@AJ?lCOxCMfAClCGnCIlCIlCIhDKfDIhDIzCK|AG|AEbBG`A@d@FVD^FjARlBVn@D`AD|@Fn@DnCZnCZtBTH@J?V@`A@lC@nC@lCB`AGNCTCPEl@SRI|@a@~BqAb@OZGt@E|BEl@AxA?|@?pA@T?V@bCB`AJNBn@L^NpAl@t@`@d@V~BlA`CnA~BnA`A`@VJd@NXF~@JN@xBBL?hA?x@Ar@?x@A@?vCAvCAvCAxCAj@F`@Fd@Nf@RrAn@|@b@dBz@fBz@nBfAJF~Ax@`CfAXLRHp@XtCpAtCrAf@V|@Rf@Px@TxAZ\\F`BL`BLZEPERGNKPQR_@BaBPeEHeAXo@NcDLaDNaDNaDAkB?kAKqDIoD_@mAI{BI{BGgBIgBGiBCm@ASAi@Cu@Cc@Ag@Aa@GgBGgBGkBAu@IeCAUJARARA~@GB?f@C|AK`BIbBIt@IPCPCZO`@[FKLOR]Vk@Pi@DUL{@D[P}CP{C@i@@a@Ae@EiBCiBAyC?_ACaB?QAeBAgB?WB_@BSDSDOTu@dA{Cr@sBRi@JU^q@j@cATYZ_@TUbBsAHIhA}@jA_AlAaA`Ay@bAy@d@c@pAgAv@q@`AcA^_@tAoAVSVQLGdAg@f@Yz@e@W_@KSWIoAuCmAwCLMBCDCNE@AJ?H@F@v@fB\\GNGb@W\\YfAcALI@C@CBADCD@JBDBBBBD@D?DDLBFJNFDHDF@J@|CKbCItAEHCHA@EBEDCDABAF?D@DB@BDH@D?JADL@l@?j@BbAGGcAGiACc@Cm@C[' \
 --form 'category=FODCOF' \
@@ -122,8 +124,7 @@ curl --location --request POST 'https://atlas.mappls.com/api/places/along_route'
 ### cURL for multiple category search
 
 ```curl
-curl --location --request POST 'https://atlas.mappls.com/api/places/along_route' \
---header 'Authorization: bearer 0XXXXXXf-dXX0-4XX0-8XXa-eXXXXXXXXXX6' \
+curl --location --request POST 'https://search.mappls.com/search/places/along-route?access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm' \
 --form 'geometries="polyline5"' \
 --form 'path="k{{mDyhlvMD@J?jCJlCRL@|AFt@Af@CTCPCRIh@SnAy@nAw@lBmA|B}ApA_ArA}@Ng@BQDWFg@Oe@W_AGWEe@EgAAyBDcCFaCBsBAc@Cs@Eq@E[EYEWI_@I_@Qq@Oo@EUTKl@UrAm@RG^O~@UzCu@|Cu@|Cu@zCu@lBa@JCPAhACtCDtCBvCBtCBlCBnCDd@?t@@dC?T?fA@tB?tB@VCl@Qt@UPEf@AlDDz@H\\\\?xBK`AEtBCvBAlAB`DPdA^NDL@h@@fACxAE\\\\?~BA~BA~BAtBAL?nBC~@Af@g@HIJQFOBQ@WAUEWISOYOQQMQIOGQASAO@QDMFKJU\\\\_@f@@nC?b@@R?ZFvBDzB@JDlBFxBBbAD~AHhCHzDN^DFDFFFXPbAAT@L@VBH@z@NJDRLlAv@lAx@~AKnAOn@G`@IX?^BdAL|ANtCV~ANXBfBDfBBl@Bp@BrA@Pa@FKHMf@@`CHXDLBJFHJHRbD@`D@Z?h@@f@@h@@bAB^@jDDlBB~@BT@N?dDDV?x@Bt@@dCFdCFzB@nD?N?|BEzBEzBE`@AJ?lCOxCMfAClCGnCIlCIlCIhDKfDIhDIzCK|AG|AEbBG`A@^Sz@e@f@Yr@c@pCgB~@o@~AeA`BcAhA[XQb@_@\\\\YZe@?QBMDMDIDEDEJEDCFAF?"' \
 --form 'category="FODCOF;TRNPMP;HOTPRE"' \
@@ -324,7 +325,7 @@ Need support? contact us!
 
 
 
-<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2025 CE Info Systems Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 
