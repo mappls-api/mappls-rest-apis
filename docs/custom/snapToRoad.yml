@@ -2,7 +2,8 @@ openapi: 3.0.3
 info:
   title: Snap to Road API
   description: >-
-    <br><br> <strong>Global Coverage</strong> Now Available ! <br>Snap to Road API is **Now Available**  for [238 countries](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) across the world.<br><br>**Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Routing APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between Mappls & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact Mappls API support.</li><li> <strong>PREMIUM APIs</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
+    Before using the API in the your solution, please ensure that the related access is enabled in the [Mappls Console](https://auth.mappls.com/console/), within your app - be it for Mobile OR Web or Cloud integration.<br><ol><li>Copy and paste the key from your `credentials` section from your API [keys](https://auth.mappls.com/console/) into the `access_token` query parameter.</li><br><ul><li>Your static key can be secured by whitelisting its usage for particular IPs (in case of cloud app usage) OR a set of domains (in case of a web app).</li><br><li>Your static key obtained from your Console is to be passed as a query parameter: `access_token`.</li></ul></ol>
+    <br> <strong>Global Coverage</strong> Now Available ! <br>Snap to Road API is **Now Available**  for [238 countries](https://github.com/mappls-api/mappls-rest-apis/blob/main/docs/countryISO.md) across the world.<br><br>**Note**: <ol> <li> The response listed in the below documentation is ONLY indicative of the overall capabilities of Mappls's Routing APIs. </li><li> Not all response parameters mentioned in the below documentation is assured to be present in all the use-cases. The response of any of the below search API is thus, dependent on the use-case agreed upon between Mappls & it's API consumer. </i><li> For any further clarifications on what all of the response structure is available for your use case, please contact your business relationship manager or contact Mappls API support.</li><li> <strong>PREMIUM APIs</strong> are not available for evalulation on signup. To get access, please contact API Support.</li></ol>
   termsOfService: 'https://about.mappls.com/api/terms-&-conditions'
   version: 1.0.0
   license:
@@ -13,10 +14,12 @@ info:
     email: apisupport@mappls.com
     url: https://about.mappls.com/api/
 servers:
-  - url: https://apis.mappls.com/advancedmaps/v1
+  - url: https://route.mappls.com
     description: 'Live Prod server for Snap to Road API'
+security: 
+  - staticKeyAuth: []
 paths:
-  /{REST_KEY}/snapToRoad:
+  /route/movement/snapToRoad:
     post: 
       tags: 
         - Snap to Road API
@@ -27,15 +30,15 @@ paths:
         <p style=text-align:right><strong><a href="https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-snaptoroad-example">Live Demo</a></p>
       summary: Snap to Road API
       operationId: snapToRoadAPI
-      parameters: 
-        - name: REST_KEY
-          in: path
-          description: 'The REST API licence key allocated to you by signing into our services and registering yourself as a developer.'
-          allowEmptyValue: false
-          required: true
-          example: "threstapikeywillcomeheretoaccess"
-          schema:
-            type: string
+      # parameters: 
+      #   - name: REST_KEY
+      #     in: path
+      #     description: 'The REST API licence key allocated to you by signing into our services and registering yourself as a developer.'
+      #     allowEmptyValue: false
+      #     required: true
+      #     example: "threstapikeywillcomeheretoaccess"
+      #     schema:
+      #       type: string
       requestBody: 
         content:
           'application/x-www-form-urlencoded':
@@ -190,3 +193,8 @@ components:
              Distance from the snapped point.
           format: integer
           example: 0
+  securitySchemes:
+    staticKeyAuth: 
+      type: apiKey
+      in: query
+      name: access_token
