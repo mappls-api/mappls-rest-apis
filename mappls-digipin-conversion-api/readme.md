@@ -70,23 +70,19 @@ Not Applicable
 
 ## Response Parameters
 
-### When input is Digpin
+### When input is Digipin
 
 1. `latitude`(double): the latitude of the Digipin in WPS-84 decimal degree format.
 2. `longitude`(double): the longitude of the Digipin in WPS-84 decimal degree format.
+3. `bounds` (array): array of coordinates of the digipin grid following right-hand rule.
 
 ### When input are Coordinates
 
-1. `digipin`(string): The raw Digipin (10 chars) for the input coordinates.
-2. `formattedDigipin`(string) The formatted Digipin with hyphens for the provided coordinates.
+1. `digipin`(string): The The formatted Digipin with hyphens for the provided coordinates.
 
 ### When input is Mappls pin
 
-1. `digipin`(string): The raw Digipin (10 chars) for the input Mappls pin.
-2. `formattedDigipin`(string) The formatted Digipin with hyphens for the provided Mappls pin.
-
-
-> **Important Note**: This response needs to be claim controlled. When claim of `useMapplsPin` (valueless) is present, only then the API should allow for translation of a Mappls pin / eLoc to its Digipin.
+1. `digipin`(string): The formatted Digipin with hyphens for the provided Mappls pin.
 
 
 ## Response Type
@@ -123,9 +119,7 @@ curl --location 'https://sdk.mappls.com/map/api/digipin?coordinates="28.62722117
 
 ```json
 {
-    "responseCode": 200,
-    "digipin": "39J49P7FTJ", 
-	"formattedDigipin": "39J-49P-7FTJ"
+    "digipin": "39J-4T9-9C9L"
 }
 ```
 
@@ -139,9 +133,30 @@ curl --location 'https://sdk.mappls.com/map/api/digipin?digipin=39J-49P-7FTJ&acc
 
 ```json
 {
-    "responseCode": 200,
-    "latitude": 28.62722206, 
-	"longitude": 77.23553658
+    "latitude": 28.627222,
+    "longitude": 77.235537,
+    "bounds": [
+        [
+            77.235519,
+            28.627239
+        ],
+        [
+            77.235554,
+            28.627239
+        ],
+        [
+            77.235554,
+            28.627205
+        ],
+        [
+            77.235519,
+            28.627205
+        ],
+        [
+            77.235519,
+            28.627239
+        ]
+    ]
 }
 ```
 
