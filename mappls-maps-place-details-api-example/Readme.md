@@ -39,7 +39,7 @@ Before using the API in the your solution, please ensure that the related access
 
 
 ## [Input URL](#Input_URL) 
-https://place.mappls.com/apis/O2O/entity/{eLoc}
+https://place.mappls.com/O2O/entity/place-details/{eLoc}
 
 ## [Input Method](#Input_Method)
 
@@ -202,7 +202,7 @@ Adds applicable `values` within an array of objects available within the `evInfo
 
 **1.`Subtemplate Claim set`** subTemplates = Admin Tokens, Address Tokens, General Details
 
-**`Input URL:`** https://place.mappls.com/apis/O2O/entity/3F45CB
+**`Input URL:`** https://place.mappls.com/O2O/entity/place-details/3F45CB
 
 **`Response:`**
 
@@ -224,7 +224,7 @@ Adds applicable `values` within an array of objects available within the `evInfo
 
 **2. `Provider with subtemplate claim set: `** subTemplates = General Details, Location Coordinates
 
-<**`Input URL:`** https://place.mappls.com/apis/O2O/entity/3F45CB
+<**`Input URL:`** https://place.mappls.com/O2O/entity/place-details/3F45CB
 
 **`Response:`**
 
