@@ -47,7 +47,7 @@ POST
 ## Input URL
 
 ```html
-http://search.mappls.com/search/address/address-verification
+https://search.mappls.com/search/address/address-verification
 ```
 
 ## Request Body
@@ -185,7 +185,7 @@ Content-Type: `application/json`
 ## Sample Input cURL
 
 ``` curl
-curl --location 'http://search.mappls.com/search/address/address-verification?access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm' \
+curl --location 'https://search.mappls.com/search/address/address-verification?access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm' \
 --header 'Content-Type: application/json' \
 --data '{
     "inputAddress": "C/O Dr. Savita Sagar, Hannah Sen Cottage, Lady Irwin College, Safdar Hashmi Marg, Mandi House, New Delhi 110001, Delhi, India",
