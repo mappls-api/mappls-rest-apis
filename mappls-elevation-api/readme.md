@@ -30,7 +30,7 @@ GET
 
 ## Input URL
 
-`https://tile.mappls.com/map/bhuvan_imagery/elevation?locations=lat1,lon1|lat2,lon2&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm`
+`https://sdk.mappls.com/map/utils/elevation?locations=9.538350,76.998825%7C8.930019,76.655587&access_token=your token`
 
 ## Response Type
 
@@ -56,7 +56,7 @@ JSON: Response will served as JSON
 
 ## Sample Input
 
-`https://tile.mappls.com/map/bhuvan_imagery/elevation?locations=9.538350,76.998825|8.930019,76.655587&access_token=hklmgbwzrxncdyavtsuojqpiefrbhqplnm`
+`https://sdk.mappls.com/map/utils/elevation?locations=9.538350,76.998825%7C8.930019,76.655587&access_token=your token`
 
 ## Sample Response
 
