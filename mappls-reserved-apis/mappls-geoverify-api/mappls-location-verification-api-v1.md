@@ -66,6 +66,8 @@ Content-Type: `application/json`
 ### Optional Parameters
 
 - `thresholdMeters` (integer): the threshold for radial proximity check for urban areas that is to be considered a success. In Meters. Default: `200`, mininum: `50`, maximum: `10000`.
+- `geocodeConfig` (object):
+  - `geocodeBound` (string): Not mandatory. Geospatial boundary filter parameters (i.e. eLOC of bounding admin - 6 characters).
 - `confidenceThreshold` (double): The threshold for confidence score check to be considered a success. In double ranging from 0 to 1 within single decimal precision. Default: `0.6`
 - `geocodeLevelThreshold` (string): The threshold for geocoding level check for urban areas to be considered a success. Default: `locality`. Can be one of the following administrative levels: 
     - `houseNumber`(string): the houseNumber of the address/location.
